@@ -172,7 +172,6 @@ export const StyledHeaderMainImgTextOverlaySwipeH4 = styled.h4`
       animation: ${opacity} 0.01s ease-out 1.75s forwards;
    }
 `
-// mobile
 export const StyledHeaderMainResponsive = styled.div`
    display: none;
 
