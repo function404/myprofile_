@@ -56,6 +56,7 @@ export default function Project() {
           </StyledTitle>
           <StyledProjectsContainer>
             <StyledProjectsContainerContent>
+
               <StyledProjectsContainerContentCards>
                 <StyledProjectsContainerContentCardsTitleProjects>
                   <StyledProjectsContainerContentCardsTitleProjectsSpan>
@@ -88,6 +89,40 @@ export default function Project() {
                 </StyledProjectsContainerContentCardsInfoButtomCards>
                 <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
               </StyledProjectsContainerContentCards>
+
+              <StyledProjectsContainerContentCards>
+                <StyledProjectsContainerContentCardsTitleProjects>
+                  <StyledProjectsContainerContentCardsTitleProjectsSpan>
+                    Sr. & Sra. Bem Estar
+                  </StyledProjectsContainerContentCardsTitleProjectsSpan>
+                </StyledProjectsContainerContentCardsTitleProjects>
+                <StyledProjectsContainerContentCardsInfo>
+                  Website developed for work purposes (course).
+                </StyledProjectsContainerContentCardsInfo>
+                <StyledProjectsContainerContentCardsButtomCards
+                  id="btn-1"
+                  data-placement="bottom"
+                >
+                  <a
+                    data-tooltip-place="bottom"
+                    data-tooltip-id="tooltip-1"
+                    data-tooltip-content="Clique na imagem para vizualizar o projeto"
+                    href="https://sresrabemestar.000webhostapp.com/"
+                    target="_blank"
+                  >
+                    <StyledProjectsContainerContentCardsButtomCardsImg 
+                     src="/sresra.png"
+                     alt="erro"
+                  />
+                  </a>
+                </StyledProjectsContainerContentCardsButtomCards>
+                <StyledProjectsContainerContentCardsInfoButtomCards>
+                  <FontAwesomeIcon icon={faCircleInfo} /> {''}
+                  Clique na imagem para vizualizar o projeto
+                </StyledProjectsContainerContentCardsInfoButtomCards>
+                <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
+              </StyledProjectsContainerContentCards>
+
               <StyledProjectsContainerContentCards>
                 <StyledProjectsContainerContentCardsTitleProjects>
                   <StyledProjectsContainerContentCardsTitleProjectsSpan>
@@ -120,6 +155,7 @@ export default function Project() {
                 </StyledProjectsContainerContentCardsInfoButtomCards>
                 <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
               </StyledProjectsContainerContentCards>
+
               <StyledProjectsContainerContentCards>
                 <StyledProjectsContainerContentCardsTitleProjects>
                   <StyledProjectsContainerContentCardsTitleProjectsSpan>
@@ -151,6 +187,7 @@ export default function Project() {
                 </StyledProjectsContainerContentCardsInfoButtomCards>
                 <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
               </StyledProjectsContainerContentCards>
+
             </StyledProjectsContainerContent>
           </StyledProjectsContainer>
         </StyledProjectsMainMotion>
