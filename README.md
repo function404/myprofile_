@@ -3,7 +3,7 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 29 Mar. 2024<br><strong>Última versão:</strong> 2.0.5</p>
+    <p><strong>Ultima atualização:</strong> 4 Abr. 2024<br><strong>Última versão:</strong> 3.0.0</p>
     <p>>> <a target='_blank' href='https://function404.netlify.app'><i>function404.netlify.app</i></a> <<</p>
 </div>
 <div align='center'>
@@ -17,10 +17,10 @@
                 <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=fff" target="_blank" alt="css">
             </td>
              <td>
-                <img src="https://img.shields.io/badge/JavaScript-ffee00?&style=for-the-badge&logo=javascript&logoColor=000" alt="html">
+                <img src="https://img.shields.io/badge/JavaScript-ffee00?&style=for-the-badge&logo=javascript&logoColor=000" alt="javascript">
             </td>
-            <td>
-                <img src="https://img.shields.io/badge/HTML5-ff7f36?style=for-the-badge&logo=html5&logoColor=fff" alt="html">
+             <td>
+                <img src="https://img.shields.io/badge/css-563d7c?&style=for-the-badge&logo=css3&logoColor=fff" alt="javascript">
             </td>
         </tr>
     </table>
