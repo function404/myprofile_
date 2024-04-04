@@ -2,9 +2,11 @@
 
 import React from "react";
 
-import Header from "./screens/header";
+import Header from "^/app/screens/header";
 
-import Project from "./screens/projects";
+import Project from "^/app/screens/projects";
+
+import Footer from "^/app/screens/footer";
 
 export default function Home() {
   return (
@@ -12,6 +14,7 @@ export default function Home() {
       <div className='containerIndex'>
         <Header />
         <Project />
+        <Footer />
       </div>
     </>
   );
