@@ -25,6 +25,8 @@ import {
 
 } from "^/styles/styledprojects";
 
+import Datatooltip from "^/app/components/datatooltip";
+
 export default function Project() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -152,6 +154,7 @@ export default function Project() {
             </StyledProjectsContainerContent>
           </StyledProjectsContainer>
         </StyledProjectsMainMotion>
+        <Datatooltip />
       </div>
     </>
   );
