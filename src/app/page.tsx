@@ -4,10 +4,10 @@ import React, { useState, useEffect} from "react";
 import RingLoader from 'react-spinners/RingLoader'
 
 import Header from "^/app/screens/header";
-
 import Project from "^/app/screens/projects";
-
 import Footer from "^/app/screens/footer";
+
+import Snow from '^/app/components/snow'
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +35,7 @@ export default function Home() {
           <Header />
           <Project />
           <Footer />
-          {/* <Snow /> */}
+          <Snow />
         </>  
       )}
       </div>
