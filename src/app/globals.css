@@ -34,3 +34,11 @@ html, body {
               radial-gradient(at 0% 100%, rgba(0, 194, 204, .3), transparent 50%),
               radial-gradient(at 100% 50%, rgba(0, 194, 204, .2), transparent 50%);
 }
+.loading{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
