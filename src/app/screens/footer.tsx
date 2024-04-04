@@ -7,7 +7,6 @@ import {
    faLinkedinIn
 } from "@fortawesome/free-brands-svg-icons";
 
-import '^/styles/footer.css';
 import {
    StyledFooter,
    StyledFooterMainBtn,
@@ -17,11 +16,9 @@ import {
    StyledFooterMainBtnContentBtnButtonA
 } from '^/styles/styledfooter';
 
-export default function Footer() {
-   const anoAtual = () => {
-      return new Date().getFullYear();
-   }
+import anoAtual from '^/app/utils/data';
 
+export default function Footer() {
   return (
    <>
       <StyledFooter>

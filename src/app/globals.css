@@ -3,36 +3,24 @@
   padding: 0;
   margin: 0;
 }
-
 :root{
   --color-primary: rgb(0, 194, 204);
   --color-primaryimg: rgb(0, 155, 163);
   --color-bgscrollbar: rgba(0, 194, 204, .3);
   --color-white: rgb(255, 255, 255);
   --color-black: rgb(0, 0, 0);
-
   --color-light: rgba(255, 255, 255, .6);
 }
-
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--color-bgscrollbar);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--color-primaryimg);
   border-radius: 12px;
 }
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
 html, body {
   width: 100%;
   height: 100%;
@@ -40,7 +28,6 @@ html, body {
   background-color: var(--color-black);
   scroll-behavior: smooth;
 }
-
 .containerIndex {
   background: radial-gradient(at 0% 0%, rgba(0, 194, 204, .3), transparent 50%),
               radial-gradient(at 100% 50%, rgba(0, 194, 204, .2), transparent 50%),
