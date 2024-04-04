@@ -1,25 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect} from "react";
+import RingLoader from 'react-spinners/RingLoader'
 
-import "./globals.css";
+import Header from "^/app/screens/header";
+import Project from "^/app/screens/projects";
+import Footer from "^/app/screens/footer";
+
+import Snow from '^/app/components/snow'
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const randomTimeout = Math.floor(Math.random() * 4 + 2) * 1000;
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, randomTimeout);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <>
-      <div style={{
-        backgroundColor: "linear-gradient(120deg, rgba(0, 194, 204, .9), rgba(0, 194, 204, .3), rgba(0, 194, 204, .2), rgba(0, 194, 204, .1))"
-      }}>
-        <div style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          textAlign: "center",
-        }}>
-          <h1>Welcome to Function404</h1>
-          <p>Come soon portifolio of a Mobile and Web Developer (function404)</p>
+      <div className='containerIndex'>
+        {loading ? ( 
+        <div className='loading'>
+          <RingLoader color={'rgb(0, 155, 163)'} loading={loading} size={150} speedMultiplier={1.2}/>
         </div>
+       ) : (
+        <>
+          <Header />
+          <Project />
+          <Footer />
+          <Snow />
+        </>  
+      )}
       </div>
     </>
   );
