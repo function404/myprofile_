@@ -9,6 +9,12 @@ import Footer from "^/app/screens/footer";
 
 import Snow from '^/app/components/snow'
 
+import {
+  GlobalStyles,
+  StyledContainerIndex,
+  StyledLoading
+} from '^/app/globals'
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
 
@@ -25,11 +31,11 @@ export default function Home() {
 
   return (
     <>
-      <div className='containerIndex'>
+      <StyledContainerIndex>
         {loading ? ( 
-        <div className='loading'>
+        <StyledLoading>
           <RingLoader color={'rgb(0, 155, 163)'} loading={loading} size={150} speedMultiplier={1.2}/>
-        </div>
+        </StyledLoading>
        ) : (
         <>
           <Header />
@@ -38,7 +44,8 @@ export default function Home() {
           <Snow />
         </>  
       )}
-      </div>
+      </StyledContainerIndex>
+      <GlobalStyles />
     </>
   );
 }
