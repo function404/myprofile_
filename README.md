@@ -18,7 +18,7 @@ Siga as instruções abaixo para executar o projeto em seu ambiente local:
 1. **Clone o repositório:**
 
    ```
-   git@github.com:function404/myprofile_.git
+   git clone git@github.com:function404/myprofile_.git
    ```
 
 2. **Navegue até o diretório do projeto:**
