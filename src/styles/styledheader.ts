@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { colors } from '^/app/utils/colors';
 
 const opacity = keyframes`
    from {
@@ -49,8 +50,13 @@ export const StyledHeaderMainImg = styled.div`
       height: 320px;
       border-radius: 100%;
       background: url("/meR.png") no-repeat center;
-      border: 1px solid var(--color-primaryimg);
+      border: 1px solid ${colors.colorPrimaryImg};
       animation: ${opacity} 4s ease;
+   }
+
+   @media screen and (max-width: 325px) {
+      width: 220px;
+      height: 220px;
    }
 `
 export const StyledHeaderMainImgTextOverlayB = styled.div`
@@ -111,12 +117,12 @@ export const StyledHeaderMainImgTextOverlaySwipe = styled.div`
    right: 100%;
    width: 0%;
    height: 100%;
-   background-color: var(--color-primaryimg);
+   background-color: ${colors.colorPrimaryImg};
    animation: ${swipe} 1.5s ease-out 1s forwards;
 `
 export const StyledHeaderMainImgTextOverlaySwipeH1 = styled.h1`
    display: flex;
-   color: var(--color-white);
+   color: ${colors.colorWhite};
    font-size: 135px;
    font-weight: 900;
    text-transform: uppercase;
@@ -125,7 +131,7 @@ export const StyledHeaderMainImgTextOverlaySwipeH1 = styled.h1`
 
    @media screen and (max-width: 960px) {
       display: flex;
-      color: var(--color-white);
+      color: ${colors.colorWhite};
       font-size: 72px;
       font-weight: 900;
       text-transform: uppercase;
@@ -136,7 +142,7 @@ export const StyledHeaderMainImgTextOverlaySwipeH1 = styled.h1`
 `
 export const StyledHeaderMainImgTextOverlaySwipeH3 = styled.h3`
    display: flex;
-   color: var(--color-white);
+   color: ${colors.colorWhite};
    font-size: 100px;
    font-weight: 900;
    text-transform: uppercase;
@@ -145,7 +151,7 @@ export const StyledHeaderMainImgTextOverlaySwipeH3 = styled.h3`
 
    @media screen and (max-width: 960px) {
       display: flex;
-      color: var(--color-white);
+      color: ${colors.colorWhite};
       font-size: 36px;
       font-weight: 900;
       text-transform: uppercase;
@@ -156,14 +162,14 @@ export const StyledHeaderMainImgTextOverlaySwipeH3 = styled.h3`
 `
 export const StyledHeaderMainImgTextOverlaySwipeH4 = styled.h4`
    display: flex;
-   color: var(--color-white);
+   color: ${colors.colorWhite};
    font-size: 20px;
    opacity: 0;
    animation: ${opacity} 0.01s ease-out 1.75s forwards;
 
    @media screen and (max-width: 960px) {
       display: flex;
-      color: var(--color-light);
+      color: ${colors.colorLight};
       font-size: 15px;
       max-width: 300px;
       text-align: center;

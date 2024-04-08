@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 
 import styled, { keyframes } from 'styled-components'
+import { colors } from '^/app/utils/colors'
 
 const title = keyframes`
    0%,
@@ -26,7 +27,7 @@ export const StyledTitleH2 = styled.h2`
    font-size: 72px;
    font-family: "Poppins", sans-serif;
    margin-bottom: 80px;
-   -webkit-text-stroke: 0.1vw var(--color-primaryimg);
+   -webkit-text-stroke: 0.1vw ${colors.colorPrimaryImg};
    text-transform: uppercase;
    letter-spacing: 5px;
 
@@ -37,9 +38,9 @@ export const StyledTitleH2 = styled.h2`
       left: 0;
       width: 0;
       height: 100%;
-      color: var(--color-primaryimg);
+      color: ${colors.colorPrimaryImg};
       -webkit-text-stroke: 0vw;
-      border-right: 2px solid var(--color-primary);
+      border-right: 2px solid ${colors.colorPrimary};
       overflow: hidden;
       animation: ${title} 6s linear infinite;
    }
@@ -111,16 +112,16 @@ export const StyledProjectsContainerContentCards = styled.div`
 export const StyledProjectsContainerContentCardsTitleProjects = styled.div`
    width: 100%;
    padding: 35px 20px 20px 20px;
-   border-top: 5px solid var(--color-primary);
-   border-left: 5px solid var(--color-primary);
-   border-right: 5px solid var(--color-primary);
+   border-top: 5px solid ${colors.colorPrimary};
+   border-left: 5px solid ${colors.colorPrimary};
+   border-right: 5px solid ${colors.colorPrimary};
    border-radius: 10px;
 `
 export const StyledProjectsContainerContentCardsTitleProjectsSpan = styled.span`
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   color: var(--color-white);
+   color: ${colors.colorWhite};
    font-family: "Poppins", sans-serif;
    font-size: 22px;
    font-weight: bold;
@@ -134,7 +135,7 @@ export const StyledProjectsContainerContentCardsTitleProjectsSpan = styled.span`
 export const StyledProjectsContainerContentCardsInfo = styled.div`
    width: 100%;
    padding: 30px;
-   color: var(--color-light);
+   color: ${colors.colorLight};
    font-size: 18px;
    font-weight: bold;
    font-style: italic;
@@ -166,7 +167,7 @@ export const StyledProjectsContainerContentCardsButtomCardsImg = styled.img`
 `
 export const StyledProjectsContainerContentCardsInfoButtomCards = styled.div`
    visibility: hidden;
-   color: var(--color-light);
+   color: ${colors.colorLight};
 
    @media screen and (max-width: 960px) {
       font-size: 12px;
@@ -177,9 +178,8 @@ export const StyledProjectsContainerContentCardsInfoButtomCards = styled.div`
 export const StyledProjectsContainerContentCardsBorderButtom = styled.div`
    width: 100%;
    padding: 35px;
-   color: var(--color-text);
-   border-bottom: 5px solid var(--color-primary);
-   border-left: 5px solid var(--color-primary);
-   border-right: 5px solid var(--color-primary);
+   border-bottom: 5px solid ${colors.colorPrimary};
+   border-left: 5px solid ${colors.colorPrimary};
+   border-right: 5px solid ${colors.colorPrimary};
    border-radius: 10px;
 `
