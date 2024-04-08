@@ -1,4 +1,9 @@
-### 🎉 Bem-vindo(a) ao Meu Portfolio 🚀 
+# 🎉 Bem-vindo(a) ao Meu Portfolio 🚀 
+
+## 📢 Informações
+
+- Versão: 3.0.0
+- Última atualização: 8 Abr. 2024
 
 ## ℹ️ Sobre o Projeto
 
@@ -47,4 +52,4 @@ Siga as instruções abaixo para executar o projeto em seu ambiente local:
    http://localhost:3000
    ```
 
-   Agora você pode começar a utilizar a aplicação, criar, visualizar, atualizar e excluir tarefas.
+   Agora você pode começar a visualizar a aplicação.
