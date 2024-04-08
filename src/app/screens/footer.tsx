@@ -25,7 +25,7 @@ export default function Footer() {
          <StyledFooterMainBtn>
             <StyledFooterMainBtnContentBtn>
                <StyledFooterMainBtnContentBtnButton>
-                  <StyledFooterMainBtnContentBtnButtonA href="https://www.instagram.com/lincoln.xit__/" target='blank_'>
+                  <StyledFooterMainBtnContentBtnButtonA href="https://www.instagram.com/lincoln.mezzalira/" target='blank_'>
                      <FontAwesomeIcon icon={faInstagram} />
                   </StyledFooterMainBtnContentBtnButtonA>
                </StyledFooterMainBtnContentBtnButton>

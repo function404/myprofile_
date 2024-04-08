@@ -3,7 +3,7 @@
 </div>
 
 <div align='center'>
-    <p><strong>Ultima atualização:</strong> 4 Abr. 2024<br><strong>Última versão:</strong> 3.0.0</p>
+    <p><strong>Ultima atualização:</strong> 8 Abr. 2024<br><strong>Última versão:</strong> 3.0.0</p>
     <p>>> <a target='_blank' href='https://function404.netlify.app'><i>function404.netlify.app</i></a> <<</p>
 </div>
 <div align='center'>
