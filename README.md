@@ -1,27 +1,55 @@
-<div align='center'>
-    <h1>Meu portfolio</h1>
-</div>
+# 🎉 Bem-vindo(a) ao Meu Portfolio 🚀 
 
-<div align='center'>
-    <p><strong>Ultima atualização:</strong> 4 Abr. 2024<br><strong>Última versão:</strong> 3.0.0</p>
-    <p>>> <a target='_blank' href='https://function404.netlify.app'><i>function404.netlify.app</i></a> <<</p>
-</div>
-<div align='center'>
-    <h3>Sendo utilizado no desenvolvimento:</h3>
-    <table>
-        <tr>
-            <td>
-                <img src="https://img.shields.io/badge/nextjs-000.svg?style=for-the-badge&logo=next.js&logoColor=fff" alt="nextjs">
-            </td>
-            <td>
-                <img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=fff" target="_blank" alt="css">
-            </td>
-             <td>
-                <img src="https://img.shields.io/badge/JavaScript-ffee00?&style=for-the-badge&logo=javascript&logoColor=000" alt="javascript">
-            </td>
-             <td>
-                <img src="https://img.shields.io/badge/css-563d7c?&style=for-the-badge&logo=css3&logoColor=fff" alt="javascript">
-            </td>
-        </tr>
-    </table>
-</div>
+## 📢 Informações
+
+- Versão: 3.0.0
+- Última atualização: 8 Abr. 2024
+
+## ℹ️ Sobre o Projeto
+
+O Meu Portfolio é uma aplicação web simples que permite aos usuários visualizar meus projetos. 
+<a href="https://function404.netlify.app">acesse aqui</a>
+
+## 🛠️ Ferramentas Utilizadas
+
+- Next.js
+- TypeScript
+- JavaScript
+
+## 🚀 Executando o Projeto
+
+Siga as instruções abaixo para executar o projeto em seu ambiente local:
+
+1. **Clone o repositório:**
+
+   ```
+   git clone git@github.com:function404/myprofile_.git
+   ```
+
+2. **Navegue até o diretório do projeto:**
+
+   ```
+   cd myprofile_ 
+   ```
+
+3. **Instale as dependências:**
+
+   ```
+   npm install 
+   ```
+
+4. **Execute o servidor:**
+
+   ```
+   npm run dev
+   ```
+
+5. **Acesse a aplicação:**
+
+   Abra o seu navegador e digite o seguinte endereço:
+
+   ```
+   http://localhost:3000
+   ```
+
+   Agora você pode começar a visualizar a aplicação.
