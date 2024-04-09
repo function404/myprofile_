@@ -1,4 +1,3 @@
-
 export const colors = {
     colorPrimary: 'rgb(0, 194, 204)',
     colorPrimaryImg: 'rgb(0, 155, 163)',
