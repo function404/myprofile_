@@ -12,7 +12,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://function404.netlify.app/"),
-  title: "FUNCTION404 - Portfolio",
+  title: "Welcome | Function404",
   description: "Bem-vindo(a) ao meu portfólio! este é o espaço onde compartilho meus projetos. Fique à vontade para explorar e conhecer meu trabalho 😁!",
   creator: "Function404",
   authors: [{ name: "Next.js Team", url: "https://nextjs.org" }],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     images: "/meR.png",
   },
   openGraph: {
-    title: "FUNCTION404 - Portfolio",
+    title: "Function404 - Portfolio",
     description: "Bem-vindo(a) ao meu portfólio! este é o espaço onde compartilho meus projetos. Fique à vontade para explorar e conhecer meu trabalho 😁!",
     siteName: "FUNCTION404",
     type: "website",
