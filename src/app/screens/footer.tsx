@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
    faInstagram,
    faGithub,
-   faLinkedinIn
+   faLinkedinIn,
+   faTwitch,
 } from "@fortawesome/free-brands-svg-icons";
 
 import {
@@ -37,6 +38,11 @@ export default function Footer() {
                <StyledFooterMainBtnContentBtnButton>
                   <StyledFooterMainBtnContentBtnButtonA href="https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/" target='blank_'>
                      <FontAwesomeIcon icon={faLinkedinIn} />
+                  </StyledFooterMainBtnContentBtnButtonA>
+               </StyledFooterMainBtnContentBtnButton>
+               <StyledFooterMainBtnContentBtnButton>
+                  <StyledFooterMainBtnContentBtnButtonA href="https://www.twitch.tv/functionss_" target='blank_'>
+                  <FontAwesomeIcon icon={faTwitch} />
                   </StyledFooterMainBtnContentBtnButtonA>
                </StyledFooterMainBtnContentBtnButton>
             </StyledFooterMainBtnContentBtn>
