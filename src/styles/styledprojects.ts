@@ -98,13 +98,13 @@ export const StyledTitleH2 = styled.h2`
    &::before {
       left: 2.5px;
       text-shadow: -2.5px 0 ${colors.colorWhite};
-      animation: ${glitchAnimation} 7s infinite linear alternate-reverse;
+      animation: ${glitchAnimation} 2.5s infinite linear alternate-reverse;
    }
    
    &::after {
       left: -2.5px;
       text-shadow: 2.5px 0 ${colors.colorBlack};
-      animation: ${glitchAnimation} 8s infinite linear alternate-reverse;
+      animation: ${glitchAnimation} 3.5s infinite linear alternate-reverse;
    }
 
    @media screen and (max-width: 960px) {
