@@ -24,15 +24,47 @@ export const StyledFooterMainBtnContentBtn = styled.div`
    justify-content: center;
 `
 export const StyledFooterMainBtnContentBtnButton = styled.div`
+   width: 100%;
+   height: 100%;
    padding: 10px 20px;
 `
-export const StyledFooterMainBtnContentBtnButtonA = styled.a`
+export const StyledFooterMainBtnContentBtnButtonAInstagram = styled.a`   
    text-decoration: none;
    transition: all .5s ease-in-out;
    color: ${colors.colorWhite};   
 
    &:hover {
-      color: ${colors.colorPrimary};  
+      color: ${colors.colorInstagram};  
+      transition: all .5s ease-in-out;
+   }
+   `
+export const StyledFooterMainBtnContentBtnButtonAGithub = styled.a`
+   text-decoration: none;
+   transition: all .5s ease-in-out;
+   color: ${colors.colorWhite};   
+
+   &:hover {
+      color: ${colors.colorGithub};  
+      transition: all .5s ease-in-out;
+   }
+`
+export const StyledFooterMainBtnContentBtnButtonALinkedin = styled.a`
+   text-decoration: none;
+   transition: all .5s ease-in-out;
+   color: ${colors.colorWhite};   
+
+   &:hover {
+      color: ${colors.colorLinkedin};  
+      transition: all .5s ease-in-out;
+   }
+`
+export const StyledFooterMainBtnContentBtnButtonATwitch = styled.a`
+   text-decoration: none;
+   transition: all .5s ease-in-out;
+   color: ${colors.colorWhite};   
+
+   &:hover {
+      color: ${colors.colorTwitch};  
       transition: all .5s ease-in-out;
    }
 `
