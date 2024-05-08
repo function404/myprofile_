@@ -14,7 +14,10 @@ import {
    StyledFooterMainBtnH5,
    StyledFooterMainBtnContentBtn,
    StyledFooterMainBtnContentBtnButton,
-   StyledFooterMainBtnContentBtnButtonA
+   StyledFooterMainBtnContentBtnButtonAInstagram,
+   StyledFooterMainBtnContentBtnButtonALinkedin,
+   StyledFooterMainBtnContentBtnButtonAGithub,
+   StyledFooterMainBtnContentBtnButtonATwitch,
 } from '^/styles/styledfooter';
 
 import anoAtual from '^/app/utils/data';
@@ -26,24 +29,24 @@ export default function Footer() {
          <StyledFooterMainBtn>
             <StyledFooterMainBtnContentBtn>
                <StyledFooterMainBtnContentBtnButton>
-                  <StyledFooterMainBtnContentBtnButtonA href="https://www.instagram.com/lincoln.mezzalira/" target='blank_'>
-                     <FontAwesomeIcon icon={faInstagram} />
-                  </StyledFooterMainBtnContentBtnButtonA>
+                  <StyledFooterMainBtnContentBtnButtonAInstagram href="https://www.instagram.com/lincoln.mezzalira/" target='blank_'>
+                     <FontAwesomeIcon icon={faInstagram} size="xl"/>
+                  </StyledFooterMainBtnContentBtnButtonAInstagram>
                </StyledFooterMainBtnContentBtnButton>
                <StyledFooterMainBtnContentBtnButton>
-                  <StyledFooterMainBtnContentBtnButtonA href="https://github.com/function404" target='blank_'>
-                     <FontAwesomeIcon icon={faGithub} />
-                  </StyledFooterMainBtnContentBtnButtonA>
+                  <StyledFooterMainBtnContentBtnButtonAGithub href="https://github.com/function404" target='blank_'>
+                     <FontAwesomeIcon icon={faGithub} size="xl" />
+                  </StyledFooterMainBtnContentBtnButtonAGithub>
                </StyledFooterMainBtnContentBtnButton>
                <StyledFooterMainBtnContentBtnButton>
-                  <StyledFooterMainBtnContentBtnButtonA href="https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/" target='blank_'>
-                     <FontAwesomeIcon icon={faLinkedinIn} />
-                  </StyledFooterMainBtnContentBtnButtonA>
+                  <StyledFooterMainBtnContentBtnButtonALinkedin href="https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/" target='blank_'>
+                     <FontAwesomeIcon icon={faLinkedinIn} size="xl" />
+                  </StyledFooterMainBtnContentBtnButtonALinkedin>
                </StyledFooterMainBtnContentBtnButton>
                <StyledFooterMainBtnContentBtnButton>
-                  <StyledFooterMainBtnContentBtnButtonA href="https://www.twitch.tv/functionss_" target='blank_'>
-                  <FontAwesomeIcon icon={faTwitch} />
-                  </StyledFooterMainBtnContentBtnButtonA>
+                  <StyledFooterMainBtnContentBtnButtonATwitch href="https://www.twitch.tv/functionss_" target='blank_'>
+                  <FontAwesomeIcon icon={faTwitch} size="xl" />
+                  </StyledFooterMainBtnContentBtnButtonATwitch>
                </StyledFooterMainBtnContentBtnButton>
             </StyledFooterMainBtnContentBtn>
             <StyledFooterMainBtnH5>
