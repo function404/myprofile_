@@ -35,7 +35,7 @@ export const StyledHeader = styled.header`
    align-items: center;
 `
 export const StyledHeaderMainImg = styled.div`
-   border-radius: 5%;
+   border-radius: 50px;
    position: relative;
    background: url("/mee.png") no-repeat center;
    background-size: cover;
@@ -50,6 +50,7 @@ export const StyledHeaderMainImg = styled.div`
       height: 320px;
       border-radius: 100%;
       background: url("/meR.png") no-repeat center;
+      background-size: cover;
       border: 1px solid ${colors.colorPrimaryImg};
       animation: ${opacity} 4s ease;
    }
