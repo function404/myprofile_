@@ -1,4 +1,4 @@
-
+import { motion } from 'framer-motion'
 import styled, { createGlobalStyle } from 'styled-components';
 
 import { colors } from '^/app/utils/colors';
@@ -36,6 +36,17 @@ export const StyledBody = styled.body`
     overflow-x: hidden;
     background-color: ${colors.colorBlack};
     scroll-behavior: smooth;
+`
+export const StyledMainMotion = styled(motion.div)`
+   width: 100%;
+   height: 100%;
+   justify-content: center;
+   align-items: center;
+
+   @media screen and (max-width: 960px) {
+      width: 100%;
+      height: 100%;
+   }
 `
 export const StyledContainerIndex = styled.div`
     background: radial-gradient(at 0% 0%, rgba(0, 194, 204, .3), transparent 50%),

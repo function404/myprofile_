@@ -3,17 +3,6 @@ import { motion } from 'framer-motion'
 import styled from 'styled-components'
 import { colors } from '^/app/utils/colors'
 
-export const StyledProjectsMainMotion = styled(motion.div)`
-   width: 100%;
-   height: 100%;
-   justify-content: center;
-   align-items: center;
-
-   @media screen and (max-width: 960px) {
-      width: 100%;
-      height: 100%;
-   }
-`
 export const StyledProjectsContainer = styled.div`
    width: 100%;
    height: 100%;
