@@ -1,9 +1,10 @@
-import React, { useRef, FormEvent, useState } from 'react';
+import React, { useRef, FormEvent, useState, useEffect } from 'react';
+import { useInView, useAnimation } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import RingLoader from 'react-spinners/RingLoader';
 
 import { StyledTitle, StyledTitleH2 } from "^/app/components/title";
-import { BorderTop, BorderBottom } from '^/app/globals';
+import { StyledMainMotion, BorderTop, BorderBottom } from '^/app/globals';
 
 import { 
    StyledCenter,
@@ -76,38 +77,61 @@ export default function ContactUs() {
     setSuccess(null);
   }
 
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true })
+
+  const mainControls = useAnimation()
+
+  useEffect(() => {
+    if (isInView) {
+      mainControls.start("visible")
+    }
+  }, [isInView, mainControls])
+
   return (
    <>
-      <StyledTitle>
-         <StyledTitleH2 data-text="Contact">Contact</StyledTitleH2>
-      </StyledTitle>
-      <StyledCenter>
-         <StyledForm ref={form} onSubmit={sendEmail}>
-         <BorderTop></BorderTop>
-            <StyledContent>
-               <StyledLabel>Name:</StyledLabel>
-               <StyledInput type="text" name="user_name" onFocus={handleFocus} />
-               <StyledLabel>Email:</StyledLabel>
-               <StyledInput type="email" name="user_email" onFocus={handleFocus} />
-               <StyledLabel>Message:</StyledLabel>
-               <StyledTextArea name="message" onFocus={handleFocus} />
-               {error && <StyledAlertError>{error}</StyledAlertError>}
-               {success && <StyledAlertSuccess success>{success}</StyledAlertSuccess>}
-               <StyledCenter>
-                  <StyledButtonSubmit type="submit" disabled={loading}>
-                     {loading ? 
-                     <StyledCenter>
-                        <RingLoader color={'rgb(255, 255, 255)'} loading={loading} size={24} /> 
-                     </StyledCenter>   
-                     : 
-                        'Send'
-                     }
-                  </StyledButtonSubmit>
-               </StyledCenter>
-            </StyledContent>
-         <BorderBottom></BorderBottom>   
-         </StyledForm>
-      </StyledCenter>
+      <div ref={ref} style={{ position: "relative", alignItems: "center" }}>
+         <StyledMainMotion
+            variants={{
+               hidden: { opacity: 0, y: 100 },
+               visible: { opacity: 1, y: 0 },
+            }}
+            initial="hidden"
+            animate={mainControls}
+            transition={{ duration: 2, delay: 0.5 }}
+         >
+         <StyledTitle>
+            <StyledTitleH2 data-text="Contact">Contact</StyledTitleH2>
+         </StyledTitle>
+         <StyledCenter>
+            <StyledForm ref={form} onSubmit={sendEmail}>
+            <BorderTop></BorderTop>
+               <StyledContent>
+                  <StyledLabel>Name:</StyledLabel>
+                  <StyledInput type="text" name="user_name" onFocus={handleFocus} />
+                  <StyledLabel>Email:</StyledLabel>
+                  <StyledInput type="email" name="user_email" onFocus={handleFocus} />
+                  <StyledLabel>Message:</StyledLabel>
+                  <StyledTextArea name="message" onFocus={handleFocus} />
+                  {error && <StyledAlertError>{error}</StyledAlertError>}
+                  {success && <StyledAlertSuccess success>{success}</StyledAlertSuccess>}
+                  <StyledCenter>
+                     <StyledButtonSubmit type="submit" disabled={loading}>
+                        {loading ? 
+                        <StyledCenter>
+                           <RingLoader color={'rgb(255, 255, 255)'} loading={loading} size={24} /> 
+                        </StyledCenter>   
+                        : 
+                           'Send'
+                        }
+                     </StyledButtonSubmit>
+                  </StyledCenter>
+               </StyledContent>
+            <BorderBottom></BorderBottom>   
+            </StyledForm>
+         </StyledCenter>
+         </StyledMainMotion>
+      </div>
    </>
   )
 }

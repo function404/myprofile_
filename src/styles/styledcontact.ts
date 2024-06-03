@@ -37,32 +37,51 @@ export const StyledLabel = styled.label`
 `
 export const StyledInput = styled.input`
    height: 30px;
-   margin: 5px 20px 20px 20px;   
+   margin: 5px 20px 20px 20px;  
+   padding: 10px; 
    font-size: 16px;
    background-color: transparent;
    border: none;
    border-bottom: 1px solid ${colors.colorPrimary};
    color: ${colors.colorLight};
+   transition: 0.2s ease-in-out;
 
    &:focus {
       outline: none;
    }
 
+   &:hover {
+      transition: 0.2s ease-in-out;
+      border-bottom: 1px solid ${colors.colorBgScrollbar};
+   }
+
    @media screen and (max-width: 960px) {
       font-size: 12px;
+      margin: 5px 10px 10px 10px;
    }
 `
 export const StyledTextArea = styled.textarea`
    height: 100px;
    margin: 5px 20px 20px 20px;
+   padding: 10px;
    font-size: 16px;
    background-color: transparent;
    border: none;
-   border-bottom: 1px solid ${colors.colorPrimary};
+   border: 1px solid ${colors.colorPrimary};
    color: ${colors.colorLight};
 
    &:focus {
       outline: none;
+   }
+
+   &:hover {
+      transition: 0.2s ease-in-out;
+      border: 1px solid ${colors.colorBgScrollbar};
+   }
+
+   @media screen and (max-width: 960px) {
+      font-size: 12px;
+      margin: 5px 10px 10px 10px;
    }
 `
 export const StyledButtonSubmit = styled.button`

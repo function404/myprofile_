@@ -13,7 +13,6 @@ import {
 } from "^/app/components/title";
 
 import {
-  StyledProjectsMainMotion,
   StyledProjectsContainer,
   StyledProjectsContainerContent,
   StyledProjectsContainerContentCards,
@@ -24,8 +23,9 @@ import {
   StyledProjectsContainerContentCardsButtomCardsImg,
   StyledProjectsContainerContentCardsInfoButtomCards,
   StyledProjectsContainerContentCardsBorderButtom,
-
 } from "^/styles/styledprojects";
+
+import { StyledMainMotion } from "^/app/globals";
 
 import Datatooltip from "^/app/components/datatooltip";
 
@@ -44,9 +44,9 @@ export default function Project() {
   return (
     <>
       <div ref={ref} style={{ position: "relative", alignItems: "center" }}>
-        <StyledProjectsMainMotion
+        <StyledMainMotion
           variants={{
-            hidden: { opacity: 0, y: 100 },
+            hidden: { opacity: 0, y: -100 },
             visible: { opacity: 1, y: 0 },
           }}
           initial="hidden"
@@ -192,7 +192,7 @@ export default function Project() {
               
             </StyledProjectsContainerContent>
           </StyledProjectsContainer>
-        </StyledProjectsMainMotion>
+        </StyledMainMotion>
         <Datatooltip />
       </div>
     </>
