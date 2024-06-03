@@ -51,3 +51,21 @@ export const StyledLoading = styled.div`
     align-items: center;
     background: transparent;
 `
+
+export const BorderTop = styled.div`
+    width: 100%;
+    padding: 35px;
+    border-top: 5px solid ${colors.colorPrimary};
+    border-left: 5px solid ${colors.colorPrimary};
+    border-right: 5px solid ${colors.colorPrimary};
+    border-radius: 10px;
+`
+
+export const BorderBottom = styled.div`
+    width: 100%;
+    padding: 35px;
+    border-bottom: 5px solid ${colors.colorPrimary};
+    border-left: 5px solid ${colors.colorPrimary};
+    border-right: 5px solid ${colors.colorPrimary};
+    border-radius: 10px;
+`

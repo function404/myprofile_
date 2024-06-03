@@ -2,9 +2,9 @@
 
 ## 📢 Informações
 
-- Versão: 3.0.2
+- Versão: 3.1.0
 
-- Última atualização: 24 Mai. 2024
+- Última atualização: 3 Jun. 2024
 
 ## ℹ️ Sobre o Projeto
 
@@ -15,7 +15,7 @@ O Meu Portfolio é uma aplicação web simples que permite aos usuários visuali
 
 - Next.js
 - TypeScript
-- JavaScript
+- Node.js
 
 ## 🚀 Executando o Projeto
 

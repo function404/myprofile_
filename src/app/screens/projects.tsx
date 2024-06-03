@@ -7,10 +7,12 @@ import { useInView, useAnimation } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 
-import {
+import { 
   StyledTitle,
-  StyledTitleH2,
+  StyledTitleH2
+} from "^/app/components/title";
 
+import {
   StyledProjectsMainMotion,
   StyledProjectsContainer,
   StyledProjectsContainerContent,
