@@ -6,6 +6,7 @@ import RingLoader from 'react-spinners/RingLoader'
 import Header from "^/app/screens/header";
 import Project from "^/app/screens/projects";
 import Footer from "^/app/screens/footer";
+import ContactUs from "^/app/screens/contact";
 
 import Snow from '^/app/components/snow'
 
@@ -40,6 +41,7 @@ export default function Home() {
         <>
           <Header />
           <Project />
+          <ContactUs />
           <Footer />
           <Snow />
         </>  

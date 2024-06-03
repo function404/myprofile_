@@ -20,7 +20,7 @@ import {
    StyledFooterMainBtnContentBtnButtonATwitch,
 } from '^/styles/styledfooter';
 
-import anoAtual from '^/app/utils/data';
+import Data from '^/app/utils/data';
 
 export default function Footer() {
   return (
@@ -50,7 +50,7 @@ export default function Footer() {
                </StyledFooterMainBtnContentBtnButton>
             </StyledFooterMainBtnContentBtn>
             <StyledFooterMainBtnH5>
-                  ©2022 - {anoAtual()} &copy; Reserved rights
+                  ©2022 - {Data()} &copy; Reserved rights
             </StyledFooterMainBtnH5>
          </StyledFooterMainBtn>
       </StyledFooter>

@@ -3,13 +3,16 @@
 import React, { useEffect, useState } from 'react';
 import Snowfall from 'react-snowfall';
 
+import Data from '^/app/utils/data';
+
 export default function Snow(){
   const [animating, setAnimating] = useState(false);
 
   const isHoraNatal = () => {
       const currentDate = new Date();
-      const natalInicio = new Date(currentDate.getFullYear(), 11, 16);
-      const natalFim = new Date(currentDate.getFullYear() + 1, 0, 7);
+      const currentYear = Data();
+      const natalInicio = new Date(currentYear, 11, 16);
+      const natalFim = new Date(currentYear + 1, 0, 7);
 
       return currentDate >= natalInicio && currentDate <= natalFim;
   };
