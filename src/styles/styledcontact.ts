@@ -1,5 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { colors } from "^/app/utils/colors";
+
+const fadeIn = keyframes`
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+`
 
 export const StyledCenter = styled.div`
    width: 100%;
@@ -112,10 +121,12 @@ export const StyledAlertError = styled.div`
    background-color: ${colors.colorErrorAlert};
    padding: 10px ;
    font-weight: bold;
+   animation: ${fadeIn} .6s;
 `
 export const StyledAlertSuccess = styled.div<{ success?: boolean }>`
    color: ${colors.colorSend};
    background-color: ${colors.colorSuccess};
    padding: 10px ;
    font-weight: bold;
+   animation: ${fadeIn} .6s;
 `
