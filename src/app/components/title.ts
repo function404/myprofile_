@@ -75,7 +75,7 @@ export const StyledTitle = styled.div`
    margin-top: 40px;
 
    @media screen and (max-width: 960px) {
-      margin-top: 60px;
+      margin-top: 0;
    }
 `
 export const StyledTitleH2 = styled.h2`

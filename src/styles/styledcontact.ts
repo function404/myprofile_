@@ -32,7 +32,11 @@ export const StyledContent = styled.div`
    display: flex;
    justify-content: center;
    flex-direction: column;   
-   margin: 0px 30px 0px 30px;
+   margin: 0px 30px;
+
+   @media screen and (max-width: 960px) {
+      margin: 0px 25px;
+   }
 `
 
 export const StyledLabel = styled.label`
@@ -99,6 +103,7 @@ export const StyledButtonSubmit = styled.button`
    margin-top: 30px;
    font-size: 16px;
    text-transform: uppercase;
+   cursor: pointer;
    background-color: transparent;
    color: ${colors.colorSend};
    border: 1px solid ${colors.colorSend};
