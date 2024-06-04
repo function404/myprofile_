@@ -38,6 +38,7 @@ export const StyledProjectsContainerContent = styled.div`
       justify-content: center;
       flex-wrap: wrap;
       text-align: center;
+      margin-bottom: 40px;
    }
 `
 export const StyledProjectsContainerContentCards = styled.div`
