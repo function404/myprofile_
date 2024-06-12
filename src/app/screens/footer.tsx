@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { useAnimation, useInView } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Data from '^/app/utils/data';
+import DateYear from '^/app/utils/dateyear';
 
 import { 
    faInstagram,
@@ -75,7 +75,7 @@ export default function Footer() {
                      </StyledFooterMainBtnContentBtnButton>
                   </StyledFooterMainBtnContentBtn>
                   <StyledFooterMainBtnH5>
-                        ©2022 - {Data()} &copy; Reserved rights
+                        ©2022 - {DateYear()} &copy; Reserved rights
                   </StyledFooterMainBtnH5>
                </StyledFooterMainBtn>
             </StyledMainMotion>

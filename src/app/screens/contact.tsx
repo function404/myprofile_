@@ -18,10 +18,16 @@ import {
    StyledAlertSuccess
 } from '^/styles/styledcontact';
 
+import DateYear from '^/app/utils/dateyear';
+import DateMouth from '^/app/utils/datemounth';
+import DateDay from '^/app/utils/dateday';
+
 interface TemplateProps {
    from_name: string
    message: string
    email: string
+   year: number
+   hours: string
  }
 
 export default function ContactUs() {
@@ -40,6 +46,8 @@ export default function ContactUs() {
          const userName = formData.get('user_name') as string;
          const userEmail = formData.get('user_email') as string;
          const message = formData.get('message') as string;
+         const year = DateYear() as number;
+         const hours = `${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}h - ${DateDay()}/${DateMouth() + 1}/${DateYear()}` as string;
 
          if (!userName || !userEmail || !message) {
             setError('Por favor, preencha todos os campos.');
@@ -54,6 +62,8 @@ export default function ContactUs() {
             from_name: userName,
             message: message,
             email: userEmail,
+            year: year,
+            hours: hours
          }
 
          emailjs.send('service_ixgbaoq', 'template_ajco01t', {...template}, 'wRstS80Wy24QHk7i7')
