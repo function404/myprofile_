@@ -12,6 +12,8 @@ import {
   StyledTitleH2
 } from "^/app/components/title";
 
+import { ProjectsData } from "^/app/utils/projects";
+
 import {
   StyledProjectsContainer,
   StyledProjectsContainerContent,
@@ -58,138 +60,40 @@ export default function Project() {
           </StyledTitle>
           <StyledProjectsContainer>
             <StyledProjectsContainerContent>
-
-              <StyledProjectsContainerContentCards>
-                <StyledProjectsContainerContentCardsTitleProjects>
-                  <StyledProjectsContainerContentCardsTitleProjectsSpan>
-                    Sr. & Sra. Bem Estar
-                  </StyledProjectsContainerContentCardsTitleProjectsSpan>
-                </StyledProjectsContainerContentCardsTitleProjects>
-                <StyledProjectsContainerContentCardsInfo>
-                  Website developed for work purposes (course).
-                </StyledProjectsContainerContentCardsInfo>
-                <StyledProjectsContainerContentCardsButtomCards
-                  id="btn-1"
-                  data-placement="bottom"
-                >
-                  <a
-                    data-tooltip-place="bottom"
-                    data-tooltip-id="tooltip-1"
-                    data-tooltip-content="Clique na imagem para vizualizar o projeto"
-                    href="https://sresrabemestar.000webhostapp.com/"
-                    target="_blank"
+              {ProjectsData.map((project, index) => (
+                <StyledProjectsContainerContentCards key={index}>
+                  <StyledProjectsContainerContentCardsTitleProjects>
+                    <StyledProjectsContainerContentCardsTitleProjectsSpan>
+                      {project.title}
+                    </StyledProjectsContainerContentCardsTitleProjectsSpan>
+                  </StyledProjectsContainerContentCardsTitleProjects>
+                  <StyledProjectsContainerContentCardsInfo>
+                    {project.description}
+                  </StyledProjectsContainerContentCardsInfo>
+                  <StyledProjectsContainerContentCardsButtomCards
+                    id={`btn-${index}`}
+                    data-placement="bottom"
                   >
-                    <StyledProjectsContainerContentCardsButtomCardsImg 
-                     src="/sresra.png"
-                     alt="erro"
-                  />
-                  </a>
-                </StyledProjectsContainerContentCardsButtomCards>
-                <StyledProjectsContainerContentCardsInfoButtomCards>
-                  <FontAwesomeIcon icon={faCircleInfo} /> {''}
-                  Clique na imagem para vizualizar o projeto
-                </StyledProjectsContainerContentCardsInfoButtomCards>
-                <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
-              </StyledProjectsContainerContentCards>
-
-              <StyledProjectsContainerContentCards>
-                <StyledProjectsContainerContentCardsTitleProjects>
-                  <StyledProjectsContainerContentCardsTitleProjectsSpan>
-                    Nova Lira Festas e Eventos
-                  </StyledProjectsContainerContentCardsTitleProjectsSpan>
-                </StyledProjectsContainerContentCardsTitleProjects>
-                <StyledProjectsContainerContentCardsInfo>
-                  Website developed for the salon Nova Lira Festas e Eventos
-                </StyledProjectsContainerContentCardsInfo>
-                <StyledProjectsContainerContentCardsButtomCards
-                  id="btn-2"
-                  data-placement="bottom"
-                >
-                  <a
-                    data-tooltip-place="bottom"
-                    data-tooltip-id="tooltip-2"
-                    data-tooltip-content="Clique na imagem para vizualizar o projeto"
-                    href="https://novalira.netlify.app/"
-                    target="_blank"
-                  >
-                    <StyledProjectsContainerContentCardsButtomCardsImg 
-                     src="/novalira.png"
-                     alt="err"
-                  />
-                  </a>
-                </StyledProjectsContainerContentCardsButtomCards>
-                <StyledProjectsContainerContentCardsInfoButtomCards>
-                  <FontAwesomeIcon icon={faCircleInfo} /> {''}
-                  Clique na imagem para vizualizar o projeto
-                </StyledProjectsContainerContentCardsInfoButtomCards>
-                <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
-              </StyledProjectsContainerContentCards>
-
-              <StyledProjectsContainerContentCards>
-                <StyledProjectsContainerContentCardsTitleProjects>
-                  <StyledProjectsContainerContentCardsTitleProjectsSpan>
-                    Quer Namorar Comigo?
-                  </StyledProjectsContainerContentCardsTitleProjectsSpan>
-                </StyledProjectsContainerContentCardsTitleProjects>
-                <StyledProjectsContainerContentCardsInfo>
-                  {"Website developed for Valentine's Day."}
-                </StyledProjectsContainerContentCardsInfo>
-                <StyledProjectsContainerContentCardsButtomCards
-                  id="btn-1"
-                  data-placement="bottom"
-                >
-                  <a
-                    data-tooltip-place="bottom"
-                    data-tooltip-id="tooltip-1"
-                    data-tooltip-content="Clique na imagem para vizualizar o projeto"
-                    href="https://quer-namora-comigo.netlify.app"
-                    target="_blank"
-                  >
-                    <StyledProjectsContainerContentCardsButtomCardsImg 
-                     src="/dateme.png"
-                     alt="erro"
-                  />
-                  </a>
-                </StyledProjectsContainerContentCardsButtomCards>
-                <StyledProjectsContainerContentCardsInfoButtomCards>
-                  <FontAwesomeIcon icon={faCircleInfo} /> {''}
-                  Clique na imagem para vizualizar o projeto
-                </StyledProjectsContainerContentCardsInfoButtomCards>
-                <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
-              </StyledProjectsContainerContentCards>
-
-              <StyledProjectsContainerContentCards>
-                <StyledProjectsContainerContentCardsTitleProjects>
-                  <StyledProjectsContainerContentCardsTitleProjectsSpan>
-                    Personal Website
-                  </StyledProjectsContainerContentCardsTitleProjectsSpan>
-                </StyledProjectsContainerContentCardsTitleProjects>
-                <StyledProjectsContainerContentCardsInfo>
-                  My portfolio.
-                </StyledProjectsContainerContentCardsInfo>
-                <StyledProjectsContainerContentCardsButtomCards
-                  id="btn-3"
-                  data-placement="bottom"
-                >
-                  <a
-                    data-tooltip-place="bottom"
-                    data-tooltip-id="tooltip-3"
-                    data-tooltip-content="Clique na imagem para vizualizar o projeto"
-                    href="#header"
-                  >
-                    <StyledProjectsContainerContentCardsButtomCardsImg
-                      src="/myportfolio.png"
-                      alt="err"
-                    />
-                  </a>
-                </StyledProjectsContainerContentCardsButtomCards>
-                <StyledProjectsContainerContentCardsInfoButtomCards>
-                  <FontAwesomeIcon icon={faCircleInfo} /> {''}
-                  Clique na imagem para vizualizar o projeto
-                </StyledProjectsContainerContentCardsInfoButtomCards>
-                <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
-              </StyledProjectsContainerContentCards>
-              
+                    <a
+                      data-tooltip-place="bottom"
+                      data-tooltip-id={`tooltip-${index}`}
+                      data-tooltip-content="Clique na imagem para visualizar o projeto"
+                      href={project.link}
+                      target="_blank"
+                    >
+                      <StyledProjectsContainerContentCardsButtomCardsImg 
+                        src={project.img}
+                        alt="erro"
+                      />
+                    </a>
+                  </StyledProjectsContainerContentCardsButtomCards>
+                  <StyledProjectsContainerContentCardsInfoButtomCards>
+                    <FontAwesomeIcon icon={faCircleInfo} /> {''}
+                    Clique na imagem para visualizar o projeto
+                  </StyledProjectsContainerContentCardsInfoButtomCards>
+                  <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
+                </StyledProjectsContainerContentCards>
+              ))}              
             </StyledProjectsContainerContent>
           </StyledProjectsContainer>
         </StyledMainMotion>
