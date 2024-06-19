@@ -52,6 +52,7 @@ export const StyledHeaderMainImg = styled.div`
       background: url("/meR.png") no-repeat center;
       background-size: cover;
       border: 1px solid ${colors.colorPrimaryImg};
+      box-shadow: 0px 0px 40px ${colors.colorPrimary};
       animation: ${opacity} 4s ease;
    }
 

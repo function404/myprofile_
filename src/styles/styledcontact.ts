@@ -56,7 +56,7 @@ export const StyledInput = styled.input`
    background-color: transparent;
    border: none;
    border-bottom: 1px solid ${colors.colorPrimary};
-   color: ${colors.colorLight};
+   color: ${colors.colorWhite};
    transition: 0.2s ease-in-out;
 
    &:focus {
@@ -78,10 +78,11 @@ export const StyledTextArea = styled.textarea`
    margin: 5px 20px 20px 20px;
    padding: 10px;
    font-size: 16px;
+   font-family: 'Roboto', sans-serif;
    background-color: transparent;
    border: none;
    border: 1px solid ${colors.colorPrimary};
-   color: ${colors.colorLight};
+   color: ${colors.colorWhite};
 
    &:focus {
       outline: none;
@@ -105,14 +106,15 @@ export const StyledButtonSubmit = styled.button`
    text-transform: uppercase;
    cursor: pointer;
    background-color: transparent;
-   color: ${colors.colorSend};
-   border: 1px solid ${colors.colorSend};
+   color: ${colors.colorPrimary};
+   border: 1px solid ${colors.colorPrimary};
    border-radius: 10px;
    transition: 0.2s ease-in-out;
 
    &:hover {
-      background-color: ${colors.colorSend};
-      color: ${colors.colorWhite};
+      box-shadow: 0px 0px 20px ${colors.colorPrimary};
+      background-color: ${colors.colorPrimary};
+      color: ${colors.colorBlack};
       transition: .2s ease-in-out;
    }
 
@@ -124,14 +126,18 @@ export const StyledButtonSubmit = styled.button`
 export const StyledAlertError = styled.div`
    color: ${colors.colorError};
    background-color: ${colors.colorErrorAlert};
+   box-shadow: 0px 0px 15px ${colors.colorError};
    padding: 10px ;
    font-weight: bold;
+   border-radius: 10px;
    animation: ${fadeIn} .6s;
 `
 export const StyledAlertSuccess = styled.div<{ success?: boolean }>`
    color: ${colors.colorSend};
    background-color: ${colors.colorSuccess};
+   box-shadow: 0px 0px 15px ${colors.colorSend};
    padding: 10px ;
    font-weight: bold;
+   border-radius: 10px;
    animation: ${fadeIn} .6s;
 `
