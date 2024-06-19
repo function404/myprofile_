@@ -82,7 +82,7 @@ export default function Project() {
                       data-tooltip-id={`tooltip-${index}`}
                       data-tooltip-content="Clique na imagem para visualizar o projeto"
                       href={project.link}
-                      target="_blank"
+                      {...project.target ? { target: "_blank" } : {target: ""}}
                     >
                       <StyledProjectsContainerContentCardsButtomCardsImg 
                         src={project.img}

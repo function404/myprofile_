@@ -40,7 +40,7 @@ export const StyledProjectsContainerContent = styled.div`
    }
 `
 export const StyledProjectsContainerContentCards = styled.div`
-   width: 750px;
+   width: 650px;
    box-shadow: 0 0 50px ${colors.colorBlack};
    margin: 20px;
    border-radius: 20px;
@@ -92,13 +92,17 @@ export const StyledProjectsContainerContentCardsInfo = styled.div`
 export const StyledProjectsContainerContentCardsButtomCards = styled.button`
    width: 100%;
    height: 50%;
-   padding: 20px;
+   padding: 0 20px;
    background: none;
    border: none;
+
+   @media screen and (max-width: 960px) {
+      padding: 20px;
+   }
 `
 export const StyledProjectsContainerContentCardsButtomCardsImg = styled.img`
-   width: 600px;
-   height: 300px;
+   width: 500px;
+   height: 250px;
    margin: 0 auto;
    box-shadow: 0 0 20px ${colors.colorPrimaryImg};
    border-radius: 10px;
@@ -123,8 +127,8 @@ export const StyledContainerTechs = styled.div`
    display: flex;
    justify-content: center;
    align-items: center;
-   padding: 20px;
-   gap: 30px;
+   padding-top: 35px;
+   gap: 20px;
    flex-wrap: wrap;
 
    @media screen and (max-width: 960px) {
@@ -135,7 +139,7 @@ export const StyledContentTechs = styled.div`
    color: ${colors.colorWhite};
    text-align: center;
    text-transform: uppercase;
-   box-shadow: 0 0 20px ${colors.colorPrimaryImg};
+   box-shadow: 0 0 15px ${colors.colorPrimaryImg};
    padding: 8px 16px;
    border-radius: 5px;
    transition: .3s ease-in-out;
