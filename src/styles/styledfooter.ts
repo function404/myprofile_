@@ -7,7 +7,7 @@ export const StyledFooter = styled.footer`
    align-items: center;
    justify-content: center;
    text-align: center;
-   background: radial-gradient(at 100% 90%, rgba(0, 194, 204, .3), transparent 50%), radial-gradient(at 0% 100%, rgba(0, 194, 204, .3), transparent 50%);
+   background: radial-gradient(at 100% 90%, ${colors.colorPrimaryImg}, transparent 50%), radial-gradient(at 0% 100%, ${colors.colorPrimaryImg}, transparent 50%);
 `
 export const StyledFooterMainBtn = styled.div`
    display: block;
