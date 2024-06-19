@@ -49,10 +49,10 @@ export const StyledMainMotion = styled(motion.div)`
    }
 `
 export const StyledContainerIndex = styled.div`
-    background: radial-gradient(at 0% 0%, rgba(0, 194, 204, .3), transparent 50%),
-                radial-gradient(at 100% 50%, rgba(0, 194, 204, .2), transparent 50%),
-                radial-gradient(at 0% 100%, rgba(0, 194, 204, .3), transparent 50%),
-                radial-gradient(at 100% 50%, rgba(0, 194, 204, .2), transparent 50%);
+    background: radial-gradient(at 0% 0%, ${colors.colorBgBody3}, transparent 50%),
+                radial-gradient(at 100% 50%, ${colors.colorBgBody2}, transparent 50%),
+                radial-gradient(at 0% 100%, ${colors.colorBgBody3}, transparent 50%),
+                radial-gradient(at 100% 50%, ${colors.colorBgBody2}, transparent 50%);
 `
 export const StyledLoading = styled.div`
     width: 100%;

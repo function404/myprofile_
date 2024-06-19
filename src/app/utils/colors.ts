@@ -1,7 +1,9 @@
 export const colors = {
-    colorPrimary: 'rgb(0, 194, 204)',
-    colorPrimaryImg: 'rgb(0, 155, 163)',
-    colorBgScrollbar: 'rgba(0, 194, 204, .3)',
+    colorPrimary: 'rgb(244, 244, 244)',
+    colorPrimaryImg: 'rgb(200, 200, 200)',
+    colorBgScrollbar: 'rgba(190, 200, 200, .3)',
+    colorBgBody2: 'rgba(244, 244, 244, .2)',
+    colorBgBody3: 'rgba(244, 244, 244, .3)',
     colorWhite: 'rgb(255, 255, 255)',
     colorBlack: 'rgb(0, 0, 0)',
     colorLight: 'rgba(255, 255, 255, .6)',

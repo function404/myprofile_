@@ -15,6 +15,7 @@ import {
   StyledContainerIndex,
   StyledLoading
 } from '^/app/globals'
+import { colors } from '^/app/utils/colors';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -35,7 +36,7 @@ export default function Home() {
       <StyledContainerIndex>
         {loading ? ( 
         <StyledLoading>
-          <RingLoader color={'rgb(0, 155, 163)'} loading={loading} size={150} speedMultiplier={1.2}/>
+          <RingLoader color={`${colors.colorPrimary}`} loading={loading} size={150} speedMultiplier={1.2}/>
         </StyledLoading>
        ) : (
         <>
