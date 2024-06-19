@@ -166,6 +166,7 @@ export const StyledHeaderMainImgTextOverlaySwipeH4 = styled.h4`
    color: ${colors.colorWhite};
    font-size: 20px;
    opacity: 0;
+   pointer-events: none;
    animation: ${opacity} 0.01s ease-out 1.75s forwards;
 
    @media screen and (max-width: 960px) {

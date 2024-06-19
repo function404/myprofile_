@@ -73,6 +73,7 @@ export const StyledTitle = styled.div`
    justify-content: center;
    align-items: center;
    margin-top: 40px;
+   pointer-events: none;
 
    @media screen and (max-width: 960px) {
       margin-top: 0;

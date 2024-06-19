@@ -25,6 +25,9 @@ import {
   StyledProjectsContainerContentCardsButtomCardsImg,
   StyledProjectsContainerContentCardsInfoButtomCards,
   StyledProjectsContainerContentCardsBorderButtom,
+  StyledContainerTechs,
+  StyledContentTechs,
+  StyledIconsNameTechs,
 } from "^/styles/styledprojects";
 
 import { StyledMainMotion } from "^/app/globals";
@@ -91,6 +94,15 @@ export default function Project() {
                     <FontAwesomeIcon icon={faCircleInfo} /> {''}
                     Clique na imagem para visualizar o projeto
                   </StyledProjectsContainerContentCardsInfoButtomCards>
+                  <StyledContainerTechs>
+                    {project.techs && project.techs.map((tech, index) => (
+                      <StyledContentTechs key={index}>
+                        <StyledIconsNameTechs>
+                          <FontAwesomeIcon icon={tech.icon} /> {tech.name}
+                        </StyledIconsNameTechs>
+                      </StyledContentTechs>
+                    ))}
+                  </StyledContainerTechs>
                   <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
                 </StyledProjectsContainerContentCards>
               ))}              
