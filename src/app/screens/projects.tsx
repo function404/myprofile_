@@ -3,6 +3,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { useInView, useAnimation } from "framer-motion";
+import Tilt from 'react-parallax-tilt';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
@@ -95,13 +96,19 @@ export default function Project() {
                     Clique na imagem para visualizar o projeto
                   </StyledProjectsContainerContentCardsInfoButtomCards>
                   <StyledContainerTechs>
-                    {project.techs && project.techs.map((tech, index) => (
-                      <StyledContentTechs key={index}>
-                        <StyledIconsNameTechs>
-                          <FontAwesomeIcon icon={tech.icon} /> {tech.name}
-                        </StyledIconsNameTechs>
-                      </StyledContentTechs>
-                    ))}
+                      {project.techs && project.techs.map((tech, index) => (
+                        <>
+                          <Tilt
+                            perspective={250}
+                          >
+                            <StyledContentTechs key={index}>
+                              <StyledIconsNameTechs>
+                                  <FontAwesomeIcon icon={tech.icon} /> {tech.name}
+                              </StyledIconsNameTechs>
+                            </StyledContentTechs>
+                          </Tilt>
+                        </>
+                      ))}
                   </StyledContainerTechs>
                   <StyledProjectsContainerContentCardsBorderButtom></StyledProjectsContainerContentCardsBorderButtom>
                 </StyledProjectsContainerContentCards>
