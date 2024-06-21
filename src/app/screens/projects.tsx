@@ -85,10 +85,14 @@ export default function Project() {
                       href={project.link}
                       {...project.target ? { target: "_blank" } : {target: ""}}
                     >
-                      <StyledProjectsContainerContentCardsButtomCardsImg 
-                        src={project.img}
-                        alt="erro"
-                      />
+                      <Tilt
+                      perspective={6000}
+                      >
+                        <StyledProjectsContainerContentCardsButtomCardsImg 
+                          src={project.img}
+                          alt="erro"
+                        />
+                      </Tilt>
                     </a>
                   </StyledProjectsContainerContentCardsButtomCards>
                   <StyledProjectsContainerContentCardsInfoButtomCards>

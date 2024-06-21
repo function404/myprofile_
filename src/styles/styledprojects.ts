@@ -107,6 +107,12 @@ export const StyledProjectsContainerContentCardsButtomCardsImg = styled.img`
    box-shadow: 0 0 20px ${colors.colorPrimaryImg};
    border-radius: 10px;
    cursor: pointer;
+   transition: .3s ease-in-out;
+
+   &:hover {
+      box-shadow: 0 0 10px ${colors.colorPrimary};
+      transition: .3s ease-in-out;
+   }
 
    @media screen and (max-width: 960px) {
       width: 100%;
@@ -139,7 +145,7 @@ export const StyledContentTechs = styled.div`
    color: ${colors.colorWhite};
    text-align: center;
    text-transform: uppercase;
-   box-shadow: 0 0 15px ${colors.colorPrimaryImg};
+   box-shadow: 0 0 20px ${colors.colorPrimaryImg};
    padding: 8px 16px;
    border-radius: 5px;
    transition: .3s ease-in-out;

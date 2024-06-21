@@ -81,6 +81,7 @@ export const StyledTextArea = styled.textarea`
    font-family: 'Roboto', sans-serif;
    background-color: transparent;
    border: none;
+   resize: none;
    border: 1px solid ${colors.colorPrimary};
    color: ${colors.colorWhite};
 
@@ -126,8 +127,7 @@ export const StyledButtonSubmit = styled.button`
 export const StyledAlertError = styled.div`
    color: ${colors.colorError};
    background-color: ${colors.colorErrorAlert};
-   box-shadow: 0px 0px 15px ${colors.colorError};
-   padding: 10px ;
+   padding: 15px ;
    font-weight: bold;
    border-radius: 10px;
    animation: ${fadeIn} .6s;
@@ -135,8 +135,7 @@ export const StyledAlertError = styled.div`
 export const StyledAlertSuccess = styled.div<{ success?: boolean }>`
    color: ${colors.colorSend};
    background-color: ${colors.colorSuccess};
-   box-shadow: 0px 0px 15px ${colors.colorSend};
-   padding: 10px ;
+   padding: 15px ;
    font-weight: bold;
    border-radius: 10px;
    animation: ${fadeIn} .6s;
