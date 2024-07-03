@@ -22,21 +22,8 @@ export const GlobalStyles = createGlobalStyle`
     background: ${colors.colorPrimaryImg};
     border-radius: 12px;
 }
-`;
-export const StyledHtml = styled.html`
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    background-color: ${colors.colorBlack};
-    scroll-behavior: smooth;
 `
-export const StyledBody = styled.body`
-    width: 100%;
-    height: 100%;
-    overflow-x: hidden;
-    background-color: ${colors.colorBlack};
-    scroll-behavior: smooth;
-`
+
 export const StyledMainMotion = styled(motion.div)`
    width: 100%;
    height: 100%;
@@ -48,6 +35,7 @@ export const StyledMainMotion = styled(motion.div)`
       height: 100%;
    }
 `
+
 export const StyledContainerIndex = styled.div`
     background: radial-gradient(at 0% 0%, ${colors.colorBgBody3}, transparent 50%),
                 radial-gradient(at 100% 50%, ${colors.colorBgBody2}, transparent 50%),
