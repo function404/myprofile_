@@ -17,6 +17,10 @@ export default function Datatooltip() {
             <Tooltip id={`tooltip-2`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />
             <Tooltip id={`tooltip-3`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />
             <Tooltip id={`tooltip-4`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />
+            <Tooltip id={`tooltip-I`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />
+            <Tooltip id={`tooltip-G`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />
+            <Tooltip id={`tooltip-L`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />
+            <Tooltip id={`tooltip-T`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />
         </>
     )
 }

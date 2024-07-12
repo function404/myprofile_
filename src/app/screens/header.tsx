@@ -41,6 +41,7 @@ export default function Header() {
             </StyledHeaderMainImgTextOverlaySwipe>
           </StyledHeaderMainImgTextOverlayC>
         </StyledHeaderMainImg>
+        
         <StyledHeaderMainResponsive>
           <div>
             <StyledHeaderMainImgTextOverlaySwipe>
