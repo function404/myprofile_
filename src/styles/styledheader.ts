@@ -63,7 +63,7 @@ export const StyledHeaderMainImg = styled.div`
 `
 export const StyledHeaderMainImgTextOverlayB = styled.div`
    position: absolute;
-   top: -18%;
+   top: -20%;
    left: 10%;
    width: 100%;
    height: 100%;

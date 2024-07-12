@@ -21,11 +21,12 @@ export const StyledForm = styled.form`
    justify-content: center;
    flex-direction: column;
    box-shadow: 0 0 50px ${colors.colorBlack};
-   border-radius: 10px;
+   border-radius: 12px;
    margin-bottom: 35px;
 
    @media screen and (max-width: 960px) {
-      width: 90%;
+      width: 100%;
+      margin: 20px;
    }
 `
 export const StyledContent = styled.div`
@@ -61,6 +62,7 @@ export const StyledInput = styled.input`
 
    &:focus {
       outline: none;
+      border-bottom: 1px solid ${colors.colorBgScrollbar};
    }
 
    &:hover {
@@ -87,6 +89,7 @@ export const StyledTextArea = styled.textarea`
 
    &:focus {
       outline: none;
+      border: 1px solid ${colors.colorBgScrollbar}; 
    }
 
    &:hover {
@@ -109,7 +112,7 @@ export const StyledButtonSubmit = styled.button`
    background-color: transparent;
    color: ${colors.colorPrimary};
    border: 1px solid ${colors.colorPrimary};
-   border-radius: 10px;
+   border-radius: 12px;
    transition: 0.2s ease-in-out;
 
    &:hover {
@@ -129,7 +132,7 @@ export const StyledAlertError = styled.div`
    background-color: ${colors.colorErrorAlert};
    padding: 15px ;
    font-weight: bold;
-   border-radius: 10px;
+   border-radius: 12px;
    animation: ${fadeIn} .6s;
 `
 export const StyledAlertSuccess = styled.div<{ success?: boolean }>`
@@ -137,6 +140,6 @@ export const StyledAlertSuccess = styled.div<{ success?: boolean }>`
    background-color: ${colors.colorSuccess};
    padding: 15px ;
    font-weight: bold;
-   border-radius: 10px;
+   border-radius: 12px;
    animation: ${fadeIn} .6s;
 `

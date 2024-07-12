@@ -43,7 +43,7 @@ export const StyledProjectsContainerContentCards = styled.div`
    width: 650px;
    box-shadow: 0 0 50px ${colors.colorBlack};
    margin: 20px;
-   border-radius: 20px;
+   border-radius: 12px;
    justify-content: space-between;
 
    @media screen and (max-width: 960px) {
@@ -57,7 +57,7 @@ export const StyledProjectsContainerContentCardsTitleProjects = styled.div`
    border-top: 5px solid ${colors.colorPrimary};
    border-left: 5px solid ${colors.colorPrimary};
    border-right: 5px solid ${colors.colorPrimary};
-   border-radius: 10px;
+   border-radius: 12px;
 `
 export const StyledProjectsContainerContentCardsTitleProjectsSpan = styled.span`
    margin: 0;
@@ -101,11 +101,11 @@ export const StyledProjectsContainerContentCardsButtomCards = styled.button`
    }
 `
 export const StyledProjectsContainerContentCardsButtomCardsImg = styled.img`
-   width: 500px;
-   height: 250px;
+   width: 85%;
+   height: 100%;
    margin: 0 auto;
    box-shadow: 0 0 20px ${colors.colorPrimaryImg};
-   border-radius: 10px;
+   border-radius: 12px;
    cursor: pointer;
    transition: .3s ease-in-out;
 
@@ -115,6 +115,11 @@ export const StyledProjectsContainerContentCardsButtomCardsImg = styled.img`
    }
 
    @media screen and (max-width: 960px) {
+      width: 85%;
+      height: 100%;
+   }
+
+   @media screen and (max-width: 460px) {
       width: 100%;
       height: 100%;
    }
@@ -147,7 +152,7 @@ export const StyledContentTechs = styled.div`
    text-transform: uppercase;
    box-shadow: 0 0 20px ${colors.colorPrimaryImg};
    padding: 8px 16px;
-   border-radius: 5px;
+   border-radius: 12px;
    transition: .3s ease-in-out;
 
    &:hover {
@@ -177,5 +182,5 @@ export const StyledProjectsContainerContentCardsBorderButtom = styled.div`
    border-bottom: 5px solid ${colors.colorPrimary};
    border-left: 5px solid ${colors.colorPrimary};
    border-right: 5px solid ${colors.colorPrimary};
-   border-radius: 10px;
+   border-radius: 12px;
 `

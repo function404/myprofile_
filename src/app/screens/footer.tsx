@@ -6,12 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import DateYear from '^/app/utils/dateyear';
 
-import { 
-   faInstagram,
-   faGithub,
-   faLinkedinIn,
-   faTwitch,
-} from "@fortawesome/free-brands-svg-icons";
+import Datatooltip from "^/app/components/datatooltip";
 
 import {
    StyledFooter,
@@ -19,13 +14,11 @@ import {
    StyledFooterMainBtnH5,
    StyledFooterMainBtnContentBtn,
    StyledFooterMainBtnContentBtnButton,
-   StyledFooterMainBtnContentBtnButtonAInstagram,
-   StyledFooterMainBtnContentBtnButtonALinkedin,
-   StyledFooterMainBtnContentBtnButtonAGithub,
-   StyledFooterMainBtnContentBtnButtonATwitch,
+   IconLink,
 } from '^/styles/styledfooter';
 
 import { StyledMainMotion } from "^/app/globals";
+import { IconsFooterData } from "../utils/iconsfooter";
 
 export default function Footer() {
    const ref = useRef(null);
@@ -53,32 +46,28 @@ export default function Footer() {
             >
                <StyledFooterMainBtn>
                   <StyledFooterMainBtnContentBtn>
-                     <StyledFooterMainBtnContentBtnButton>
-                        <StyledFooterMainBtnContentBtnButtonAInstagram href="https://www.instagram.com/lincoln.mezzalira/" target='blank_'>
-                           <FontAwesomeIcon icon={faInstagram} size="xl"/>
-                        </StyledFooterMainBtnContentBtnButtonAInstagram>
+                  {IconsFooterData.map(({ icon, link, text, color, hoverColor }, index) => (
+                     <StyledFooterMainBtnContentBtnButton key={index}>
+                           <IconLink
+                              data-tooltip-place="top"
+                              data-tooltip-id={`tooltip-${index}`}
+                              data-tooltip-content={text}
+                              href={link}
+                              target='blank_'
+                              color={color}
+                              hoverColor={hoverColor}
+                           >
+                              <FontAwesomeIcon icon={icon} size="xl" />
+                           </IconLink>
                      </StyledFooterMainBtnContentBtnButton>
-                     <StyledFooterMainBtnContentBtnButton>
-                        <StyledFooterMainBtnContentBtnButtonAGithub href="https://github.com/function404" target='blank_'>
-                           <FontAwesomeIcon icon={faGithub} size="xl" />
-                        </StyledFooterMainBtnContentBtnButtonAGithub>
-                     </StyledFooterMainBtnContentBtnButton>
-                     <StyledFooterMainBtnContentBtnButton>
-                        <StyledFooterMainBtnContentBtnButtonALinkedin href="https://www.linkedin.com/in/lincoln-novais-mezzalira-361962236/" target='blank_'>
-                           <FontAwesomeIcon icon={faLinkedinIn} size="xl" />
-                        </StyledFooterMainBtnContentBtnButtonALinkedin>
-                     </StyledFooterMainBtnContentBtnButton>
-                     <StyledFooterMainBtnContentBtnButton>
-                        <StyledFooterMainBtnContentBtnButtonATwitch href="https://www.twitch.tv/functionss_" target='blank_'>
-                        <FontAwesomeIcon icon={faTwitch} size="xl" />
-                        </StyledFooterMainBtnContentBtnButtonATwitch>
-                     </StyledFooterMainBtnContentBtnButton>
+                     ))}
                   </StyledFooterMainBtnContentBtn>
                   <StyledFooterMainBtnH5>
                         ©2022 - {DateYear()} &copy; Reserved rights
                   </StyledFooterMainBtnH5>
                </StyledFooterMainBtn>
             </StyledMainMotion>
+            <Datatooltip />    
          </div>
       </StyledFooter>
    </>

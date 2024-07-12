@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import { colors } from '^/app/utils/colors';
+interface IconLinkProps {
+   color?: string;
+   hoverColor?: string;
+}
 
 export const StyledFooter = styled.footer`
    padding: 20px;
@@ -26,45 +30,18 @@ export const StyledFooterMainBtnContentBtn = styled.div`
 export const StyledFooterMainBtnContentBtnButton = styled.div`
    width: 100%;
    height: 100%;
-   padding: 10px 20px;
+   margin: 10px 20px;
+   transition: all .5s ease-in-out;
+   
+   &:hover {
+      transform: scale(1.1);
+      transition: all .5s ease-in-out;
+   }   
 `
-export const StyledFooterMainBtnContentBtnButtonAInstagram = styled.a`   
-   text-decoration: none;
-   transition: all .5s ease-in-out;
-   color: ${colors.colorWhite};   
 
-   &:hover {
-      color: ${colors.colorInstagram};  
-      transition: all .5s ease-in-out;
-   }
-   `
-export const StyledFooterMainBtnContentBtnButtonAGithub = styled.a`
-   text-decoration: none;
-   transition: all .5s ease-in-out;
-   color: ${colors.colorWhite};   
-
-   &:hover {
-      color: ${colors.colorGithub};  
-      transition: all .5s ease-in-out;
-   }
-`
-export const StyledFooterMainBtnContentBtnButtonALinkedin = styled.a`
-   text-decoration: none;
-   transition: all .5s ease-in-out;
-   color: ${colors.colorWhite};   
-
-   &:hover {
-      color: ${colors.colorLinkedin};  
-      transition: all .5s ease-in-out;
-   }
-`
-export const StyledFooterMainBtnContentBtnButtonATwitch = styled.a`
-   text-decoration: none;
-   transition: all .5s ease-in-out;
-   color: ${colors.colorWhite};   
-
-   &:hover {
-      color: ${colors.colorTwitch};  
-      transition: all .5s ease-in-out;
-   }
+export const IconLink = styled.a<IconLinkProps>`
+  color: ${props => props.color};
+  &:hover {
+      color: ${props => props.hoverColor};
+  }
 `
