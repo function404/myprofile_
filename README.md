@@ -2,9 +2,9 @@
 
 ## 📢 Informações
 
-- Versão: 3.3.8
+- Versão: 3.4.3
 
-- Última atualização: 12 Jul. 2024
+- Última atualização: 25 Jul. 2024
 
 ## ℹ️ Sobre o Projeto
 

@@ -26,7 +26,7 @@ const swipe = keyframes`
      width: 0%;
    }
 `
-export const StyledHeader = styled.header`
+export const StyledCenter = styled.div`
    width: 100%;
    height: 100vh;
    display: flex;
@@ -34,7 +34,7 @@ export const StyledHeader = styled.header`
    justify-content: center;
    align-items: center;
 `
-export const StyledHeaderMainImg = styled.div`
+export const StyledMainImg = styled.div`
    border-radius: 50px;
    position: relative;
    background: url("/mee.png") no-repeat center;
@@ -61,7 +61,7 @@ export const StyledHeaderMainImg = styled.div`
       height: 220px;
    }
 `
-export const StyledHeaderMainImgTextOverlayB = styled.div`
+export const StyledMainImgTextOverlayB = styled.div`
    position: absolute;
    top: -20%;
    left: 10%;
@@ -76,7 +76,7 @@ export const StyledHeaderMainImgTextOverlayB = styled.div`
       display: none;
    }
 `
-export const StyledHeaderMainImgTextOverlay = styled.div`
+export const StyledMainImgTextOverlay = styled.div`
    position: absolute;
    top: 0;
    left: 15%;
@@ -91,7 +91,7 @@ export const StyledHeaderMainImgTextOverlay = styled.div`
       display: none;
    }
 `
-export const StyledHeaderMainImgTextOverlayC = styled.div`
+export const StyledMainImgTextOverlayC = styled.div`
    position: absolute;
    top: 15%;
    left: 10%;
@@ -106,7 +106,7 @@ export const StyledHeaderMainImgTextOverlayC = styled.div`
       display: none;
    }
 `
-export const StyledHeaderMainImgTextOverlaySwipe = styled.div`
+export const StyledMainImgTextOverlaySwipe = styled.div`
    position: relative;
    width: fit-content;
 
@@ -122,7 +122,7 @@ export const StyledHeaderMainImgTextOverlaySwipe = styled.div`
    background-color: ${colors.colorPrimaryImg};
    animation: ${swipe} 1.5s ease-out 1s forwards;
 `
-export const StyledHeaderMainImgTextOverlaySwipeH1 = styled.h1`
+export const StyledMainImgTextOverlaySwipeH1 = styled.h1`
    display: flex;
    color: ${colors.colorWhite};
    font-size: 135px;
@@ -142,7 +142,7 @@ export const StyledHeaderMainImgTextOverlaySwipeH1 = styled.h1`
       animation: ${opacity} 0.01s ease-out 1.75s forwards;
    }
 `
-export const StyledHeaderMainImgTextOverlaySwipeH3 = styled.h3`
+export const StyledMainImgTextOverlaySwipeH3 = styled.h3`
    display: flex;
    color: ${colors.colorWhite};
    font-size: 100px;
@@ -162,7 +162,7 @@ export const StyledHeaderMainImgTextOverlaySwipeH3 = styled.h3`
       animation: ${opacity} 0.01s ease-out 1.75s forwards;
    }
 `
-export const StyledHeaderMainImgTextOverlaySwipeH4 = styled.h4`
+export const StyledMainImgTextOverlaySwipeH4 = styled.h4`
    display: flex;
    color: ${colors.colorWhite};
    font-size: 20px;
@@ -181,7 +181,7 @@ export const StyledHeaderMainImgTextOverlaySwipeH4 = styled.h4`
       animation: ${opacity} 0.01s ease-out 1.75s forwards;
    }
 `
-export const StyledHeaderMainResponsive = styled.div`
+export const StyledMainResponsive = styled.div`
    display: none;
 
    @media screen and (max-width: 960px) {
