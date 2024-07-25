@@ -3,7 +3,7 @@
 import React, { useState, useEffect} from "react";
 import RingLoader from 'react-spinners/RingLoader'
 
-import Header from "^/app/screens/header";
+import Mainimg from "^/app/screens/mainimg";
 import Project from "^/app/screens/projects";
 import Footer from "^/app/screens/footer";
 import ContactUs from "^/app/screens/contact";
@@ -40,7 +40,7 @@ export default function Home() {
         </StyledLoading>
        ) : (
         <>
-          <Header />
+          <Mainimg />
           <Project />
           <ContactUs />
           <Footer />
