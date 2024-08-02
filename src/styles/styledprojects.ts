@@ -143,6 +143,7 @@ export const StyledContainerTechs = styled.div`
    flex-wrap: wrap;
 
    @media screen and (max-width: 960px) {
+      padding-top: 20px;
       gap: 8px;
    }
 `
