@@ -81,7 +81,7 @@ export default function Project() {
                     <a
                       data-tooltip-place="bottom"
                       data-tooltip-id={`tooltip-${index}`}
-                      data-tooltip-content="Clique na imagem para visualizar o projeto"
+                      data-tooltip-content="Click on the image to view the project"
                       href={project.link}
                       {...project.target ? { target: "_blank" } : {target: ""}}
                     >
@@ -97,7 +97,7 @@ export default function Project() {
                   </StyledProjectsContainerContentCardsButtomCards>
                   <StyledProjectsContainerContentCardsInfoButtomCards>
                     <FontAwesomeIcon icon={faCircleInfo} /> {''}
-                    Clique na imagem para visualizar o projeto
+                    Click on the image to view the project
                   </StyledProjectsContainerContentCardsInfoButtomCards>
                   <StyledContainerTechs>
                       {project.techs && project.techs.map((tech, index) => (
