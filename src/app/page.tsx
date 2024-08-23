@@ -4,6 +4,7 @@ import React, { useState, useEffect} from "react";
 import RingLoader from 'react-spinners/RingLoader'
 
 import Mainimg from "^/app/screens/mainimg";
+import Header from "^/app/screens/header"
 import Project from "^/app/screens/projects";
 import Footer from "^/app/screens/footer";
 import ContactUs from "^/app/screens/contact";
@@ -40,7 +41,8 @@ export default function Home() {
         </StyledLoading>
        ) : (
         <>
-          <Mainimg />
+          <Header />
+          {/* <Mainimg /> */}
           <Project />
           <ContactUs />
           <Footer />
