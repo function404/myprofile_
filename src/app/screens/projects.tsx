@@ -5,15 +5,12 @@ import React, { useEffect, useRef } from "react";
 import { useInView, useAnimation } from "framer-motion";
 import Tilt from 'react-parallax-tilt';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
-
 import { 
   StyledTitle,
   StyledTitleH2
 } from "^/app/components/title";
 
-import { ProjectsData } from "^/app/utils/projects";
+import { ProjectsData } from '^/app/utils/projects';
 
 import {
   StyledProjectsContainer,
@@ -29,11 +26,12 @@ import {
   StyledContainerTechs,
   StyledContentTechs,
   StyledIconsNameTechs,
-} from "^/styles/styledprojects";
+} from '^/styles/styledprojects';
 
-import { StyledMainMotion } from "^/app/globals";
+import { StyledMainMotion } from '^/app/globals';
 
-import Datatooltip from "^/app/components/datatooltip";
+import Datatooltip from '^/app/components/datatooltip';
+import { FaCircleInfo } from 'react-icons/fa6';
 
 export default function Project() {
   const ref = useRef(null);
@@ -96,7 +94,7 @@ export default function Project() {
                     </a>
                   </StyledProjectsContainerContentCardsButtomCards>
                   <StyledProjectsContainerContentCardsInfoButtomCards>
-                    <FontAwesomeIcon icon={faCircleInfo} /> {''}
+                    <FaCircleInfo /> {''}
                     Click on the image to view the project
                   </StyledProjectsContainerContentCardsInfoButtomCards>
                   <StyledContainerTechs>
@@ -107,7 +105,7 @@ export default function Project() {
                           >
                             <StyledContentTechs key={index}>
                               <StyledIconsNameTechs>
-                                  <FontAwesomeIcon icon={tech.icon} /> {tech.name}
+                                  {(tech.icon({}))} {tech.name}
                               </StyledIconsNameTechs>
                             </StyledContentTechs>
                           </Tilt>

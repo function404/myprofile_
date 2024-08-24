@@ -1,39 +1,38 @@
 import { 
-   faInstagram,
-   faGithub,
-   faLinkedinIn,
-   faTwitch,
-} from "@fortawesome/free-brands-svg-icons";
+   FaInstagram,    
+   FaGithub,
+   FaLinkedinIn,
+   FaTwitch
+} from "react-icons/fa";
 
 import { colors } from '^/app/utils/colors';
-import { text } from "stream/consumers";
 
 const { colorWhite, colorInstagram, colorGithub, colorLinkedin, colorTwitch } = colors;
 
 export const IconsFooterData = [
       {
-         icon: faInstagram,
+         icon: FaInstagram,
          link: "https://www.instagram.com/lincoln.mezzalira/",
          text: "Instagram",
          color: colorWhite,
          hoverColor: colorInstagram,
       },
       {
-         icon: faGithub,
+         icon: FaGithub,
          link: "https://github.com/function404",
          text: "Github",
          color: colorWhite,
          hoverColor: colorGithub,
       },
       {
-         icon: faLinkedinIn,
+         icon: FaLinkedinIn,
          link: "https://www.linkedin.com/in/lincoln-novais-mezzalira/",
          text: "Linkedin",
          color: colorWhite,
          hoverColor: colorLinkedin,
       },
       {
-         icon: faTwitch,
+         icon: FaTwitch,
          link: "https://www.twitch.tv/functionss_",
          text: "Twitch",
          color: colorWhite,

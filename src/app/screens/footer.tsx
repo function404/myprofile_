@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { useAnimation, useInView } from "framer-motion";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import DateYear from '^/app/utils/dateyear';
 
@@ -57,7 +56,7 @@ export default function Footer() {
                               color={color}
                               hoverColor={hoverColor}
                            >
-                              <FontAwesomeIcon icon={icon} size="xl" />
+                              {icon({size: 24})}
                            </IconLink>
                      </StyledFooterMainBtnContentBtnButton>
                      ))}

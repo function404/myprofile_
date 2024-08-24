@@ -1,5 +1,12 @@
-import { faHtml5, faCss3Alt, faJs, faPhp, faReact, } from '@fortawesome/free-brands-svg-icons';
-import { faCode } from '@fortawesome/free-solid-svg-icons';
+import { 
+   SiStyledcomponents,
+   SiTypescript,
+   SiJavascript,
+   SiPhp,
+   SiReact,
+   SiHtml5,
+   SiCss3
+} from "react-icons/si";
 
 export const ProjectsData = [
    {
@@ -9,9 +16,9 @@ export const ProjectsData = [
       link: "https://novalira.netlify.app/",
       target: true,
       techs: [
-         { name: "React", icon: faReact },
-         { name: "Styled-components", icon: faCode },
-         { name: "TypeScript", icon: faCode }         
+         { name: "React", icon: SiReact },
+         { name: "Styled-components", icon: SiStyledcomponents },
+         { name: "TypeScript", icon: SiTypescript }         
       ]
    },
    {
@@ -21,9 +28,9 @@ export const ProjectsData = [
       link: "https://museuinfo.netlify.app",
       target: true,
       techs: [
-         { name: "HTML", icon: faHtml5 },
-         { name: "CSS", icon: faCss3Alt },
-         { name: "JavaScript", icon: faJs }         
+         { name: "HTML", icon: SiHtml5 },
+         { name: "CSS", icon: SiCss3 },
+         { name: "JavaScript", icon: SiJavascript  }         
       ]
    },
    {
@@ -33,9 +40,9 @@ export const ProjectsData = [
       link: "https://github.com/drypzz/2022_",
       target: true,
       techs: [
-         { name: "PHP", icon: faPhp }, 
-         { name: "CSS", icon: faCss3Alt }, 
-         { name: "JavaScript", icon: faJs }         
+         { name: "PHP", icon: SiPhp }, 
+         { name: "CSS", icon: SiCss3 }, 
+         { name: "JavaScript", icon: SiJavascript  }         
       ]
    },
    {
@@ -45,9 +52,9 @@ export const ProjectsData = [
       link: "https://quer-namora-comigo.netlify.app",
       target: true,
       techs: [
-         { name: "HTML", icon: faHtml5 },
-         { name: "CSS", icon: faCss3Alt },
-         { name: "JavaScript", icon: faJs }         
+         { name: "HTML", icon: SiHtml5 },
+         { name: "CSS", icon: SiCss3 },
+         { name: "JavaScript", icon: SiJavascript  }         
       ]
    },
    {
@@ -57,9 +64,9 @@ export const ProjectsData = [
       link: "#header",
       target: false,
       techs: [
-         { name: "React", icon: faReact },
-         { name: "Styled-components", icon: faCode },
-         { name: "TypeScript", icon: faCode }         
+         { name: "React", icon: SiReact },
+         { name: "Styled-components", icon: SiStyledcomponents },
+         { name: "TypeScript", icon: SiTypescript }         
       ]
    }
 ];

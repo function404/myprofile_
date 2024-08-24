@@ -40,8 +40,8 @@ export const StyledFooterMainBtnContentBtnButton = styled.div`
 `
 
 export const IconLink = styled.a<IconLinkProps>`
-  color: ${props => props.color};
-  &:hover {
+   color: ${props => props.color};
+   &:hover {
       color: ${props => props.hoverColor};
-  }
+   }
 `

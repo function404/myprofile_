@@ -24,11 +24,18 @@ export const StyledContainer = styled.div`
 export const StyledRow = styled.div`
    display: flex;
    align-items: center;
-   justify-content: space-around;
+   justify-content: center;
    width: 100%;
-
+   gap: 15vh;
+   
    @media screen and (max-width: 960px) {
       flex-direction: column;
+      gap: 0;
+   }
+   
+   @media screen and (max-width: 1024px) {
+      flex-direction: column;   
+      gap: 5vh;
    }
 `
 
@@ -38,6 +45,11 @@ export const StyledContent = styled.div`
    align-items: flex-start;
    justify-content: center;
    padding: 20px;
+
+   @media screen and (max-width: 1024px) {
+      align-items: center;
+      text-align: center;
+   }
 
    @media screen and (max-width: 960px) {
       align-items: center;
@@ -49,11 +61,28 @@ export const StyledContentText = styled.div`
    margin-bottom: 25px;
 `
 
+export const StyledContentIcons = styled.div`
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 20px;
+`
+
+export const StyledIconA = styled.a`
+   color: ${colors.colorWhite};
+   transition: all .5s ease-in-out;
+
+   &:hover {
+      color: ${colors.colorPrimary};
+   }
+`
+
 export const StyledTextOne = styled.p`
    font-size: 120px;
    color: ${colors.colorWhite};
    text-align: left;
    font-weight: bold;
+   text-transform: uppercase;
 
    @media screen and (max-width: 960px) {
       font-size: 72px;
@@ -66,6 +95,8 @@ export const StyledTextTwo = styled.p`
    color: ${colors.colorWhite};
    text-align: left;
    font-weight: bold;
+   text-transform: uppercase;
+
 
    @media screen and (max-width: 960px) {
       font-size: 36px;
@@ -86,27 +117,28 @@ export const StyledTextThree = styled.h4`
 
 export const FlipContainer = styled.div`
    perspective: 1000px;
-   width: 320px;
-   height: 320px;
-
-   @media screen and (max-width: 960px) {
-      width: 220px;
-      height: 220px;
-   }
+   width: 100%;
+   height: 100%;
 `
 
 export const FlipCard = styled.div`
-   width: 100%;
-   height: 100%;
+   width: 500px;
+   height: 500px;
    position: relative;
    transform-style: preserve-3d;
    animation: ${flipAnimation} 10s infinite;
+
+   @media screen and (max-width: 960px) {
+      width: 250px;
+      height: 250px;
+   }
 `
 
 export const StyledImg = styled.img<{ front: boolean }>`
    width: 100%;
    height: 100%;
    backface-visibility: hidden;
+   object-fit: cover;
    position: absolute;
    top: 0;
    left: 0;

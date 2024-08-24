@@ -107,11 +107,11 @@ export const StyledProjectsContainerContentCardsButtomCardsImg = styled.img`
    box-shadow: 0 0 20px ${colors.colorPrimaryImg};
    border-radius: 12px;
    cursor: pointer;
-   transition: .3s ease-in-out;
+   transition: all .3s ease-in-out;
 
    &:hover {
       box-shadow: 0 0 10px ${colors.colorPrimary};
-      transition: .3s ease-in-out;
+      transition: all .3s ease-in-out;
    }
 
    @media screen and (max-width: 960px) {
@@ -154,11 +154,11 @@ export const StyledContentTechs = styled.div`
    box-shadow: 0 0 20px ${colors.colorPrimaryImg};
    padding: 8px 16px;
    border-radius: 12px;
-   transition: .3s ease-in-out;
+   transition: all .3s ease-in-out;
 
    &:hover {
       box-shadow: 0 0 5px ${colors.colorPrimary};
-      transition: .3s ease-in-out;
+      transition: all .3s ease-in-out;
    }
 
    @media screen and (max-width: 960px) {
