@@ -44,7 +44,7 @@ export default function Header() {
                   </StyledContentText>
                   <StyledContentText>
                      <StyledContentIcons>
-                     {IconsHeaderData.map(({ icon, link, text}, index) => {
+                     {IconsHeaderData.map(({ icon, link, text, color, hoverColor}, index) => {
                         return (
                               <StyledIconA 
                                  data-tooltip-place="bottom"
@@ -53,6 +53,8 @@ export default function Header() {
                                  key={index.toString()} 
                                  href={link} 
                                  target="_blank"
+                                 color={color}
+                                 hoverColor={hoverColor}
                               >
                                  {icon({size: 40})}
                               </StyledIconA>

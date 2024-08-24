@@ -1,6 +1,11 @@
 import styled, { keyframes } from 'styled-components';
 import { colors } from '^/app/utils/colors';
 
+interface IconLinkProps {
+   color?: string;
+   hoverColor?: string;
+}
+
 const flipAnimation = keyframes`
    0% {
       transform: perspective(1000px) rotateY(0deg);
@@ -68,12 +73,12 @@ export const StyledContentIcons = styled.div`
    gap: 20px;
 `
 
-export const StyledIconA = styled.a`
-   color: ${colors.colorWhite};
+export const StyledIconA = styled.a<IconLinkProps>`
    transition: all .5s ease-in-out;
-
+   color: ${props => props.color};
+   
    &:hover {
-      color: ${colors.colorPrimary};
+      color: ${props => props.hoverColor};
    }
 `
 
@@ -84,6 +89,10 @@ export const StyledTextOne = styled.p`
    font-weight: bold;
    text-transform: uppercase;
 
+   @media screen and (max-width: 1024px) {
+      font-size: 96px;
+   }
+   
    @media screen and (max-width: 960px) {
       font-size: 72px;
       text-align: center;
@@ -97,7 +106,10 @@ export const StyledTextTwo = styled.p`
    font-weight: bold;
    text-transform: uppercase;
 
-
+   @media screen and (max-width: 1024px) {
+      font-size: 72px;
+   }
+   
    @media screen and (max-width: 960px) {
       font-size: 36px;
       margin-left: 0;
@@ -109,6 +121,10 @@ export const StyledTextThree = styled.h4`
    text-align: left;
    font-weight: bold;
 
+   @media screen and (max-width: 1024px) {
+      font-size: 28px;
+   }
+   
    @media screen and (max-width: 960px) {
       font-size: 1rem;
       text-align: center;
