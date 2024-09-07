@@ -3,22 +3,22 @@
 import React, { useEffect, useState } from 'react';
 import Snowfall from 'react-snowfall';
 
-import DateYear from '^/app/utils/dateyear';
+import DateYearUtils from '^/app/utils/DateYear/DateYearUtils';
 
-export default function Snow(){
+export default function SnowEffectComponent(){
   const [animating, setAnimating] = useState(false);
 
-  const isHoraNatal = () => {
+  const isChristmas = () => {
       const currentDate = new Date();
-      const currentYear = DateYear();
-      const natalInicio = new Date(currentYear, 11, 16);
-      const natalFim = new Date(currentYear + 1, 0, 7);
+      const currentYear = DateYearUtils();
+      const christmasStart = new Date(currentYear, 11, 16);
+      const christmasEnd = new Date(currentYear + 1, 0, 7);
 
-      return currentDate >= natalInicio && currentDate <= natalFim;
+      return currentDate >= christmasStart && currentDate <= christmasEnd;
   };
 
   useEffect(() => {
-    setAnimating(isHoraNatal());
+    setAnimating(isChristmas());
   }, []);
 
   const renderSnow = () => {

@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components"
-import { colors } from "^/app/utils/colors"
+import { colors } from "^/theme/Colors/Colors"
 
 const glitchAnimation = keyframes`
    0% {

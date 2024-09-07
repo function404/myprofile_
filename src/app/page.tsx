@@ -1,21 +1,24 @@
-"use client";
+'use client';
 
-import React, { useState, useEffect} from "react";
-import RingLoader from 'react-spinners/RingLoader'
+import React, { useState, useEffect} from 'react';
 
-import Mainimg from "^/app/screens/mainimg";
-import Project from "^/app/screens/projects";
-import Footer from "^/app/screens/footer";
-import ContactUs from "^/app/screens/contact";
+import RingLoader from 'react-spinners/RingLoader';
 
-import Snow from '^/app/components/snow'
+import SnowEffectComponent from '^/app/components/SnowEffect/SnowEffectComponent';
+
+import Mainimg from '^/app/container/MainImg/mainimg';
+import HeaderContainer from '^/app/container/Header/HeaderContainer';
+import ProjectsContainer from '^/app/container/Projects/ProjectsContainer';
+import ContactContainer from '^/app/container/Contact/ContactContainer';
+import FooterContainer from '^/app/container/Footer/FooterContainer';
+
+import { colors } from '^/theme/Colors/Colors';
 
 import {
   GlobalStyles,
   StyledContainerIndex,
   StyledLoading
-} from '^/app/globals'
-import { colors } from '^/app/utils/colors';
+} from '^/app/globals';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -40,11 +43,12 @@ export default function Home() {
         </StyledLoading>
        ) : (
         <>
-          <Mainimg />
-          <Project />
-          <ContactUs />
-          <Footer />
-          <Snow />
+          <HeaderContainer />
+          {/* <Mainimg /> */}
+          <ProjectsContainer />
+          <ContactContainer />
+          <FooterContainer />
+          <SnowEffectComponent />
         </>  
       )}
       </StyledContainerIndex>

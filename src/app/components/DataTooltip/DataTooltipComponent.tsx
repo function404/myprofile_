@@ -4,12 +4,12 @@ import React from 'react';
 
 import { Tooltip } from "react-tooltip";
 
-import { colors } from '^/app/utils/colors';
+import { colors } from '^/theme/Colors/Colors';
 
 import "react-tooltip/dist/react-tooltip.css";
 
 
-export default function Datatooltip() {
+export default function DataTooltipComponent() {
     return (
         <>
             <Tooltip id={`tooltip-0`} arrowColor={`${colors.colorPrimary}`} style={{ backgroundColor: colors.colorPrimary, borderRadius: "12px", color: colors.colorBlack }} />

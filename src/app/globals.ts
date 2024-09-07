@@ -1,7 +1,9 @@
-import { motion } from 'framer-motion'
+'use client';
+
+import { motion } from 'framer-motion';
 import styled, { createGlobalStyle } from 'styled-components';
 
-import { colors } from '^/app/utils/colors';
+import { colors } from '^/theme/Colors/Colors';
 
 export const GlobalStyles = createGlobalStyle`
 * {
@@ -25,26 +27,26 @@ export const GlobalStyles = createGlobalStyle`
 `
 
 export const StyledMainMotion = styled(motion.div)`
-   width: 100%;
-   height: 100%;
-   justify-content: center;
-   align-items: center;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
 
-   @media screen and (max-width: 960px) {
-      width: 100%;
-      height: 100%;
-   }
+    @media screen and (max-width: 960px) {
+        width: 100%;
+        height: 100%;
+    }
 `
 
 export const StyledContainerIndex = styled.div`
-    background: radial-gradient(at 0% 0%, ${colors.colorBgBody3}, transparent 50%),
-                radial-gradient(at 100% 50%, ${colors.colorBgBody2}, transparent 50%),
-                radial-gradient(at 0% 100%, ${colors.colorBgBody3}, transparent 50%),
-                radial-gradient(at 100% 50%, ${colors.colorBgBody2}, transparent 50%);
+        background: radial-gradient(at 0% 0%, ${colors.colorBgBody3}, transparent 50%),
+                    radial-gradient(at 100% 50%, ${colors.colorBgBody2}, transparent 50%),
+                    radial-gradient(at 0% 100%, ${colors.colorBgBody3}, transparent 50%),
+                    radial-gradient(at 100% 50%, ${colors.colorBgBody2}, transparent 50%);
 `
 export const StyledLoading = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -1,20 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
+'use client';
 
-import React, { useEffect, useRef } from "react";
-import { useInView, useAnimation } from "framer-motion";
+import React from 'react';
 import Tilt from 'react-parallax-tilt';
+import { FaCircleInfo } from 'react-icons/fa6';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import DataTooltipComponent from '^/app/components/DataTooltip/DataTooltipComponent';
 
-import { 
-  StyledTitle,
-  StyledTitleH2
-} from "^/app/components/title";
-
-import { ProjectsData } from "^/app/utils/projects";
-
+import { useProjectsContainerRules } from '^/app/container/Projects/ProjectsContainer.rules';
 import {
   StyledProjectsContainer,
   StyledProjectsContainerContent,
@@ -29,23 +21,22 @@ import {
   StyledContainerTechs,
   StyledContentTechs,
   StyledIconsNameTechs,
-} from "^/styles/styledprojects";
+} from '^/app/container/Projects/ProjectsContainer.styles';
 
-import { StyledMainMotion } from "^/app/globals";
+import { ProjectsData } from '^/app/data/Projects/ProjectsData';
 
-import Datatooltip from "^/app/components/datatooltip";
+import { 
+    StyledTitle,
+    StyledTitleH2
+} from '^/theme/Title/TitleTheme';
 
-export default function Project() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+import { StyledMainMotion } from '^/app/globals';
 
-  const mainControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-    }
-  }, [isInView, mainControls]);
+export default function ProjectsContainer() {
+    const {
+        ref,
+        mainControls
+    } = useProjectsContainerRules();
 
   return (
     <>
@@ -96,7 +87,7 @@ export default function Project() {
                     </a>
                   </StyledProjectsContainerContentCardsButtomCards>
                   <StyledProjectsContainerContentCardsInfoButtomCards>
-                    <FontAwesomeIcon icon={faCircleInfo} /> {''}
+                    <FaCircleInfo /> {''}
                     Click on the image to view the project
                   </StyledProjectsContainerContentCardsInfoButtomCards>
                   <StyledContainerTechs>
@@ -107,7 +98,7 @@ export default function Project() {
                           >
                             <StyledContentTechs key={index}>
                               <StyledIconsNameTechs>
-                                  <FontAwesomeIcon icon={tech.icon} /> {tech.name}
+                                  {(tech.icon({}))} {tech.name}
                               </StyledIconsNameTechs>
                             </StyledContentTechs>
                           </Tilt>
@@ -120,7 +111,7 @@ export default function Project() {
             </StyledProjectsContainerContent>
           </StyledProjectsContainer>
         </StyledMainMotion>
-        <Datatooltip />
+        <DataTooltipComponent />
       </div>
     </>
   );
