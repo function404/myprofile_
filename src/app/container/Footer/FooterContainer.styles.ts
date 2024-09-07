@@ -1,10 +1,8 @@
-import styled from "styled-components";
-import { colors } from '^/app/utils/colors';
+import styled from 'styled-components';
 
-interface IconLinkProps {
-   color?: string;
-   hoverColor?: string;
-}
+import { IIconLinkProps } from '^/app/data/Icons/IconsData.types';
+
+import { colors } from '^/theme/Colors/Colors';
 
 export const StyledFooter = styled.footer`
    padding: 20px;
@@ -40,7 +38,7 @@ export const StyledFooterMainBtnContentBtnButton = styled.div`
    }   
 `
 
-export const IconLink = styled.a<IconLinkProps>`
+export const IconLink = styled.a<IIconLinkProps>`
    color: ${props => props.color};
    &:hover {
       color: ${props => props.hoverColor};

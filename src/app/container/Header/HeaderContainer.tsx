@@ -1,6 +1,6 @@
-'use client'
+'use client';
 
-import React from "react"
+import React from 'react';
 
 import { 
    StyledContainer,
@@ -15,11 +15,11 @@ import {
    FlipContainer,
    FlipCard,
    StyledImg,
-} from "^/styles/styledheader"
+} from '^/app/container/Header/HeaderContainer.styles';
 
-import { IconsHeaderData } from "^/app/utils/header"
+import { IconsData } from '^/app/data/Icons/IconsData';
 
-export default function Header() {
+export default function HeaderContainer() {
    return (
       <>
          <StyledContainer>
@@ -44,7 +44,7 @@ export default function Header() {
                   </StyledContentText>
                   <StyledContentText>
                      <StyledContentIcons>
-                     {IconsHeaderData.map(({ icon, link, text, color, hoverColor}, index) => {
+                     {IconsData.map(({ icon, link, text, color, hoverColor}, index) => {
                         return (
                               <StyledIconA 
                                  data-tooltip-place="bottom"

@@ -11,7 +11,7 @@ import {
   StyledMainImgTextOverlaySwipeH3,
   StyledMainImgTextOverlaySwipeH4,
   StyledMainResponsive,
-} from '^/styles/styledmainimg';
+} from '^/app/container/MainImg/mainimg.styles';
 
 export default function Mainimg() {
   return (

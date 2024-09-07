@@ -1,17 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
+'use client';
 
-import React, { useEffect, useRef } from "react";
-import { useInView, useAnimation } from "framer-motion";
+import React from 'react';
 import Tilt from 'react-parallax-tilt';
+import { FaCircleInfo } from 'react-icons/fa6';
 
-import { 
-  StyledTitle,
-  StyledTitleH2
-} from "^/app/components/title";
+import DataTooltipComponent from '^/app/components/DataTooltip/DataTooltipComponent';
 
-import { ProjectsData } from '^/app/utils/projects';
-
+import { useProjectsContainerRules } from '^/app/container/Projects/ProjectsContainer.rules';
 import {
   StyledProjectsContainer,
   StyledProjectsContainerContent,
@@ -26,24 +21,22 @@ import {
   StyledContainerTechs,
   StyledContentTechs,
   StyledIconsNameTechs,
-} from '^/styles/styledprojects';
+} from '^/app/container/Projects/ProjectsContainer.styles';
+
+import { ProjectsData } from '^/app/data/Projects/ProjectsData';
+
+import { 
+    StyledTitle,
+    StyledTitleH2
+} from '^/theme/Title/TitleTheme';
 
 import { StyledMainMotion } from '^/app/globals';
 
-import Datatooltip from '^/app/components/datatooltip';
-import { FaCircleInfo } from 'react-icons/fa6';
-
-export default function Project() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const mainControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-    }
-  }, [isInView, mainControls]);
+export default function ProjectsContainer() {
+    const {
+        ref,
+        mainControls
+    } = useProjectsContainerRules();
 
   return (
     <>
@@ -118,7 +111,7 @@ export default function Project() {
             </StyledProjectsContainerContent>
           </StyledProjectsContainer>
         </StyledMainMotion>
-        <Datatooltip />
+        <DataTooltipComponent />
       </div>
     </>
   );

@@ -1,10 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { colors } from '^/app/utils/colors';
 
-interface IconLinkProps {
-   color?: string;
-   hoverColor?: string;
-}
+import { IIconLinkProps } from '^/app/data/Icons/IconsData.types';
+
+import { colors } from '^/theme/Colors/Colors';
 
 const flipAnimation = keyframes`
    0% {
@@ -73,7 +71,7 @@ export const StyledContentIcons = styled.div`
    gap: 20px;
 `
 
-export const StyledIconA = styled.a<IconLinkProps>`
+export const StyledIconA = styled.a<IIconLinkProps>`
    transition: all .5s ease-in-out;
    color: ${props => props.color};
    

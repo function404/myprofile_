@@ -4,12 +4,12 @@ import {
    FaLinkedinIn,
    FaTwitch
 } from "react-icons/fa";
-
-import { colors } from '^/app/utils/colors';
-
+ 
+import { colors } from '^/theme/Colors/Colors';
+ 
 const { colorWhite, colorInstagram, colorGithub, colorLinkedin, colorTwitch } = colors;
-
-export const IconsFooterData = [
+ 
+export const IconsData = [
       {
          icon: FaInstagram,
          link: "https://www.instagram.com/lincoln.mezzalira/",
