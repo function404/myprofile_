@@ -69,7 +69,11 @@ export const StyledContainer = styled.div`
    height: 100dvh;
 
    @media screen and (max-width: 1024px) {
-      height: auto;
+      height: 100dvh;
+   }
+   
+   @media screen and (max-width: 960px) {
+      height: 100dvh;
    }
 `
 
@@ -79,11 +83,6 @@ export const StyledRow = styled.div`
    justify-content: center;
    width: 100%;
    gap: 15vh;
-   
-   @media screen and (max-width: 1024px) {
-      flex-direction: column;   
-      gap: 0;
-   }
 
    @media screen and (max-width: 960px) {
       flex-direction: column;
@@ -97,11 +96,6 @@ export const StyledContent = styled.div`
    align-items: flex-start;
    justify-content: center;
    padding: 20px;
-
-   @media screen and (max-width: 1024px) {
-      align-items: center;
-      text-align: center;
-   }
 
    @media screen and (max-width: 960px) {
       align-items: center;
@@ -120,7 +114,7 @@ export const StyledContentIcons = styled.div`
    justify-content: center;
    gap: 20px;
    opacity: 0;
-   animation: ${opacity} 0.5s ease-in-out 1.75s forwards;
+   animation: ${opacity} .5s ease-in-out 1.75s forwards;
 `
 
 export const StyledIconA = styled.a<IIconLinkProps>`
@@ -133,7 +127,7 @@ export const StyledIconA = styled.a<IIconLinkProps>`
 `
 
 export const StyledTextOne = styled.p`
-   font-size: 120px;
+   font-size: 100px;
    color: ${colors.colorWhite};
    margin-top: 5px;
    margin-bottom: 5px;
@@ -141,14 +135,14 @@ export const StyledTextOne = styled.p`
    font-weight: bold;
    text-transform: uppercase;
    opacity: 0;
-   animation: ${opacity} 0.01s ease-out 1.75s forwards;
+   animation: ${opacity} .05s ease-out 1.75s forwards;
 
-   @media screen and (max-width: 1024px) {
+   @media screen and (max-width: 1280px) {
       font-size: 72px;
    }
    
    @media screen and (max-width: 960px) {
-      font-size: 56px;
+      font-size: 42px;
       text-align: center;
    }
 `
@@ -159,40 +153,43 @@ export const StyledTextTwo = styled.p`
    font-weight: bold;
    text-transform: uppercase;
    opacity: 0;
-   animation: ${opacity} 0.01s ease-out 1.75s forwards;
+   animation: ${opacity} .05s ease-out 1.75s forwards;
 
-   @media screen and (max-width: 1024px) {
-      font-size: 56px;
+   @media screen and (max-width: 1280px) {
+      font-size: 72px;
       margin-left: 0;
    }
    
    @media screen and (max-width: 960px) {
-      font-size: 36px;
+      font-size: 42px;
       margin-left: 0;
    }
 `
 
 export const StyledTextThree = styled.h4`
+   font-size: 18px;
    color: ${colors.colorLight};
    text-align: left;
    font-weight: bold;
    opacity: 0;
-   animation: ${opacity} 0.01s ease-out 1.75s forwards;
+   animation: ${opacity} .05s ease-out 1.75s forwards;
 
-   @media screen and (max-width: 1024px) {
-      font-size: 24px;
+   @media screen and (max-width: 1280px) {
+      font-size: 16px;
    }
    
    @media screen and (max-width: 960px) {
-      font-size: 1rem;
+      font-size: 14px;
       text-align: center;
    }
 `
 
 export const FlipContainer = styled.div`
-   perspective: 1200px;
+   perspective: 2000px;
    width: 100%;
    height: 100%;
+   opacity: 0;
+   animation: ${opacity} .5s ease-in-out 1.75s forwards;
 `
 
 export const FlipCard = styled.div`
@@ -202,14 +199,14 @@ export const FlipCard = styled.div`
    transform-style: preserve-3d;
    animation: ${flipAnimation} 7s infinite;
 
-   @media screen and (max-width: 1024px) {
-      width: 300px;
-      height: 300px;
+   @media screen and (max-width: 1280px) {
+      width: 350px;
+      height: 350px;
    }
 
    @media screen and (max-width: 960px) {
-      width: 200px;
-      height: 200px;
+      width: 250px;
+      height: 250px;
    }
 `
 

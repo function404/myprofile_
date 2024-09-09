@@ -23,13 +23,13 @@ import { IconsData } from '^/app/data/Icons/IconsData';
 export default function HeaderContainer() {
    return (
       <>
-         <StyledContainer>
+         <StyledContainer id='header'>
             <StyledRow>
                <StyledContent>
                      <FlipContainer>
                         <FlipCard>
-                           <StyledImg src='/meR.png' front />
-                           <StyledImg src='mee2.png' front={false} />
+                           <StyledImg src='/meone.png' front />
+                           <StyledImg src='metwo.png' front={false} />
                         </FlipCard>
                      </FlipContainer> 
                </StyledContent>
@@ -63,7 +63,7 @@ export default function HeaderContainer() {
                                  color={color}
                                  hoverColor={hoverColor}
                               >
-                                 {icon({size: 40})}
+                                 {icon({size: 35})}
                               </StyledIconA>
                         )
                      })}
