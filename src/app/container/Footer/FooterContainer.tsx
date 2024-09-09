@@ -27,13 +27,13 @@ export default function FooterContainer() {
    return (
       <>
          <StyledFooter>
-            <div ref={ref} style={{ position: "relative", alignItems: "center" }}>
+            <div ref={ref} style={{ position: 'relative', alignItems: 'center' }}>
                <StyledMainMotion
                   variants={{
                      hidden: { opacity: 0, x: -100 },
                      visible: { opacity: 1, x: 0 },
                   }}
-                  initial="hidden"
+                  initial='hidden'
                   animate={mainControls}
                   transition={{ duration: 2, delay: 0.5 }}
                >
@@ -42,7 +42,7 @@ export default function FooterContainer() {
                      {IconsData.map(({ icon, link, text, color, hoverColor }, index) => (
                         <StyledFooterMainBtnContentBtnButton key={index}>
                               <IconLink
-                                 data-tooltip-place="top"
+                                 data-tooltip-place='top'
                                  data-tooltip-id={`tooltip-${index}`}
                                  data-tooltip-content={text}
                                  href={link}

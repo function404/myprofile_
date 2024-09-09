@@ -11,7 +11,7 @@ export const useProjectsContainerRules = () => {
   
     useEffect(() => {
       if (isInView) {
-        mainControls.start("visible");
+        mainControls.start('visible');
       }
     }, [isInView, mainControls]);
     

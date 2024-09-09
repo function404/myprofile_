@@ -27,7 +27,7 @@ import { ProjectsData } from '^/app/data/Projects/ProjectsData';
 
 import { 
     StyledTitle,
-    StyledTitleH2
+    StyledTitleH2,
 } from '^/theme/Title/TitleTheme';
 
 import { StyledMainMotion } from '^/app/globals';
@@ -40,18 +40,18 @@ export default function ProjectsContainer() {
 
   return (
     <>
-      <div ref={ref} style={{ position: "relative", alignItems: "center" }}>
+      <div ref={ref} style={{ position: 'relative', alignItems: 'center' }}>
         <StyledMainMotion
           variants={{
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial='hidden'
           animate={mainControls}
           transition={{ duration: 2, delay: 0.5 }}
         >
           <StyledTitle>
-            <StyledTitleH2 data-text="Projects">Projects</StyledTitleH2>
+            <StyledTitleH2 data-text='Projects'>Projects</StyledTitleH2>
           </StyledTitle>
           <StyledProjectsContainer>
             <StyledProjectsContainerContent>
@@ -67,21 +67,21 @@ export default function ProjectsContainer() {
                   </StyledProjectsContainerContentCardsInfo>
                   <StyledProjectsContainerContentCardsButtomCards
                     id={`btn-${index}`}
-                    data-placement="bottom"
+                    data-placement='bottom'
                   >
                     <a
-                      data-tooltip-place="bottom"
+                      data-tooltip-place='bottom'
                       data-tooltip-id={`tooltip-${index}`}
-                      data-tooltip-content="Click on the image to view the project"
+                      data-tooltip-content='Click on the image to view the project'
                       href={project.link}
-                      {...project.target ? { target: "_blank" } : {target: ""}}
+                      {...project.target ? { target: '_blank' } : {target: ''}}
                     >
                       <Tilt
                       perspective={6000}
                       >
                         <StyledProjectsContainerContentCardsButtomCardsImg 
                           src={project.img}
-                          alt="erro"
+                          alt='erro'
                         />
                       </Tilt>
                     </a>

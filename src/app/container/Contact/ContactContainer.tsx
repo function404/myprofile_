@@ -34,33 +34,33 @@ export default function ContactContainer() {
 
   return (
    <>
-      <div ref={ref} style={{ position: "relative", alignItems: "center" }}>
+      <div ref={ref} style={{ position: 'relative', alignItems: 'center' }}>
          <StyledMainMotion
             variants={{
                hidden: { opacity: 0, x: 100 },
                visible: { opacity: 1, x: 0 },
             }}
-            initial="hidden"
+            initial='hidden'
             animate={mainControls}
             transition={{ duration: 2, delay: 0.5 }}
          >
             <StyledTitle>
-               <StyledTitleH2 data-text="Contact">Contact</StyledTitleH2>
+               <StyledTitleH2 data-text='Contact'>Contact</StyledTitleH2>
             </StyledTitle>
             <StyledCenter>
                <StyledForm ref={form} onSubmit={sendEmail}>
                   <BorderTop></BorderTop>
                      <StyledContent>
                         <StyledLabel>Name:</StyledLabel>
-                        <StyledInput type="text" name="user_name" onFocus={handleFocus} />
+                        <StyledInput type='text' name='user_name' onFocus={handleFocus} />
                         <StyledLabel>Email:</StyledLabel>
-                        <StyledInput type="email" name="user_email" onFocus={handleFocus} />
+                        <StyledInput type='email' name='user_email' onFocus={handleFocus} />
                         <StyledLabel>Message:</StyledLabel>
-                        <StyledTextArea name="message" onFocus={handleFocus} />
+                        <StyledTextArea name='message' onFocus={handleFocus} />
                         {error && <StyledAlertError>{error}</StyledAlertError>}
                         {success && <StyledAlertSuccess success>{success}</StyledAlertSuccess>}
                         <StyledCenter>
-                           <StyledButtonSubmit type="submit" disabled={loading}>
+                           <StyledButtonSubmit type='submit' disabled={loading}>
                               {loading ? (
                               <StyledCenter>
                                  <RingLoader color={'rgb(255, 255, 255)'} loading={loading} size={24} /> 
