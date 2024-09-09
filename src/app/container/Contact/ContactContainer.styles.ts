@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { colors } from "^/app/utils/colors";
+import { colors } from "^/theme/Colors/Colors";
 
 const fadeIn = keyframes`
    from {
@@ -58,7 +58,7 @@ export const StyledInput = styled.input`
    border: none;
    border-bottom: 1px solid ${colors.colorPrimary};
    color: ${colors.colorWhite};
-   transition: 0.2s ease-in-out;
+   transition: all .2s ease-in-out;
 
    &:focus {
       outline: none;
@@ -66,7 +66,7 @@ export const StyledInput = styled.input`
    }
 
    &:hover {
-      transition: 0.2s ease-in-out;
+      transition: all .2s ease-in-out;
       border-bottom: 1px solid ${colors.colorBgScrollbar};
    }
 
@@ -93,7 +93,7 @@ export const StyledTextArea = styled.textarea`
    }
 
    &:hover {
-      transition: 0.2s ease-in-out;
+      transition: all .2s ease-in-out;
       border: 1px solid ${colors.colorBgScrollbar};
    }
 
@@ -113,13 +113,13 @@ export const StyledButtonSubmit = styled.button`
    color: ${colors.colorPrimary};
    border: 1px solid ${colors.colorPrimary};
    border-radius: 12px;
-   transition: 0.2s ease-in-out;
+   transition: all .2s ease-in-out;
 
    &:hover {
       box-shadow: 0px 0px 20px ${colors.colorPrimary};
       background-color: ${colors.colorPrimary};
       color: ${colors.colorBlack};
-      transition: .2s ease-in-out;
+      transition: all .2s ease-in-out;
    }
 
    @media screen and (max-width: 960px) {

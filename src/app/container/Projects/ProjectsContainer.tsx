@@ -1,20 +1,12 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
+'use client';
 
-import React, { useEffect, useRef } from "react";
-import { useInView, useAnimation } from "framer-motion";
+import React from 'react';
 import Tilt from 'react-parallax-tilt';
+import { FaCircleInfo } from 'react-icons/fa6';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+import DataTooltipComponent from '^/app/components/DataTooltip/DataTooltipComponent';
 
-import { 
-  StyledTitle,
-  StyledTitleH2
-} from "^/app/components/title";
-
-import { ProjectsData } from "^/app/utils/projects";
-
+import { useProjectsContainerRules } from '^/app/container/Projects/ProjectsContainer.rules';
 import {
   StyledProjectsContainer,
   StyledProjectsContainerContent,
@@ -29,38 +21,37 @@ import {
   StyledContainerTechs,
   StyledContentTechs,
   StyledIconsNameTechs,
-} from "^/styles/styledprojects";
+} from '^/app/container/Projects/ProjectsContainer.styles';
 
-import { StyledMainMotion } from "^/app/globals";
+import { ProjectsData } from '^/app/data/Projects/ProjectsData';
 
-import Datatooltip from "^/app/components/datatooltip";
+import { 
+    StyledTitle,
+    StyledTitleH2,
+} from '^/theme/Title/TitleTheme';
 
-export default function Project() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+import { StyledMainMotion } from '^/app/globals';
 
-  const mainControls = useAnimation();
-
-  useEffect(() => {
-    if (isInView) {
-      mainControls.start("visible");
-    }
-  }, [isInView, mainControls]);
+export default function ProjectsContainer() {
+    const {
+        ref,
+        mainControls
+    } = useProjectsContainerRules();
 
   return (
     <>
-      <div ref={ref} style={{ position: "relative", alignItems: "center" }}>
+      <div ref={ref} style={{ position: 'relative', alignItems: 'center' }}>
         <StyledMainMotion
           variants={{
             hidden: { opacity: 0, x: -100 },
             visible: { opacity: 1, x: 0 },
           }}
-          initial="hidden"
+          initial='hidden'
           animate={mainControls}
           transition={{ duration: 2, delay: 0.5 }}
         >
           <StyledTitle>
-            <StyledTitleH2 data-text="Projects">Projects</StyledTitleH2>
+            <StyledTitleH2 data-text='Projects'>Projects</StyledTitleH2>
           </StyledTitle>
           <StyledProjectsContainer>
             <StyledProjectsContainerContent>
@@ -76,27 +67,27 @@ export default function Project() {
                   </StyledProjectsContainerContentCardsInfo>
                   <StyledProjectsContainerContentCardsButtomCards
                     id={`btn-${index}`}
-                    data-placement="bottom"
+                    data-placement='bottom'
                   >
                     <a
-                      data-tooltip-place="bottom"
+                      data-tooltip-place='bottom'
                       data-tooltip-id={`tooltip-${index}`}
-                      data-tooltip-content="Click on the image to view the project"
+                      data-tooltip-content='Click on the image to view the project'
                       href={project.link}
-                      {...project.target ? { target: "_blank" } : {target: ""}}
+                      {...project.target ? { target: '_blank' } : {target: ''}}
                     >
                       <Tilt
                       perspective={6000}
                       >
                         <StyledProjectsContainerContentCardsButtomCardsImg 
                           src={project.img}
-                          alt="erro"
+                          alt='erro'
                         />
                       </Tilt>
                     </a>
                   </StyledProjectsContainerContentCardsButtomCards>
                   <StyledProjectsContainerContentCardsInfoButtomCards>
-                    <FontAwesomeIcon icon={faCircleInfo} /> {''}
+                    <FaCircleInfo /> {''}
                     Click on the image to view the project
                   </StyledProjectsContainerContentCardsInfoButtomCards>
                   <StyledContainerTechs>
@@ -107,7 +98,7 @@ export default function Project() {
                           >
                             <StyledContentTechs key={index}>
                               <StyledIconsNameTechs>
-                                  <FontAwesomeIcon icon={tech.icon} /> {tech.name}
+                                  {(tech.icon({}))} {tech.name}
                               </StyledIconsNameTechs>
                             </StyledContentTechs>
                           </Tilt>
@@ -120,7 +111,7 @@ export default function Project() {
             </StyledProjectsContainerContent>
           </StyledProjectsContainer>
         </StyledMainMotion>
-        <Datatooltip />
+        <DataTooltipComponent />
       </div>
     </>
   );
