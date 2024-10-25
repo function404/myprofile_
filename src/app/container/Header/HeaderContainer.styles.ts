@@ -23,7 +23,6 @@ const opacity = keyframes`
       opacity: 1;
    }
 `
-
 const swipe = keyframes`
    0% {
       right: 100%;
@@ -60,7 +59,6 @@ export const StyledEffectSwipe = styled.div`
       animation: ${swipe} 1.5s ease-out 1s forwards;
    }
 `
-
 export const StyledContainer = styled.div`
    display: flex;
    align-items: center;
@@ -72,7 +70,6 @@ export const StyledContainer = styled.div`
       height: auto;
    }
 `
-
 export const StyledRow = styled.div`
    display: flex;
    align-items: center;
@@ -90,7 +87,6 @@ export const StyledRow = styled.div`
       gap: 0;
    }
 `
-
 export const StyledContent = styled.div`
    display: flex;
    flex-direction: column;
@@ -122,7 +118,6 @@ export const StyledContentIcons = styled.div`
    opacity: 0;
    animation: ${opacity} 0.5s ease-in-out 1.75s forwards;
 `
-
 export const StyledIconA = styled.a<IIconLinkProps>`
    transition: all .5s ease-in-out;
    color: ${props => props.color};
@@ -131,7 +126,6 @@ export const StyledIconA = styled.a<IIconLinkProps>`
       color: ${props => props.hoverColor};
    }
 `
-
 export const StyledTextOne = styled.p`
    font-size: 120px;
    color: ${colors.colorWhite};
@@ -171,7 +165,6 @@ export const StyledTextTwo = styled.p`
       margin-left: 0;
    }
 `
-
 export const StyledTextThree = styled.h4`
    color: ${colors.colorLight};
    text-align: left;
@@ -188,13 +181,11 @@ export const StyledTextThree = styled.h4`
       text-align: center;
    }
 `
-
 export const FlipContainer = styled.div`
    perspective: 1200px;
    width: 100%;
    height: 100%;
 `
-
 export const FlipCard = styled.div`
    width: 500px;
    height: 500px;
@@ -212,7 +203,6 @@ export const FlipCard = styled.div`
       height: 200px;
    }
 `
-
 export const StyledImg = styled.img<{ front: boolean }>`
    width: 100%;
    height: 100%;

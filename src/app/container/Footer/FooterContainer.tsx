@@ -18,7 +18,7 @@ import DateYearUtils from '^/app/utils/DateYear/DateYearUtils';
 
 import { StyledMainMotion } from '^/app/globals';
 
-export default function FooterContainer() {
+export const FooterContainer = () => {
    const {
       ref,
       mainControls,

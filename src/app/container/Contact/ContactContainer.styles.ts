@@ -9,7 +9,6 @@ const fadeIn = keyframes`
       opacity: 1;
    }
 `
-
 export const StyledCenter = styled.div`
    width: 100%;
    display: flex;
@@ -39,7 +38,6 @@ export const StyledContent = styled.div`
       margin: 0px 25px;
    }
 `
-
 export const StyledLabel = styled.label`
    font-size: 20px;
    margin: 10px 0px 10px 0px;

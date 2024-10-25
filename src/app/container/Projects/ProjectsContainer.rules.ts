@@ -19,4 +19,4 @@ export const useProjectsContainerRules = () => {
         ref,
         mainControls
     }
-} 
+}

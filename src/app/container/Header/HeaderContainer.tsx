@@ -20,7 +20,7 @@ import {
 
 import { IconsData } from '^/app/data/Icons/IconsData';
 
-export default function HeaderContainer() {
+export const HeaderContainer = () => {
    return (
       <>
          <StyledContainer>
