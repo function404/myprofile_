@@ -75,7 +75,7 @@ export const useContactContainerRules = () => {
 
     useEffect(() => {
         if (isInView) {
-        mainControls.start("visible")
+        mainControls.start('visible')
         }
     }, [isInView, mainControls])
 

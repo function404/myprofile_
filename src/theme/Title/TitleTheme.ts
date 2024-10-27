@@ -1,5 +1,5 @@
-import styled, { keyframes } from "styled-components"
-import { colors } from "^/theme/Colors/Colors"
+import styled, { keyframes } from 'styled-components'
+import { colors } from '^/theme/Colors/Colors'
 
 const glitchAnimation = keyframes`
    0% {
@@ -82,7 +82,7 @@ export const StyledTitle = styled.div`
 export const StyledTitleH2 = styled.h2`
    position: relative;
    font-size: 72px;
-   font-family: "Poppins", sans-serif;
+   font-family: 'Poppins', sans-serif;
    margin-bottom: 80px;
    color: ${colors.colorPrimaryImg};
    text-transform: uppercase;
