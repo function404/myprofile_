@@ -98,12 +98,10 @@ export const StyledContent = styled.div`
       text-align: center;
    }
 `
-
 export const StyledContentText = styled.div`
    margin-top: 5px;
    margin-bottom: 25px;
 `
-
 export const StyledContentIcons = styled.div`
    display: flex;
    align-items: center;
@@ -188,7 +186,7 @@ export const FlipCard = styled.div`
    height: 500px;
    position: relative;
    transform-style: preserve-3d;
-   animation: ${flipAnimation} 7s infinite;
+   animation: ${flipAnimation} 7s infinite cubic-bezier(1, 0.2, 0.2, 1);
 
    @media screen and (max-width: 1280px) {
       width: 350px;

@@ -1,6 +1,6 @@
 'use client';
 
-import DataTooltipComponent from '^/app/components/DataTooltip/DataTooltipComponent';
+import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent';
 
 import { useFooterContainerRules } from '^/app/container/Footer/FooterContainer.rules';
 import {
@@ -8,7 +8,6 @@ import {
    StyledFooterMainBtn,
    StyledFooterMainBtnH5,
    StyledFooterMainBtnContentBtn,
-   StyledFooterMainBtnContentBtnButton,
    IconLink,
 } from '^/app/container/Footer/FooterContainer.styles';
 
@@ -39,21 +38,21 @@ export const FooterContainer = () => {
                >
                   <StyledFooterMainBtn>
                      <StyledFooterMainBtnContentBtn>
-                     {IconsData.map(({ icon, link, text, color, hoverColor }, index) => (
-                        <StyledFooterMainBtnContentBtnButton key={index}>
-                              <IconLink
-                                 data-tooltip-place='top'
-                                 data-tooltip-id={`tooltip-${index}`}
-                                 data-tooltip-content={text}
-                                 href={link}
-                                 target='blank_'
-                                 color={color}
-                                 hoverColor={hoverColor}
-                              >
-                                 {icon({size: 24})}
-                              </IconLink>
-                        </StyledFooterMainBtnContentBtnButton>
-                        ))}
+                     {IconsData.map(({ icon, link, text, color, hoverColor }, index) => {
+                        return (
+                           <IconLink
+                           key={`${index}`} 
+                              data-tooltip-place='top'
+                              data-tooltip-id={`tooltip-${index}`}
+                              data-tooltip-content={`${text}`}
+                              href={`${link}`}
+                              target='_blank'
+                              color={`${color}`}
+                              hoverColor={`${hoverColor}`}
+                           >
+                              {icon({size: 24})}
+                           </IconLink>
+                        )})}
                      </StyledFooterMainBtnContentBtn>
                      <StyledFooterMainBtnH5>
                            ©2022 - {DateYearUtils()} &copy; Reserved rights
