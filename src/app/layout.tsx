@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   twitter: {
     site: '@function404',
     card: 'summary_large_image',
-    images: '/meR.png',
+    images: '/meone.png',
   },
   openGraph: {
     title: 'Function404 - Portfolio',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: 'FUNCTION404',
     type: 'website',
     url: 'https://function404.netlify.app/',
-    images: [{ url: '/meR.png' }],
+    images: [{ url: '/meone.png' }],
     countryName: 'Brazil',
     locale: 'pt_BR',
   },
