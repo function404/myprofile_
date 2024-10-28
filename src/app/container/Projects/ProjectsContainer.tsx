@@ -4,7 +4,7 @@ import React from 'react';
 import Tilt from 'react-parallax-tilt';
 import { FaCircleInfo } from 'react-icons/fa6';
 
-import DataTooltipComponent from '^/app/components/DataTooltip/DataTooltipComponent';
+import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent';
 
 import { useProjectsContainerRules } from '^/app/container/Projects/ProjectsContainer.rules';
 import {
