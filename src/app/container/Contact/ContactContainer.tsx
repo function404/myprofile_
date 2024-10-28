@@ -20,7 +20,7 @@ import {
 
 import { StyledMainMotion, BorderTop, BorderBottom } from '^/app/globals';
 
-export default function ContactContainer() {
+export const ContactContainer = () => {
     const {
         ref,
         form,

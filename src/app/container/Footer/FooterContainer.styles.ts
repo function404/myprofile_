@@ -25,22 +25,14 @@ export const StyledFooterMainBtnContentBtn = styled.div`
    display: flex;
    align-items: center;
    justify-content: center;
+   gap: 35px;   
 `
-export const StyledFooterMainBtnContentBtnButton = styled.div`
-   width: 100%;
-   height: 100%;
-   margin: 10px 20px;
-   transition: all .5s ease-in-out;
-   
-   &:hover {
-      transform: scale(1.1);
-      transition: all .5s ease-in-out;
-   }   
-`
-
 export const IconLink = styled.a<IIconLinkProps>`
    color: ${props => props.color};
+   transition: all .5s ease-in-out;
+
    &:hover {
       color: ${props => props.hoverColor};
+      transform: scale(1.2);
    }
 `

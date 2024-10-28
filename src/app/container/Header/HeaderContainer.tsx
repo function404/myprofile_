@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent';
+
 import { 
    StyledEffectSwipe,
    StyledContainer,
@@ -20,7 +22,7 @@ import {
 
 import { IconsData } from '^/app/data/Icons/IconsData';
 
-export default function HeaderContainer() {
+export const HeaderContainer = () => {
    return (
       <>
          <StyledContainer id='header'>
@@ -51,27 +53,27 @@ export default function HeaderContainer() {
                   </StyledEffectSwipe>
                   <StyledContentText>
                      <StyledContentIcons>
-                     {IconsData.map(({ icon, link, text, color, hoverColor}, index) => {
-                        return (
-                              <StyledIconA 
-                                 data-tooltip-place='bottom'
-                                 data-tooltip-id={`tooltip-${index}`}
-                                 data-tooltip-content={text.toString()}   
-                                 key={index.toString()} 
-                                 href={link} 
-                                 target='_blank'
-                                 color={color}
-                                 hoverColor={hoverColor}
-                              >
-                                 {icon({size: 35})}
-                              </StyledIconA>
-                        )
-                     })}
+                        {IconsData.map(({ icon, link, text, color, hoverColor}, index) => {
+                           return (
+                                 <StyledIconA 
+                                    key={`${index}`} 
+                                    data-tooltip-place='bottom'
+                                    data-tooltip-id={`tooltip-${index}`}
+                                    data-tooltip-content={`${text}`}
+                                    href={`${link}`}
+                                    target='_blank'
+                                    color={`${color}`}
+                                    hoverColor={`${hoverColor}`}
+                                 >
+                                    {icon({size: 35})}
+                                 </StyledIconA>
+                           )
+                        })}
                      </StyledContentIcons>
                   </StyledContentText>
                </StyledContent>
             </StyledRow>
-            
+            <DataTooltipComponent />  
          </StyledContainer>
       </>
    )

@@ -32,7 +32,7 @@ import {
 
 import { StyledMainMotion } from '^/app/globals';
 
-export default function ProjectsContainer() {
+export const ProjectsContainer = () => {
     const {
         ref,
         mainControls
@@ -59,11 +59,11 @@ export default function ProjectsContainer() {
                 <StyledProjectsContainerContentCards key={index}>
                   <StyledProjectsContainerContentCardsTitleProjects>
                     <StyledProjectsContainerContentCardsTitleProjectsSpan>
-                      {project.title}
+                      {`${project.title}`}
                     </StyledProjectsContainerContentCardsTitleProjectsSpan>
                   </StyledProjectsContainerContentCardsTitleProjects>
                   <StyledProjectsContainerContentCardsInfo>
-                    {project.description}
+                    {`${project.description}`}
                   </StyledProjectsContainerContentCardsInfo>
                   <StyledProjectsContainerContentCardsButtomCards
                     id={`btn-${index}`}
@@ -73,14 +73,14 @@ export default function ProjectsContainer() {
                       data-tooltip-place='bottom'
                       data-tooltip-id={`tooltip-${index}`}
                       data-tooltip-content='Click on the image to view the project'
-                      href={project.link}
+                      href={`${project.link}`}
                       {...project.target ? { target: '_blank' } : {target: ''}}
                     >
                       <Tilt
                       perspective={6000}
                       >
                         <StyledProjectsContainerContentCardsButtomCardsImg 
-                          src={project.img}
+                          src={`${project.img}`}
                           alt='erro'
                         />
                       </Tilt>
@@ -98,7 +98,7 @@ export default function ProjectsContainer() {
                           >
                             <StyledContentTechs key={index}>
                               <StyledIconsNameTechs>
-                                  {(tech.icon({}))} {tech.name}
+                                  {(tech.icon({}))} {`${tech.name}`} 
                               </StyledIconsNameTechs>
                             </StyledContentTechs>
                           </Tilt>

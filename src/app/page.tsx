@@ -4,12 +4,12 @@ import React, { useState, useEffect} from 'react';
 
 import RingLoader from 'react-spinners/RingLoader';
 
-import SnowEffectComponent from '^/app/components/SnowEffect/SnowEffectComponent';
+import { SnowEffectComponent } from '^/app/components/SnowEffect/SnowEffectComponent';
 
-import HeaderContainer from '^/app/container/Header/HeaderContainer';
-import ProjectsContainer from '^/app/container/Projects/ProjectsContainer';
-import ContactContainer from '^/app/container/Contact/ContactContainer';
-import FooterContainer from '^/app/container/Footer/FooterContainer';
+import { HeaderContainer } from '^/app/container/Header/HeaderContainer';
+import { ProjectsContainer } from '^/app/container/Projects/ProjectsContainer';
+import { ContactContainer } from '^/app/container/Contact/ContactContainer';
+import { FooterContainer } from '^/app/container/Footer/FooterContainer';
 
 import { colors } from '^/theme/Colors/Colors';
 

@@ -23,7 +23,6 @@ const opacity = keyframes`
       opacity: 1;
    }
 `
-
 const swipe = keyframes`
    0% {
       right: 100%;
@@ -49,7 +48,7 @@ export const StyledEffectSwipe = styled.div`
 
    &::after {
       display: block;
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       left: 0;
@@ -60,7 +59,6 @@ export const StyledEffectSwipe = styled.div`
       animation: ${swipe} 1.5s ease-out 1s forwards;
    }
 `
-
 export const StyledContainer = styled.div`
    display: flex;
    align-items: center;
@@ -76,7 +74,6 @@ export const StyledContainer = styled.div`
       height: 100dvh;
    }
 `
-
 export const StyledRow = styled.div`
    display: flex;
    align-items: center;
@@ -89,7 +86,6 @@ export const StyledRow = styled.div`
       gap: 0;
    }
 `
-
 export const StyledContent = styled.div`
    display: flex;
    flex-direction: column;
@@ -102,12 +98,10 @@ export const StyledContent = styled.div`
       text-align: center;
    }
 `
-
 export const StyledContentText = styled.div`
    margin-top: 5px;
    margin-bottom: 25px;
 `
-
 export const StyledContentIcons = styled.div`
    display: flex;
    align-items: center;
@@ -116,7 +110,6 @@ export const StyledContentIcons = styled.div`
    opacity: 0;
    animation: ${opacity} .5s ease-in-out 1.75s forwards;
 `
-
 export const StyledIconA = styled.a<IIconLinkProps>`
    transition: all .5s ease-in-out;
    color: ${props => props.color};
@@ -125,7 +118,6 @@ export const StyledIconA = styled.a<IIconLinkProps>`
       color: ${props => props.hoverColor};
    }
 `
-
 export const StyledTextOne = styled.p`
    font-size: 100px;
    color: ${colors.colorWhite};
@@ -165,7 +157,6 @@ export const StyledTextTwo = styled.p`
       margin-left: 0;
    }
 `
-
 export const StyledTextThree = styled.h4`
    font-size: 18px;
    color: ${colors.colorLight};
@@ -183,7 +174,6 @@ export const StyledTextThree = styled.h4`
       text-align: center;
    }
 `
-
 export const FlipContainer = styled.div`
    perspective: 2000px;
    width: 100%;
@@ -191,13 +181,12 @@ export const FlipContainer = styled.div`
    opacity: 0;
    animation: ${opacity} .5s ease-in-out 1.75s forwards;
 `
-
 export const FlipCard = styled.div`
    width: 500px;
    height: 500px;
    position: relative;
    transform-style: preserve-3d;
-   animation: ${flipAnimation} 7s infinite;
+   animation: ${flipAnimation} 7s infinite cubic-bezier(1, 0.2, 0.2, 1);
 
    @media screen and (max-width: 1280px) {
       width: 350px;
@@ -209,7 +198,6 @@ export const FlipCard = styled.div`
       height: 250px;
    }
 `
-
 export const StyledImg = styled.img<{ front: boolean }>`
    width: 100%;
    height: 100%;

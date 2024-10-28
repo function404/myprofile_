@@ -64,7 +64,7 @@ export const StyledProjectsContainerContentCardsTitleProjectsSpan = styled.span`
     padding: 0;
     box-sizing: border-box;
     color: ${colors.colorWhite};
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 22px;
     font-weight: bold;
     text-decoration: none;
