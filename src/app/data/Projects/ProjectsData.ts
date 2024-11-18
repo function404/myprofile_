@@ -58,7 +58,7 @@ import {
        ]
     },
     {
-      title: 'Poject CRUD VW',
+      title: 'Project CRUD VW',
       description: 'Website developed for work purposes (course).',
       img: '/vwcrud.png',
       link: 'https://github.com/function404/vwcrud_',
