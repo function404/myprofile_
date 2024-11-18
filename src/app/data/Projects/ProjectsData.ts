@@ -58,6 +58,19 @@ import {
        ]
     },
     {
+      title: 'Poject CRUD VW',
+      description: 'Website developed for work purposes (course).',
+      img: '/vwcrud.png',
+      link: 'https://github.com/function404/vwcrud_',
+      target: true,
+      techs: [
+         { name: 'HTML', icon: SiHtml5 },
+         { name: 'CSS', icon: SiCss3 },
+         { name: 'JavaScript', icon: SiJavascript  },
+         { name: 'PHP', icon: SiPhp }        
+      ]
+   },
+    {
        title: 'Personal Website',
        description: 'My portfolio.',
        img: '/myportfolio.png',
