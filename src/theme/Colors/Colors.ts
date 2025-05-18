@@ -17,4 +17,4 @@ export const colors = {
     colorSuccess: 'rgba(0, 190, 0, .3)',
     colorError: 'rgb(190, 0, 0)',
     colorErrorAlert: 'rgba(190, 0, 0, .3)',
-};
+}

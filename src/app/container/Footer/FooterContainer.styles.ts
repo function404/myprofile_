@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import { IIconLinkProps } from '^/app/data/Icons/IconsData.types';
+import { IIconLinkProps } from '^/app/data/Icons/IconsData.types'
 
-import { colors } from '^/theme/Colors/Colors';
+import { colors } from '^/theme/Colors/Colors'
 
 export const StyledFooter = styled.footer`
    padding: 20px;

@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Tilt from 'react-parallax-tilt';
-import { FaCircleInfo } from 'react-icons/fa6';
+import React from 'react'
+import Tilt from 'react-parallax-tilt'
+import { FaCircleInfo } from 'react-icons/fa6'
 
-import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent';
+import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
 
-import { useProjectsContainerRules } from '^/app/container/Projects/ProjectsContainer.rules';
+import { useProjectsContainerRules } from '^/app/container/Projects/ProjectsContainer.rules'
 import {
   StyledProjectsContainer,
   StyledProjectsContainerContent,
@@ -21,22 +21,22 @@ import {
   StyledContainerTechs,
   StyledContentTechs,
   StyledIconsNameTechs,
-} from '^/app/container/Projects/ProjectsContainer.styles';
+} from '^/app/container/Projects/ProjectsContainer.styles'
 
-import { ProjectsData } from '^/app/data/Projects/ProjectsData';
+import { ProjectsData } from '^/app/data/Projects/ProjectsData'
 
 import { 
     StyledTitle,
     StyledTitleH2,
-} from '^/theme/Title/TitleTheme';
+} from '^/theme/Title/TitleTheme'
 
-import { StyledMainMotion } from '^/app/globals';
+import { StyledMainMotion } from '^/app/globals'
 
 export const ProjectsContainer = () => {
     const {
         ref,
         mainControls
-    } = useProjectsContainerRules();
+    } = useProjectsContainerRules()
 
   return (
     <>
@@ -114,5 +114,5 @@ export const ProjectsContainer = () => {
         <DataTooltipComponent />
       </div>
     </>
-  );
+  )
 }

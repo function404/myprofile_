@@ -1,12 +1,12 @@
-'use client';
+'use client'
 
-import React from 'react';
-import Snowfall from 'react-snowfall';
+import React from 'react'
+import Snowfall from 'react-snowfall'
 
-import { SnowEffectComponentRules } from './SnowEffectComponent.rules';
+import { SnowEffectComponentRules } from './SnowEffectComponent.rules'
 
 export const SnowEffectComponent = () => {
-  const { animating } = SnowEffectComponentRules();
+  const { animating } = SnowEffectComponentRules()
 
   const renderSnow = () => {
     if (animating) {
@@ -23,9 +23,9 @@ export const SnowEffectComponent = () => {
         </>
       )
     } else {
-      return null;
+      return null
     }
-  };
+  }
 
-  return renderSnow();
-};
+  return renderSnow()
+}

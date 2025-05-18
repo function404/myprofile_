@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import React from 'react';
-import RingLoader from 'react-spinners/RingLoader';
+import React from 'react'
+import RingLoader from 'react-spinners/RingLoader'
 
-import { StyledTitle, StyledTitleH2 } from '^/theme/Title/TitleTheme';
+import { StyledTitle, StyledTitleH2 } from '^/theme/Title/TitleTheme'
 
-import { useContactContainerRules } from '^/app/container/Contact/ContactContainer.rules';
+import { useContactContainerRules } from '^/app/container/Contact/ContactContainer.rules'
 import { 
    StyledCenter,
    StyledForm,
@@ -16,21 +16,21 @@ import {
    StyledButtonSubmit,
    StyledAlertError,
    StyledAlertSuccess
-} from '^/app/container/Contact/ContactContainer.styles';
+} from '^/app/container/Contact/ContactContainer.styles'
 
-import { StyledMainMotion, BorderTop, BorderBottom } from '^/app/globals';
+import { StyledMainMotion, BorderTop, BorderBottom } from '^/app/globals'
 
 export const ContactContainer = () => {
-    const {
-        ref,
-        form,
-        error,
-        success,
-        loading,
-        sendEmail,
-        handleFocus,
-        mainControls,
-    } = useContactContainerRules()
+   const {
+      ref,
+      form,
+      error,
+      success,
+      loading,
+      sendEmail,
+      handleFocus,
+      mainControls,
+   } = useContactContainerRules()
 
   return (
    <>

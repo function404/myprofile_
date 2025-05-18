@@ -1,8 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components'
 
-import { IIconLinkProps } from '^/app/data/Icons/IconsData.types';
+import { IIconLinkProps } from '^/app/data/Icons/IconsData.types'
 
-import { colors } from '^/theme/Colors/Colors';
+import { colors } from '^/theme/Colors/Colors'
 
 const flipAnimation = keyframes`
    0% {

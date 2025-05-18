@@ -1,37 +1,37 @@
-'use client';
+'use client'
 
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect} from 'react'
 
-import RingLoader from 'react-spinners/RingLoader';
+import RingLoader from 'react-spinners/RingLoader'
 
-import { SnowEffectComponent } from '^/app/components/SnowEffect/SnowEffectComponent';
+import { SnowEffectComponent } from '^/app/components/SnowEffect/SnowEffectComponent'
 
-import { HeaderContainer } from '^/app/container/Header/HeaderContainer';
-import { ProjectsContainer } from '^/app/container/Projects/ProjectsContainer';
-import { ContactContainer } from '^/app/container/Contact/ContactContainer';
-import { FooterContainer } from '^/app/container/Footer/FooterContainer';
+import { HeaderContainer } from '^/app/container/Header/HeaderContainer'
+import { ProjectsContainer } from '^/app/container/Projects/ProjectsContainer'
+import { ContactContainer } from '^/app/container/Contact/ContactContainer'
+import { FooterContainer } from '^/app/container/Footer/FooterContainer'
 
-import { colors } from '^/theme/Colors/Colors';
+import { colors } from '^/theme/Colors/Colors'
 
 import {
   GlobalStyles,
   StyledContainerIndex,
   StyledLoading
-} from '^/app/globals';
+} from '^/app/globals'
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const randomTimeout = Math.floor(Math.random() * 4 + 2) * 1000;
+    const randomTimeout = Math.floor(Math.random() * 4 + 2) * 1000
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, randomTimeout);
+      setLoading(false)
+    }, randomTimeout)
 
     return () => {
-      clearTimeout(timer);
-    };
-  }, []);
+      clearTimeout(timer)
+    }
+  }, [])
 
   return (
     <>
@@ -52,5 +52,5 @@ export default function Home() {
       </StyledContainerIndex>
       <GlobalStyles />
     </>
-  );
+  )
 }

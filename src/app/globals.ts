@@ -1,9 +1,9 @@
-'use client';
+'use client'
 
-import { motion } from 'framer-motion';
-import styled, { createGlobalStyle } from 'styled-components';
+import { motion } from 'framer-motion'
+import styled, { createGlobalStyle } from 'styled-components'
 
-import { colors } from '^/theme/Colors/Colors';
+import { colors } from '^/theme/Colors/Colors'
 
 export const GlobalStyles = createGlobalStyle`
 * {

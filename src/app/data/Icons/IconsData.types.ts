@@ -1,5 +1,5 @@
 export interface IIconLinkProps {
-    color?: string;
-    hoverColor?: string;
+    color?: string
+    hoverColor?: string
 }
  
