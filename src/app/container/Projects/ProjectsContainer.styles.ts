@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { colors } from '^/theme/Colors/Colors';
+import styled from 'styled-components'
+
+import { colors } from '^/theme/Colors/Colors'
 
 export const StyledProjectsContainer = styled.div`
     width: 100%;

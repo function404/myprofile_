@@ -1,8 +1,8 @@
-'use client';
+'use client'
 
-import React from 'react';
+import React from 'react'
 
-import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent';
+import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
 
 import { 
    StyledEffectSwipe,
@@ -18,9 +18,9 @@ import {
    FlipContainer,
    FlipCard,
    StyledImg,
-} from '^/app/container/Header/HeaderContainer.styles';
+} from '^/app/container/Header/HeaderContainer.styles'
 
-import { IconsData } from '^/app/data/Icons/IconsData';
+import { IconsData } from '^/app/data/Icons/IconsData'
 
 export const HeaderContainer = () => {
    return (

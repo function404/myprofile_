@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
-import React from 'react';
-import { Tooltip } from 'react-tooltip';
+import React from 'react'
+import { Tooltip } from 'react-tooltip'
 
-import { colors } from '^/theme/Colors/Colors';
+import { colors } from '^/theme/Colors/Colors'
 
-import 'react-tooltip/dist/react-tooltip.css';
+import 'react-tooltip/dist/react-tooltip.css'
 
 
 export const DataTooltipComponent = () => {

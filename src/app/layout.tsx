@@ -1,8 +1,8 @@
-import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
-import './globals.css';
+import type { Metadata, Viewport } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ['latin'] })
 
 export const viewport: Viewport = {
   themeColor: '#f4f4f4',
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
     countryName: 'Brazil',
     locale: 'pt_BR',
   },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang='pt-br'>
       <body className={inter.className}>{children}</body>
     </html>
-  );
+  )
 }
