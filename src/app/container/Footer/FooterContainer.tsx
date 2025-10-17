@@ -1,21 +1,16 @@
-'use client';
+'use client'
 
-import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent';
+import { motion } from 'framer-motion'
 
-import { useFooterContainerRules } from '^/app/container/Footer/FooterContainer.rules';
-import {
-   StyledFooter,
-   StyledFooterMainBtn,
-   StyledFooterMainBtnH5,
-   StyledFooterMainBtnContentBtn,
-   IconLink,
-} from '^/app/container/Footer/FooterContainer.styles';
+import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
 
-import { IconsData } from '^/app/data/Icons/IconsData';	
+import { useFooterContainerRules } from '^/app/container/Footer/FooterContainer.rules'
 
-import DateYearUtils from '^/app/utils/DateYear/DateYearUtils';
+import { IconsData } from '^/app/data/Icons/IconsData'	
 
-import { StyledMainMotion } from '^/app/globals';
+import DateYearUtils from '^/app/utils/DateYear/DateYearUtils'
+
+import styles from './FooterContainer.module.css'
 
 export const FooterContainer = () => {
    const {
@@ -25,9 +20,9 @@ export const FooterContainer = () => {
 
    return (
       <>
-         <StyledFooter>
+         <footer className={styles.footer}>
             <div ref={ref} style={{ position: 'relative', alignItems: 'center' }}>
-               <StyledMainMotion
+               <motion.div
                   variants={{
                      hidden: { opacity: 0, x: -100 },
                      visible: { opacity: 1, x: 0 },
@@ -35,33 +30,36 @@ export const FooterContainer = () => {
                   initial='hidden'
                   animate={mainControls}
                   transition={{ duration: 2, delay: 0.5 }}
+                  className="main-motion"
                >
-                  <StyledFooterMainBtn>
-                     <StyledFooterMainBtnContentBtn>
+                  <div className={styles.footerMainBtn}>
+                     <div className={styles.footerMainBtnContentBtn}>
                      {IconsData.map(({ icon, link, text, color, hoverColor }, index) => {
                         return (
-                           <IconLink
-                           key={`${index}`} 
+                           <a
+                           key={`${index}`}
                               data-tooltip-place='top'
                               data-tooltip-id={`tooltip-${index}`}
                               data-tooltip-content={`${text}`}
                               href={`${link}`}
                               target='_blank'
-                              color={`${color}`}
-                              hoverColor={`${hoverColor}`}
+                              style={{ color: color }}
+                              className={styles.iconLink}
+                              onMouseOver={e => e.currentTarget.style.color = hoverColor}
+                              onMouseOut={e => e.currentTarget.style.color = color}
                            >
                               {icon({size: 24})}
-                           </IconLink>
+                           </a>
                         )})}
-                     </StyledFooterMainBtnContentBtn>
-                     <StyledFooterMainBtnH5>
-                           ©2022 - {DateYearUtils()} &copy; Reserved rights
-                     </StyledFooterMainBtnH5>
-                  </StyledFooterMainBtn>
-               </StyledMainMotion>
-               <DataTooltipComponent />    
+                     </div>
+                     <h5 className={styles.footerMainBtnH5}>
+                        2022 - {DateYearUtils()} &copy; Reserved rights
+                     </h5>
+                  </div>
+               </motion.div>
+               <DataTooltipComponent />
             </div>
-         </StyledFooter>
+         </footer>
       </>
-   );
+   )
 }

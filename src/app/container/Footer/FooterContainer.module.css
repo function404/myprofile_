@@ -1,0 +1,34 @@
+.footer {
+   padding: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   background: radial-gradient(at 100% 90%, rgba(190, 200, 200, .3), transparent 50%), radial-gradient(at 0% 100%, rgba(190, 200, 200, .3), transparent 50%);
+}
+
+.footerMainBtn {
+   display: block;
+   text-align: center;
+}
+
+.footerMainBtnH5 {
+   text-align: center;
+   padding: 15px;
+   color: rgb(255, 255, 255);
+}
+
+.footerMainBtnContentBtn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 35px;
+}
+
+.iconLink {
+   transition: all .5s ease-in-out;
+}
+
+.iconLink:hover {
+   transform: scale(1.2);
+}

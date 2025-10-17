@@ -1,0 +1,220 @@
+.projectsContainer {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   position: relative;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   margin: 0 0 120px 0;
+}
+
+@media screen and (max-width: 960px) {
+   .projectsContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+   }
+}
+
+.projectsContainerContent {
+   width: 100%;
+   height: 100%;
+   text-align: center;
+   justify-content: center;
+   align-items: center;
+   position: relative;
+   flex-wrap: wrap;
+   display: flex;
+}
+
+@media screen and (max-width: 960px) {
+  .projectsContainerContent {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: center;
+      margin-bottom: 40px;
+   }
+}
+
+.projectsContainerContentCards {
+   width: 650px;
+   box-shadow: 0 0 50px rgb(0, 0, 0);
+   margin: 20px;
+   border-radius: 12px;
+   justify-content: space-between;
+}
+
+@media screen and (max-width: 960px) {
+   .projectsContainerContentCards {
+      width: 100%;
+      text-align: center;
+   }
+}
+
+.projectsContainerContentCardsTitleProjects {
+   width: 100%;
+   padding: 35px 20px 20px 20px;
+   border-top: 5px solid rgb(244, 244, 244);
+   border-left: 5px solid rgb(244, 244, 244);
+   border-right: 5px solid rgb(244, 244, 244);
+   border-radius: 12px;
+}
+
+.projectsContainerContentCardsTitleProjectsSpan {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   color: rgb(255, 255, 255);
+   font-family: 'Poppins', sans-serif;
+   font-size: 22px;
+   font-weight: bold;
+   text-decoration: none;
+   list-style: none;
+   pointer-events: none;
+}
+
+@media screen and (max-width: 960px) {
+   .projectsContainerContentCardsTitleProjectsSpan {
+      font-size: 18px;
+   }
+}
+
+.projectsContainerContentCardsInfo {
+   width: 100%;
+   padding: 30px;
+   color: rgba(255, 255, 255, .6);
+   font-size: 18px;
+   font-weight: bold;
+   font-style: italic;
+   pointer-events: none;
+}
+
+@media screen and (max-width: 960px) {
+   .projectsContainerContentCardsInfo {
+      font-size: 12.5px;
+      padding: 15px 0;
+   }
+}
+
+.projectsContainerContentCardsButtomCards {
+   width: 100%;
+   height: 50%;
+   padding: 0 20px;
+   background: none;
+   border: none;
+}
+
+@media screen and (max-width: 960px) {
+   .projectsContainerContentCardsButtomCards {
+      padding: 20px;
+   }
+}
+
+.projectsContainerContentCardsButtomCardsImg {
+   width: 85%;
+   height: 100%;
+   margin: 0 auto;
+   box-shadow: 0 0 20px rgb(200, 200, 200);
+   border-radius: 12px;
+   cursor: pointer;
+   transition: all .3s ease-in-out;
+}
+
+.projectsContainerContentCardsButtomCardsImg:hover {
+   box-shadow: 0 0 10px rgb(244, 244, 244);
+   transition: all .3s ease-in-out;
+}
+
+@media screen and (max-width: 960px) {
+   .projectsContainerContentCardsButtomCardsImg {
+      width: 85%;
+      height: 100%;
+   }
+}
+
+@media screen and (max-width: 460px) {
+   .projectsContainerContentCardsButtomCardsImg {
+      width: 100%;
+      height: 100%;
+   }
+}
+
+.projectsContainerContentCardsInfoButtomCards {
+   visibility: hidden;
+   color: rgba(255, 255, 255, .6);
+}
+
+@media screen and (max-width: 960px) {
+   .projectsContainerContentCardsInfoButtomCards {
+      font-size: 12px;
+      margin: 0;
+      visibility: visible;
+   }
+}
+
+.containerTechs {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-top: 35px;
+   gap: 20px;
+   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 960px) {
+   .containerTechs {
+      padding-top: 20px;
+      gap: 8px;
+   }
+}
+
+.contentTechs {
+   color: rgb(255, 255, 255);
+   text-align: center;
+   text-transform: uppercase;
+   box-shadow: 0 0 20px rgb(200, 200, 200);
+   padding: 8px 16px;
+   border-radius: 12px;
+   transition: all .3s ease-in-out;
+}
+
+.contentTechs:hover {
+   box-shadow: 0 0 5px rgb(244, 244, 244);
+   transition: all .3s ease-in-out;
+}
+
+@media screen and (max-width: 960px) {
+   .contentTechs {
+      box-shadow: 0 0 10px rgb(200, 200, 200);
+   }
+}
+
+.iconsNameTechs {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   font-size: 16px;
+   pointer-events: none;
+}
+
+@media screen and (max-width: 960px) {
+   .iconsNameTechs {
+      font-size: 12px;
+   }
+}
+
+.projectsContainerContentCardsBorderButtom {
+   width: 100%;
+   padding: 35px;
+   border-bottom: 5px solid rgb(244, 244, 244);
+   border-left: 5px solid rgb(244, 244, 244);
+   border-right: 5px solid rgb(244, 244, 244);
+   border-radius: 12px;
+}

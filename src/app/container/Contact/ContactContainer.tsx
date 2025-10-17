@@ -2,6 +2,10 @@
 
 import React from 'react'
 import RingLoader from 'react-spinners/RingLoader'
+import { motion } from 'framer-motion'
+
+import styles from './ContactContainer.module.css'
+import titleStyles from '^/theme/Title/Title.module.css'
 
 import { StyledTitle, StyledTitleH2 } from '^/theme/Title/TitleTheme'
 
@@ -35,7 +39,7 @@ export const ContactContainer = () => {
   return (
    <>
       <div ref={ref} style={{ position: 'relative', alignItems: 'center' }}>
-         <StyledMainMotion
+         <motion.div
             variants={{
                hidden: { opacity: 0, x: 100 },
                visible: { opacity: 1, x: 0 },
@@ -43,38 +47,39 @@ export const ContactContainer = () => {
             initial='hidden'
             animate={mainControls}
             transition={{ duration: 2, delay: 0.5 }}
+            className="main-motion"
          >
-            <StyledTitle>
-               <StyledTitleH2 data-text='Contact'>Contact</StyledTitleH2>
-            </StyledTitle>
-            <StyledCenter>
-               <StyledForm ref={form} onSubmit={sendEmail}>
-                  <BorderTop></BorderTop>
-                     <StyledContent>
-                        <StyledLabel>Name:</StyledLabel>
-                        <StyledInput type='text' name='user_name' onFocus={handleFocus} />
-                        <StyledLabel>Email:</StyledLabel>
-                        <StyledInput type='email' name='user_email' onFocus={handleFocus} />
-                        <StyledLabel>Message:</StyledLabel>
-                        <StyledTextArea name='message' onFocus={handleFocus} />
-                        {error && <StyledAlertError>{error}</StyledAlertError>}
-                        {success && <StyledAlertSuccess success>{success}</StyledAlertSuccess>}
-                        <StyledCenter>
-                           <StyledButtonSubmit type='submit' disabled={loading}>
+            <div className={titleStyles.title}>
+               <h2 data-text='Contact' className={titleStyles.titleH2}>Contact</h2>
+            </div>
+            <div className={styles.center}>
+               <form ref={form} onSubmit={sendEmail} className={styles.form}>
+                  <div className="border-top"></div>
+                     <div className={styles.content}>
+                        <label className={styles.label}>Name:</label>
+                        <input type='text' name='user_name' onFocus={handleFocus} className={styles.input} />
+                        <label className={styles.label}>Email:</label>
+                        <input type='email' name='user_email' onFocus={handleFocus} className={styles.input} />
+                        <label className={styles.label}>Message:</label>
+                        <textarea name='message' onFocus={handleFocus} className={styles.textarea} />
+                        {error && <div className={styles.alertError}>{error}</div>}
+                        {success && <div className={styles.alertSuccess}>{success}</div>}
+                        <div className={styles.center}>
+                           <button type='submit' disabled={loading} className={styles.buttonSubmit}>
                               {loading ? (
-                              <StyledCenter>
-                                 <RingLoader color={'rgb(255, 255, 255)'} loading={loading} size={24} /> 
-                              </StyledCenter>   
-                              ) : ( 
+                              <div className={styles.center}>
+                                 <RingLoader color={'rgb(255, 255, 255)'} loading={loading} size={24} />
+                              </div>
+                              ) : (
                                  'Send'
                               )}
-                           </StyledButtonSubmit>
-                        </StyledCenter>
-                     </StyledContent>
-                  <BorderBottom></BorderBottom>   
-               </StyledForm>
-            </StyledCenter>
-         </StyledMainMotion>
+                           </button>
+                        </div>
+                     </div>
+                  <div className="border-bottom"></div>
+               </form>
+            </div>
+         </motion.div>
       </div>
    </>
   )

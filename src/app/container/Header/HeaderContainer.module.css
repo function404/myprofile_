@@ -1,0 +1,248 @@
+@keyframes flipAnimation {
+   0% {
+      transform: perspective(1000px) rotateY(0deg);
+   }
+   50% {
+      transform: perspective(1000px) rotateY(180deg);
+   }
+   100% {
+      transform: perspective(1000px) rotateY(360deg);
+   }
+}
+
+@keyframes opacity {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes swipe {
+   0% {
+      right: 100%;
+      left: 0;
+      width: 0%;
+   }
+   50% {
+      right: 0;
+      left: 0;
+      width: 100%;
+   }
+   100% {
+      right: 0;
+      left: 100%;
+      width: 0%;
+   }
+}
+
+.effectSwipe {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   position: relative;
+   width: fit-content;
+}
+
+.effectSwipe::after {
+   display: block;
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 100%;
+   width: 0%;
+   height: 100%;
+   background-color: rgb(200, 200, 200);
+   animation: swipe 1.5s ease-out 1s forwards;
+}
+
+.container {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+   height: 100dvh;
+}
+
+@media screen and (max-width: 1024px) {
+   .container {
+      height: 100dvh;
+   }
+}
+
+@media screen and (max-width: 960px) {
+   .container {
+      height: 100dvh;
+   }
+}
+
+.row {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   gap: 15vh;
+}
+
+@media screen and (max-width: 960px) {
+   .row {
+      flex-direction: column;
+      gap: 0;
+   }
+}
+
+.content {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   padding: 20px;
+}
+
+@media screen and (max-width: 960px) {
+   .content {
+      align-items: center;
+      text-align: center;
+   }
+}
+
+.contentText {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.contentIcons {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 20px;
+   opacity: 0;
+   animation: opacity .5s ease-in-out 1.75s forwards;
+}
+
+.iconA {
+   transition: all .5s ease-in-out;
+}
+
+.textOne {
+   font-size: 100px;
+   color: rgb(255, 255, 255);
+   margin-top: 5px;
+   margin-bottom: 5px;
+   text-align: left;
+   font-weight: bold;
+   text-transform: uppercase;
+   opacity: 0;
+   animation: opacity .05s ease-out 1.75s forwards;
+}
+
+@media screen and (max-width: 1280px) {
+   .textOne {
+      font-size: 72px;
+   }
+}
+
+@media screen and (max-width: 960px) {
+   .textOne {
+      font-size: 42px;
+      text-align: center;
+   }
+}
+
+.textTwo {
+   font-size: 100px;
+   color: rgb(255, 255, 255);
+   text-align: left;
+   font-weight: bold;
+   text-transform: uppercase;
+   opacity: 0;
+   animation: opacity .05s ease-out 1.75s forwards;
+}
+
+@media screen and (max-width: 1280px) {
+   .textTwo {
+      font-size: 72px;
+      margin-left: 0;
+   }
+}
+
+@media screen and (max-width: 960px) {
+   .textTwo {
+      font-size: 42px;
+      margin-left: 0;
+   }
+}
+
+.textThree {
+   font-size: 18px;
+   color: rgba(255, 255, 255, .6);
+   text-align: left;
+   font-weight: bold;
+   opacity: 0;
+   animation: opacity .05s ease-out 1.75s forwards;
+}
+
+@media screen and (max-width: 1280px) {
+   .textThree {
+      font-size: 16px;
+   }
+}
+
+@media screen and (max-width: 960px) {
+   .textThree {
+      font-size: 14px;
+      text-align: center;
+   }
+}
+
+.flipContainer {
+   perspective: 2000px;
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+   animation: opacity .5s ease-in-out 1.75s forwards;
+}
+
+.flipCard {
+   width: 500px;
+   height: 500px;
+   position: relative;
+   transform-style: preserve-3d;
+   animation: flipAnimation 7s infinite cubic-bezier(1, 0.2, 0.2, 1);
+}
+
+@media screen and (max-width: 1280px) {
+   .flipCard {
+      width: 350px;
+      height: 350px;
+   }
+}
+
+@media screen and (max-width: 960px) {
+   .flipCard {
+      width: 250px;
+      height: 250px;
+   }
+}
+
+.img {
+   width: 100%;
+   height: 100%;
+   backface-visibility: hidden;
+   object-fit: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+   border-radius: 50%;
+   border: 2px solid rgb(255, 255, 255);
+   box-shadow: 0px 0px 20px rgba(255, 255, 255, .6);
+}
+
+.imgFront {
+   transform: rotateY(0deg);
+}
+
+.imgBack {
+   transform: rotateY(180deg);
+}

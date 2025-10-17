@@ -11,13 +11,7 @@ import { ProjectsContainer } from '^/app/container/Projects/ProjectsContainer'
 import { ContactContainer } from '^/app/container/Contact/ContactContainer'
 import { FooterContainer } from '^/app/container/Footer/FooterContainer'
 
-import { colors } from '^/theme/Colors/Colors'
-
-import {
-  GlobalStyles,
-  StyledContainerIndex,
-  StyledLoading
-} from '^/app/globals'
+import './globals.css'
 
 export default function Home() {
   const [loading, setLoading] = useState(true)
@@ -35,11 +29,11 @@ export default function Home() {
 
   return (
     <>
-      <StyledContainerIndex>
-        {loading ? ( 
-        <StyledLoading>
-          <RingLoader color={`${colors.colorPrimary}`} loading={loading} size={150} speedMultiplier={1.2}/>
-        </StyledLoading>
+      <div className="container-index">
+        {loading ? (
+        <div className="loading">
+          <RingLoader color={`rgb(244, 244, 244)`} loading={loading} size={150} speedMultiplier={1.2}/>
+        </div>
        ) : (
         <>
           <HeaderContainer />
@@ -47,10 +41,9 @@ export default function Home() {
           <ContactContainer />
           <FooterContainer />
           <SnowEffectComponent />
-        </>  
+        </>
       )}
-      </StyledContainerIndex>
-      <GlobalStyles />
+      </div>
     </>
   )
 }
