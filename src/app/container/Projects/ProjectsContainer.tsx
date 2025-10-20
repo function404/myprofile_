@@ -42,7 +42,7 @@ export function ProjectsContainer({ onImageLoad }: ProjectsContainerProps) {
         <div className={styles.containerProjects}>
           <div className={styles.contentProjects}>
             {ProjectsData.map((project, index) => (
-              <div className={styles.cardsProjects} key={index}>
+              <div className={styles.cardsProjects} key={`project-${index}`}>
                 <div className={styles.cardsTitleProjects}>
                   <span className={styles.CardsTitleSpanProjects}>
                     {`${project.title}`}
@@ -87,18 +87,17 @@ export function ProjectsContainer({ onImageLoad }: ProjectsContainerProps) {
                 </div>
 
                 <div className={styles.cardsTechs}>
-                    {project.techs && project.techs.map((tech, index) => (
-                      <>
-                        <Tilt
-                          perspective={250}
-                        >
-                          <div key={index} className={styles.cardsTechsContent}>
-                            <span className={styles.iconsNameTechs}>
-                                {(tech.icon({}))} {`${tech.name}`}
-                            </span>
-                          </div>
-                        </Tilt>
-                      </>
+                    {project.techs && project.techs.map((tech, techIndex) => (
+                      <Tilt
+                        key={`tech-${index}-${techIndex}`}
+                        perspective={250}
+                      >
+                        <div className={styles.cardsTechsContent}>
+                           <span className={styles.iconsNameTechs}>
+                               {(tech.icon({}))} {`${tech.name}`}
+                           </span>
+                        </div>
+                      </Tilt>
                     ))}
                 </div>
                 <div className="border-bottom"></div>

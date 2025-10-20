@@ -18,8 +18,7 @@
     "react-parallax-tilt": "^1.7.228",
     "react-snowfall": "^2.1.0",
     "react-spinners": "^0.13.8",
-    "react-tooltip": "^5.28.0",
-    "styled-components": "^6.1.8"
+    "react-tooltip": "^5.28.0"
   },
   "devDependencies": {
     "@types/node": "^20",
