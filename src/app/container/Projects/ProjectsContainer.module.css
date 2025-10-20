@@ -1,4 +1,9 @@
-.projectsContainer {
+.sectionContainer {
+   position: relative;
+   align-items: center;
+}
+
+.sectionContainer .containerProjects {
    width: 100%;
    height: 100%;
    display: flex;
@@ -9,16 +14,7 @@
    margin: 0 0 120px 0;
 }
 
-@media screen and (max-width: 960px) {
-   .projectsContainer {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-   }
-}
-
-.projectsContainerContent {
+.sectionContainer .containerProjects .contentProjects {
    width: 100%;
    height: 100%;
    text-align: center;
@@ -29,20 +25,7 @@
    display: flex;
 }
 
-@media screen and (max-width: 960px) {
-  .projectsContainerContent {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      text-align: center;
-      margin-bottom: 40px;
-   }
-}
-
-.projectsContainerContentCards {
+.sectionContainer .containerProjects .contentProjects .cardsProjects {
    width: 650px;
    box-shadow: 0 0 50px rgb(0, 0, 0);
    margin: 20px;
@@ -50,14 +33,7 @@
    justify-content: space-between;
 }
 
-@media screen and (max-width: 960px) {
-   .projectsContainerContentCards {
-      width: 100%;
-      text-align: center;
-   }
-}
-
-.projectsContainerContentCardsTitleProjects {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTitleProjects {
    width: 100%;
    padding: 35px 20px 20px 20px;
    border-top: 5px solid rgb(244, 244, 244);
@@ -66,7 +42,7 @@
    border-radius: 12px;
 }
 
-.projectsContainerContentCardsTitleProjectsSpan {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTitleProjects .CardsTitleSpanProjects {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
@@ -79,13 +55,7 @@
    pointer-events: none;
 }
 
-@media screen and (max-width: 960px) {
-   .projectsContainerContentCardsTitleProjectsSpan {
-      font-size: 18px;
-   }
-}
-
-.projectsContainerContentCardsInfo {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsInfoProjects {
    width: 100%;
    padding: 30px;
    color: rgba(255, 255, 255, .6);
@@ -95,14 +65,7 @@
    pointer-events: none;
 }
 
-@media screen and (max-width: 960px) {
-   .projectsContainerContentCardsInfo {
-      font-size: 12.5px;
-      padding: 15px 0;
-   }
-}
-
-.projectsContainerContentCardsButtomCards {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsButtomProjects {
    width: 100%;
    height: 50%;
    padding: 0 20px;
@@ -110,13 +73,7 @@
    border: none;
 }
 
-@media screen and (max-width: 960px) {
-   .projectsContainerContentCardsButtomCards {
-      padding: 20px;
-   }
-}
-
-.projectsContainerContentCardsButtomCardsImg {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsButtomProjects .cardsImgProjects {
    width: 85%;
    height: 100%;
    margin: 0 auto;
@@ -126,39 +83,17 @@
    transition: all .3s ease-in-out;
 }
 
-.projectsContainerContentCardsButtomCardsImg:hover {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsButtomProjects .cardsImgProjects:hover {
    box-shadow: 0 0 10px rgb(244, 244, 244);
    transition: all .3s ease-in-out;
 }
 
-@media screen and (max-width: 960px) {
-   .projectsContainerContentCardsButtomCardsImg {
-      width: 85%;
-      height: 100%;
-   }
-}
-
-@media screen and (max-width: 460px) {
-   .projectsContainerContentCardsButtomCardsImg {
-      width: 100%;
-      height: 100%;
-   }
-}
-
-.projectsContainerContentCardsInfoButtomCards {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsInfoButtomProjects {
    visibility: hidden;
    color: rgba(255, 255, 255, .6);
 }
 
-@media screen and (max-width: 960px) {
-   .projectsContainerContentCardsInfoButtomCards {
-      font-size: 12px;
-      margin: 0;
-      visibility: visible;
-   }
-}
-
-.containerTechs {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTechs {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -167,14 +102,7 @@
    flex-wrap: wrap;
 }
 
-@media screen and (max-width: 960px) {
-   .containerTechs {
-      padding-top: 20px;
-      gap: 8px;
-   }
-}
-
-.contentTechs {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTechs .cardsTechsContent {
    color: rgb(255, 255, 255);
    text-align: center;
    text-transform: uppercase;
@@ -184,18 +112,12 @@
    transition: all .3s ease-in-out;
 }
 
-.contentTechs:hover {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTechs .cardsTechsContent:hover {
    box-shadow: 0 0 5px rgb(244, 244, 244);
    transition: all .3s ease-in-out;
 }
 
-@media screen and (max-width: 960px) {
-   .contentTechs {
-      box-shadow: 0 0 10px rgb(200, 200, 200);
-   }
-}
-
-.iconsNameTechs {
+.sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTechs .iconsNameTechs {
    display: flex;
    justify-content: center;
    align-items: center;
@@ -205,16 +127,70 @@
 }
 
 @media screen and (max-width: 960px) {
-   .iconsNameTechs {
+   .sectionContainer .containerProjects {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+   }
+
+  .sectionContainer .containerProjects .contentProjects {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      text-align: center;
+      margin-bottom: 40px;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects {
+      width: 100%;
+      text-align: center;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTitleProjects .CardsTitleSpanProjects {
+      font-size: 18px;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsInfoProjects {
+      font-size: 12.5px;
+      padding: 15px 0;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsButtomProjects {
+      padding: 20px;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsButtomProjects .cardsImgProjects {
+      width: 85%;
+      height: 100%;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsInfoButtomProjects {
+      font-size: 12px;
+      margin: 0;
+      visibility: visible;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTechs {
+      padding-top: 20px;
+      gap: 8px;
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTechs .cardsTechsContent {
+      box-shadow: 0 0 10px rgb(200, 200, 200);
+   }
+
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsTechs .iconsNameTechs {
       font-size: 12px;
    }
 }
 
-.projectsContainerContentCardsBorderButtom {
-   width: 100%;
-   padding: 35px;
-   border-bottom: 5px solid rgb(244, 244, 244);
-   border-left: 5px solid rgb(244, 244, 244);
-   border-right: 5px solid rgb(244, 244, 244);
-   border-radius: 12px;
+@media screen and (max-width: 460px) {
+   .sectionContainer .containerProjects .contentProjects .cardsProjects .cardsButtomProjects .cardsImgProjects {
+      width: 100%;
+      height: 100%;
+   }
 }

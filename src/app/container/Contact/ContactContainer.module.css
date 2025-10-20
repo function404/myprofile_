@@ -7,13 +7,18 @@
    }
 }
 
-.center {
+.sectionContainer {
+   position: relative;
+   align-items: center;
+}
+
+.sectionContainer .centerContainer {
    width: 100%;
    display: flex;
    justify-content: center;
 }
 
-.form {
+.sectionContainer .centerContainer .containerForm {
    width: 50%;
    display: flex;
    justify-content: center;
@@ -23,39 +28,20 @@
    margin-bottom: 35px;
 }
 
-@media screen and (max-width: 960px) {
-   .form {
-      width: 100%;
-      margin: 20px;
-   }
-}
-
-.content {
+.sectionContainer .centerContainer .containerForm .contentForm {
    display: flex;
    justify-content: center;
    flex-direction: column;
    margin: 0px 30px;
 }
 
-@media screen and (max-width: 960px) {
-   .content {
-      margin: 0px 25px;
-   }
-}
-
-.label {
+.sectionContainer .centerContainer .containerForm .contentForm .label {
    font-size: 20px;
    margin: 10px 0px 10px 0px;
    color: rgba(255, 255, 255, .6);
 }
 
-@media screen and (max-width: 960px) {
-   .label {
-      font-size: 16px;
-   }
-}
-
-.input {
+.sectionContainer .centerContainer .containerForm .contentForm .input {
    height: 30px;
    margin: 5px 20px 20px 20px;
    padding: 10px;
@@ -67,24 +53,17 @@
    transition: all .2s ease-in-out;
 }
 
-.input:focus {
+.sectionContainer .centerContainer .containerForm .contentForm .input:focus {
    outline: none;
    border-bottom: 1px solid rgba(190, 200, 200, .3);
 }
 
-.input:hover {
+.sectionContainer .centerContainer .containerForm .contentForm .input:hover {
    transition: all .2s ease-in-out;
    border-bottom: 1px solid rgba(190, 200, 200, .3);
 }
 
-@media screen and (max-width: 960px) {
-   .input {
-      font-size: 12px;
-      margin: 5px 10px 10px 10px;
-   }
-}
-
-.textarea {
+.sectionContainer .centerContainer .containerForm .contentForm .textarea {
    height: 100px;
    margin: 5px 20px 20px 20px;
    padding: 10px;
@@ -97,24 +76,35 @@
    color: rgb(255, 255, 255);
 }
 
-.textarea:focus {
+.sectionContainer .centerContainer .containerForm .contentForm .textarea:focus {
    outline: none;
    border: 1px solid rgba(190, 200, 200, .3);
 }
 
-.textarea:hover {
+.sectionContainer .centerContainer .containerForm .contentForm .textarea:hover {
    transition: all .2s ease-in-out;
    border: 1px solid rgba(190, 200, 200, .3);
 }
 
-@media screen and (max-width: 960px) {
-   .textarea {
-      font-size: 12px;
-      margin: 5px 10px 10px 10px;
-   }
+.sectionContainer .centerContainer .containerForm .contentForm .alertError {
+   color: rgb(190, 0, 0);
+   background-color: rgba(190, 0, 0, .3);
+   padding: 15px;
+   font-weight: bold;
+   border-radius: 12px;
+   animation: fadeIn .6s;
 }
 
-.buttonSubmit {
+.sectionContainer .centerContainer .containerForm .contentForm .alertSuccess {
+   color: rgb(0, 190, 0);
+   background-color: rgba(0, 190, 0, .3);
+   padding: 15px;
+   font-weight: bold;
+   border-radius: 12px;
+   animation: fadeIn .6s;
+}
+
+.sectionContainer .centerContainer .containerForm .contentForm .centerContainer .buttonSubmit {
    width: 30%;
    height: 40px;
    margin-top: 30px;
@@ -128,7 +118,7 @@
    transition: all .2s ease-in-out;
 }
 
-.buttonSubmit:hover {
+.sectionContainer .centerContainer .containerForm .contentForm .centerContainer .buttonSubmit:hover {
    box-shadow: 0px 0px 20px rgb(244, 244, 244);
    background-color: rgb(244, 244, 244);
    color: rgb(0, 0, 0);
@@ -136,26 +126,31 @@
 }
 
 @media screen and (max-width: 960px) {
-   .buttonSubmit {
+   .sectionContainer .centerContainer .containerForm {
+      width: 100%;
+      margin: 20px;
+   }
+
+   .sectionContainer .centerContainer .containerForm .contentForm {
+      margin: 0px 25px;
+   }
+
+   .sectionContainer .centerContainer .containerForm .contentForm .label {
+      font-size: 16px;
+   }
+
+   .sectionContainer .centerContainer .containerForm .contentForm .input {
+      font-size: 12px;
+      margin: 5px 10px 10px 10px;
+   }
+
+   .sectionContainer .centerContainer .containerForm .contentForm .textarea {
+      font-size: 12px;
+      margin: 5px 10px 10px 10px;
+   }
+
+   .sectionContainer .centerContainer .containerForm .contentForm .centerContainer .buttonSubmit {
       width: 50%;
       font-size: 12px;
    }
-}
-
-.alertError {
-   color: rgb(190, 0, 0);
-   background-color: rgba(190, 0, 0, .3);
-   padding: 15px;
-   font-weight: bold;
-   border-radius: 12px;
-   animation: fadeIn .6s;
-}
-
-.alertSuccess {
-   color: rgb(0, 190, 0);
-   background-color: rgba(0, 190, 0, .3);
-   padding: 15px;
-   font-weight: bold;
-   border-radius: 12px;
-   animation: fadeIn .6s;
 }

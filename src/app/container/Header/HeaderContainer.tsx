@@ -12,25 +12,25 @@ import Image from 'next/image'
 export const HeaderContainer = () => {
    return (
       <>
-         <div id='header' className={styles.container}>
-            <div className={styles.row}>
-               <div className={styles.content}>
-                     <div className={styles.flipContainer}>
-                        <div className={styles.flipCard}>
-                           <Image width={400} height={250} alt='Front profile photo' src='/meone.png' className={`${styles.img} ${styles.imgFront}`} />
-                           <Image width={400} height={250} alt='Back profile photo' src='/metwo.png' className={`${styles.img} ${styles.imgBack}`} />
-                        </div>
+         <div id='header' className={styles.containerHeader}>
+            <div className={styles.contentHeader}>
+               <div className={styles.boxesHeader}>
+                  <div className={styles.containerFlip}>
+                     <div className={styles.flipCard}>
+                        <Image width={400} height={250} alt='Front profile photo' src='/meone.png' className={`${styles.img} ${styles.imgFront}`} />
+                        <Image width={400} height={250} alt='Back profile photo' src='/metwo.png' className={`${styles.img} ${styles.imgBack}`} />
                      </div>
+                  </div>
                </div>
-               <div className={styles.content}>
+               <div className={styles.boxesHeader}>
                   <div className={styles.effectSwipe}>
                      <div className={styles.contentText}>
-                           <p className={styles.textOne}>I am</p>
+                        <p className={styles.textOne}>I am</p>
                      </div>
                   </div>
                   <div className={styles.effectSwipe}>
                      <div className={styles.contentText}>
-                           <p className={styles.textTwo}>Functionss</p>
+                        <p className={styles.textTwo}>Functionss</p>
                      </div>
                   </div>
                   <div className={styles.effectSwipe}>
