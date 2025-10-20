@@ -1,7 +1,9 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import Tilt from 'react-parallax-tilt'
+import { motion } from 'framer-motion'
 import { FaCircleInfo } from 'react-icons/fa6'
 
 import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
@@ -11,11 +13,11 @@ import styles from './ProjectsContainer.module.css'
 import titleStyles from '^/theme/Title/Title.module.css'
 
 import { ProjectsData } from '^/app/data/Projects/ProjectsData'
+interface ProjectsContainerProps {
+  onImageLoad: () => void
+}
 
-import { motion } from 'framer-motion'
-import Image from 'next/image'
-
-export const ProjectsContainer = () => {
+export function ProjectsContainer({ onImageLoad }: ProjectsContainerProps) {
     const {
         ref,
         mainControls
@@ -64,14 +66,16 @@ export const ProjectsContainer = () => {
                     {...project.target ? { target: '_blank' } : {target: ''}}
                   >
                     <Tilt
-                    perspective={6000}
+                      perspective={6000}
                     >
                       <Image
+                        priority
                         width={400}
                         height={250}
                         src={`${project.img}`}
-                        alt='erro'
+                        alt={`Erro project image: ${project.title}`}
                         className={styles.cardsImgProjects}
+                        onLoad={onImageLoad}
                       />
                     </Tilt>
                   </a>

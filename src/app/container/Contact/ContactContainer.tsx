@@ -9,7 +9,7 @@ import titleStyles from '^/theme/Title/Title.module.css'
 
 import { useContactContainerRules } from '^/app/container/Contact/ContactContainer.rules'
 
-export const ContactContainer = () => {
+export function ContactContainer() {
    const {
       ref,
       form,
