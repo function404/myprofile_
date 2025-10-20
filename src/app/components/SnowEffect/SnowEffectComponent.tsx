@@ -3,7 +3,7 @@
 import React from 'react'
 import Snowfall from 'react-snowfall'
 
-import { SnowEffectComponentRules } from './SnowEffectComponent.rules'
+import { SnowEffectComponentRules } from '^/app/components/SnowEffect/SnowEffectComponent.rules'
 
 export const SnowEffectComponent = () => {
   const { animating } = SnowEffectComponentRules()
