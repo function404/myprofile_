@@ -18,10 +18,10 @@
     "react-parallax-tilt": "^1.7.228",
     "react-snowfall": "^2.1.0",
     "react-spinners": "^0.13.8",
-    "react-tooltip": "^5.28.0",
-    "styled-components": "^6.1.8"
+    "react-tooltip": "^5.28.0"
   },
   "devDependencies": {
+    "@netlify/plugin-nextjs": "^5.14.0",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

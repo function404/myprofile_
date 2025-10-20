@@ -4,38 +4,35 @@ import {
    FaLinkedinIn,
    FaTwitch
 } from 'react-icons/fa'
- 
-import { colors } from '^/theme/Colors/Colors'
- 
-const { colorWhite, colorInstagram, colorGithub, colorLinkedin, colorTwitch } = colors
+  
  
 export const IconsData = [
    {
       icon: FaInstagram,
       link: 'https://www.instagram.com/lincoln.mezzalira/',
       text: 'Instagram',
-      color: colorWhite,
-      hoverColor: colorInstagram,
+      color: 'rgb(255, 255, 255)',
+      hoverColor: 'rgb(225, 48, 108)',
    },
    {
       icon: FaGithub,
       link: 'https://github.com/function404',
       text: 'Github',
-      color: colorWhite,
-      hoverColor: colorGithub,
+      color: 'rgb(255, 255, 255)',
+      hoverColor: 'rgb(36, 41, 46)',
    },
    {
       icon: FaLinkedinIn,
       link: 'https://www.linkedin.com/in/lincoln-novais-mezzalira/',
       text: 'Linkedin',
-      color: colorWhite,
-      hoverColor: colorLinkedin,
+      color: 'rgb(255, 255, 255)',
+      hoverColor: 'rgb(0, 119, 181)',
    },
    {
       icon: FaTwitch,
       link: 'https://www.twitch.tv/functionss_',
       text: 'Twitch',
-      color: colorWhite,
-      hoverColor: colorTwitch,
+      color: 'rgb(255, 255, 255)',
+      hoverColor: 'rgb(100, 65, 165)',
    }
 ]

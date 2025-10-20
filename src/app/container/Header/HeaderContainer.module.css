@@ -1,0 +1,230 @@
+@keyframes flipAnimation {
+   0% {
+      transform: perspective(1000px) rotateY(0deg);
+   }
+   50% {
+      transform: perspective(1000px) rotateY(180deg);
+   }
+   100% {
+      transform: perspective(1000px) rotateY(360deg);
+   }
+}
+
+@keyframes opacity {
+   from {
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+   }
+}
+
+@keyframes swipe {
+   0% {
+      right: 100%;
+      left: 0;
+      width: 0%;
+   }
+   50% {
+      right: 0;
+      left: 0;
+      width: 100%;
+   }
+   100% {
+      right: 0;
+      left: 100%;
+      width: 0%;
+   }
+}
+
+.containerHeader {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+   height: 100dvh;
+}
+
+.containerHeader .contentHeader {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 100%;
+   gap: 15vh;
+}
+
+.containerHeader .contentHeader .boxesHeader {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: center;
+   padding: 20px;
+}
+
+.containerHeader .contentHeader .boxesHeader .containerFlip {
+   perspective: 2000px;
+   width: 100%;
+   height: 100%;
+   opacity: 0;
+   animation: opacity .5s ease-in-out 1.75s forwards;
+}
+
+.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard {
+   width: 500px;
+   height: 500px;
+   position: relative;
+   transform-style: preserve-3d;
+   animation: flipAnimation 7s infinite cubic-bezier(1, 0.2, 0.2, 1);
+}
+
+.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard .img {
+   width: 100%;
+   height: 100%;
+   backface-visibility: hidden;
+   object-fit: cover;
+   position: absolute;
+   top: 0;
+   left: 0;
+   border-radius: 50%;
+   border: 2px solid rgb(255, 255, 255);
+   box-shadow: 0px 0px 20px rgba(255, 255, 255, .6);
+}
+
+.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard .imgFront {
+   transform: rotateY(0deg);
+}
+
+.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard .imgBack {
+   transform: rotateY(180deg);
+}
+
+.containerHeader .contentHeader .boxesHeader .effectSwipe {
+   margin-top: 5px;
+   margin-bottom: 5px;
+   position: relative;
+   width: fit-content;
+}
+
+.containerHeader .contentHeader .boxesHeader .effectSwipe::after {
+   display: block;
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 100%;
+   width: 0%;
+   height: 100%;
+   background-color: rgb(200, 200, 200);
+   animation: swipe 1.5s ease-out 1s forwards;
+}
+
+.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.containerHeader .contentHeader .boxesHeader .contentIcons {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 20px;
+   opacity: 0;
+   animation: opacity .5s ease-in-out 1.75s forwards;
+}
+
+.containerHeader .contentHeader .boxesHeader .contentIcons .iconA {
+   transition: all .5s ease-in-out;
+}
+
+.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textOne {
+   font-size: 100px;
+   color: rgb(255, 255, 255);
+   margin-top: 5px;
+   margin-bottom: 5px;
+   text-align: left;
+   font-weight: bold;
+   text-transform: uppercase;
+   opacity: 0;
+   animation: opacity .05s ease-out 1.75s forwards;
+}
+
+.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textTwo {
+   font-size: 100px;
+   color: rgb(255, 255, 255);
+   text-align: left;
+   font-weight: bold;
+   text-transform: uppercase;
+   opacity: 0;
+   animation: opacity .05s ease-out 1.75s forwards;
+}
+
+.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textThree {
+   font-size: 18px;
+   color: rgba(255, 255, 255, .6);
+   text-align: left;
+   font-weight: bold;
+   opacity: 0;
+   animation: opacity .05s ease-out 1.75s forwards;
+}
+
+@media screen and (max-width: 1280px) {
+   .containerHeader .contentHeader .boxesHeader .containerFlip .flipCard {
+      width: 350px;
+      height: 350px;
+   }
+
+   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textThree {
+      font-size: 16px;
+   }
+
+   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textOne {
+      font-size: 72px;
+   }
+
+   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textTwo {
+      font-size: 72px;
+      margin-left: 0;
+   }
+}
+
+@media screen and (max-width: 1024px) {
+   .containerHeader {
+      height: 100dvh;
+   }
+}
+
+@media screen and (max-width: 960px) {
+   .containerHeader {
+      height: 100dvh;
+   }
+
+   .containerHeader .contentHeader {
+      flex-direction: column;
+      gap: 0;
+   }
+
+   .containerHeader .contentHeader .boxesHeader {
+      align-items: center;
+      text-align: center;
+   }
+
+   .containerHeader .contentHeader .boxesHeader .containerFlip .flipCard {
+      width: 250px;
+      height: 250px;
+   }
+
+   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textOne {
+      font-size: 42px;
+      text-align: center;
+   }
+
+   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textTwo {
+      font-size: 42px;
+      margin-left: 0;
+   }
+
+   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textThree {
+      font-size: 14px;
+      text-align: center;
+   }
+}

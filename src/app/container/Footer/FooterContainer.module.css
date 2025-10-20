@@ -1,0 +1,39 @@
+.containerFooter {
+   padding: 20px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+   background: radial-gradient(at 100% 90%, rgba(190, 200, 200, .3), transparent 50%), radial-gradient(at 0% 100%, rgba(190, 200, 200, .3), transparent 50%);
+}
+
+.containerFooter .contentFooter {
+   position: relative;
+   align-items: center;
+}
+
+.containerFooter .contentFooter .footerMainBtn {
+   display: block;
+   text-align: center;
+}
+
+.containerFooter .contentFooter .footerMainBtn .footerMainContentBtn {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 35px;
+}
+
+.containerFooter .contentFooter .footerMainBtn .footerMainContentBtn .iconLink {
+   transition: all .5s ease-in-out;
+}
+
+.containerFooter .contentFooter .footerMainBtn .footerMainContentBtn .iconLink:hover {
+   transform: scale(1.2);
+}
+
+.containerFooter .contentFooter .footerMainBtnH5 {
+   text-align: center;
+   padding: 15px;
+   color: rgb(255, 255, 255);
+}

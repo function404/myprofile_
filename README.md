@@ -2,9 +2,9 @@
 
 ## 📢 Informações
 
-- Versão: 4.1.6
+- Versão: 4.2.0
 
-- Última atualização: 17 Nov. 2024
+- Última atualização: 20 Out. 2025
 
 ## ℹ️ Sobre o Projeto
 
@@ -14,8 +14,15 @@ O Meu Portfolio é uma aplicação web simples que permite aos usuários visuali
 ## 🛠️ Ferramentas Utilizadas
 
 - Next.js
-- TypeScript
 - Node.js
+- TypeScript
+- Css
+- Framer Motion
+- react-icons 
+- react-parallax
+- react-snowfall 
+- react-spinners 
+- react-tooltip 
 
 ## 🚀 Executando o Projeto
 
