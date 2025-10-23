@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.3.3",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/ssr": "^0.7.0",
+    "@supabase/supabase-js": "^2.76.1",
     "framer-motion": "^11.0.24",
     "next": "14.1.4",
     "react": "^18",
