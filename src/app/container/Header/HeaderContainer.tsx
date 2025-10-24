@@ -7,7 +7,7 @@ import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipCo
 
 import { IconsData } from '^/app/data/Icons/IconsData'
 
-import styles from './HeaderContainer.module.css'
+import styles from '^/app/container/Header/HeaderContainer.module.css'
 
 interface HeaderContainerProps {
   onImageLoad: () => void
