@@ -2,9 +2,9 @@
 
 ## 📢 Informações
 
-- Versão: 4.2.0
+- Versão: 5.0.0
 
-- Última atualização: 20 Out. 2025
+- Última atualização: 24 Out. 2025
 
 ## ℹ️ Sobre o Projeto
 
@@ -18,6 +18,7 @@ O Meu Portfolio é uma aplicação web simples que permite aos usuários visuali
 - TypeScript
 - Css
 - Framer Motion
+- Supabase
 - react-icons 
 - react-parallax
 - react-snowfall 
