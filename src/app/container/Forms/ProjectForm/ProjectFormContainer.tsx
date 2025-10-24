@@ -2,7 +2,7 @@
 
 import { SubmitButtonComponent } from '^/app/components/SubmitButton/SubmitButtonComponent'
 
-import styles from '^/app/admin/admin.module.css'
+import styles from '^/app/container/Forms/ProjectForm/ProjectFormContainer.module.css'
 import { useProjectFormContainerRules } from './ProjectFormContainer.rules'
 
 export function ProjectFormContainer() {
@@ -15,55 +15,54 @@ export function ProjectFormContainer() {
          className={styles.containerForm}
       >
          <div className={styles.contentForm}>
-            {/* Título */}
-            <label className={styles.label}>Título:</label>
-            <input type="text" name="title" className={styles.input} placeholder="Meu Novo Projeto" required />
+            {/* Title */}
+            <label className={styles.label}>Title:</label>
+            <input type="text" name="title" className={styles.input} placeholder="My New Project" required />
 
-            {/* Descrição */}
-            <label className={styles.label}>Descrição:</label>
-            <textarea name="description" className={styles.textarea} placeholder="Descrição..." rows={3} />
+            {/* Description */}
+            <label className={styles.label}>Description:</label>
+            <textarea name="description" className={styles.textarea} placeholder="Description..." rows={3} />
 
-            {/* Link Principal */}
-            <label className={styles.label}>Link (Deploy ou GitHub):</label>
+            {/* Main Link */}
+            <label className={styles.label}>Link (Deploy or GitHub):</label>
             <input type="text" name="link" className={styles.input} placeholder="https://..." />
 
-            {/* Imagem Principal */}
-            <label className={styles.label}>URL da Imagem Principal:</label>
-            <input type="text" name="img" className={styles.input} placeholder="https://.../imagem.png" />
+            {/* Main Image */}
+            <label className={styles.label}>Main Image URL:</label>
+            <input type="text" name="img" className={styles.input} placeholder="https://.../image.png" />
             
-            {/* Imagens Adicionais (Galeria) */}
-            <label className={styles.label}>URLs das Imagens da Galeria (separadas por vírgula):</label>
+            {/* Additional Images (Gallery) */}
+            <label className={styles.label}>Gallery Image URLs (comma-separated):</label>
             <textarea name="imgs" className={styles.textarea} placeholder="url1.png, url2.png, ..." rows={2} />
 
             {/* Techs */}
-            <label className={styles.label}>Tecnologias (Formato: Nome,IconName;Nome2,IconName2):</label>
+            <label className={styles.label}>Technologies (Format: Name,IconName;Name2,IconName2):</label>
             <input type="text" name="techs" className={styles.input} placeholder="NextJS,SiNextdotjs;React,SiReact" />
 
-            {/* Tipo */}
-            <label className={styles.label}>Tipo:</label>
+            {/* Type */}
+            <label className={styles.label}>Type:</label>
             <select name="type" className={styles.input} defaultValue="web">
                <option value="web">Web</option>
                <option value="mobile">Mobile</option>
             </select>
 
-            {/* Ordem */}
-            <label className={styles.label}>Ordem:</label>
+            {/* Order */}
+            <label className={styles.label}>Order:</label>
             <input type="number" name="order" className={styles.input} defaultValue="0" />
 
             {/* Target */}
             <div className={styles.checkboxContainer}>
                <input type="checkbox" name="target" id="target" defaultChecked />
-               <label htmlFor="target">{`Abrir link em nova aba (target="_blank")`}</label>
+               <label htmlFor="target">{`Open link in new tab (target="_blank")`}</label>
             </div>
 
-            {/* Mensagens de Status */}
+            {/* Status Messages */}
             {state.message && (
                <div className={state.type === 'success' ? styles.alertSuccess : styles.alertError}>
                   {state.message}
                </div>
             )}
 
-            {/* Botão de Envio (com estado de loading) */}
             <SubmitButtonComponent />
          </div>
       </form>

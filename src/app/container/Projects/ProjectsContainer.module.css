@@ -34,7 +34,7 @@
 
 .sectionContainer .filterContainer .filterButton {
    background-color: transparent;
-   border: 1px solid #555;
+   border: 1px solid rgb(85, 85, 85);
    color: rgba(255, 255, 255, 0.7);
    padding: 10px 20px;
    border-radius: 8px;
@@ -45,15 +45,15 @@
 }
 
 .sectionContainer .filterContainer .filterButton:hover {
-   color: #fff;
-   border-color: #f4f4f4;
+   color: rgb(255, 255, 255);
+   border-color: rgb(244, 244, 244);
    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .sectionContainer .filterContainer .filterButton.active {
    color: rgb(0, 0, 0);
-   border-color: #f4f4f4;
-   background-color: #f4f4f4;
+   border-color: rgb(244, 244, 244);
+   background-color: rgb(244, 244, 244);
    font-weight: 600;
    box-shadow: 0 2px 10px rgba(244, 244, 244, 0.1);
 }

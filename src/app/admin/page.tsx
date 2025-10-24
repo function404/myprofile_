@@ -44,8 +44,8 @@ export default async function AdminPage() {
          </header>
 
          <div className={titleStyles.title}>
-            <h2 data-text="Adicionar Projeto" className={titleStyles.titleH2}>
-               Adicionar Projeto
+            <h2 data-text="Add Project" className={titleStyles.titleH2}>
+               Add Project
             </h2>
          </div>
 
@@ -54,16 +54,16 @@ export default async function AdminPage() {
          </div>
 
          <div className={titleStyles.title} style={{ marginTop: '60px' }}>
-            <h2 data-text="Gerenciar Projetos" className={titleStyles.titleH2}>
-               Gerenciar Projetos
+            <h2 data-text="Manage Projects" className={titleStyles.titleH2}>
+               Manage Projects
             </h2>
          </div>
 
          <div className={styles.centerContainer}>
             {fetchError ? (
-               <p className={styles.alertError}>Erro ao carregar projetos: {fetchError.message}</p>
+               <p className={styles.alertError}>Error loading projects: {fetchError.message}</p>
             ) : !projects || projects.length === 0 ? (
-               <p className={styles.noProjectsMessage}>Nenhum projeto cadastrado ainda.</p>
+               <p className={styles.noProjectsMessage}>No projects registered yet.</p>
             ) : (
                <ul className={styles.projectList}>
                   {(projects as IProject[]).map((project) => (
@@ -76,7 +76,7 @@ export default async function AdminPage() {
 
                      <div className={styles.projectActions}>
                         <Link href={`/admin/edit/${project.id}`} className={styles.editButton}>
-                        Editar
+                           Edit
                         </Link>
                         <DeleteButtonComponent projectId={project.id} />
                      </div>

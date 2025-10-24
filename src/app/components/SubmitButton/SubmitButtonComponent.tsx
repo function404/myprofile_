@@ -6,7 +6,7 @@ import RingLoader from 'react-spinners/RingLoader'
 import { ISubmitButtonProps } from '^/app/components/SubmitButton/SubmitButtonComponent.types'
 import styles from '^/app/components/SubmitButton/SubmitButtonComponent.module.css'
 
-export function SubmitButtonComponent({ pendingText = "Enviando...", defaultText = "Enviar"}: ISubmitButtonProps) {
+export function SubmitButtonComponent({ pendingText = "Sending...", defaultText = "Send"}: ISubmitButtonProps) {
    const { pending } = useFormStatus()
 
    return (

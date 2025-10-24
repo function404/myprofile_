@@ -28,6 +28,7 @@ export const useProjectsContainerRules = () => {
         const { data, error } = await supabase
           .from('projects')
           .select('*')
+          .order('order', { ascending: true })
           .order('created_at', { ascending: false })
 
         if (error) {

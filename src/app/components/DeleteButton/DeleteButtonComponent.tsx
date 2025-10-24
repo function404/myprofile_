@@ -20,7 +20,7 @@ function InnerDeleteButton() {
          {pending ? (
             <RingLoader color={'rgb(255, 204, 204)'} loading={pending} size={16} />
          ) : (
-            'Excluir'
+            'Confirm Deletion'
          )}
       </button>
    )
@@ -28,13 +28,11 @@ function InnerDeleteButton() {
 
 export function DeleteButtonComponent({ projectId }: IDeleteButtonProps) {
    const [state, setState] = useState<{ message: string, type: 'success' | 'error' } | null>(null)
+   const [isModalOpen, setIsModalOpen] = useState(false)
    const formRef = useRef<HTMLFormElement>(null)
 
    const handleDelete = async (formData: FormData) => {
-      if (!window.confirm('Tem certeza que deseja excluir este projeto? Esta ação não pode ser desfeita.')) {
-         return
-      }
-
+      setIsModalOpen(false) 
       setState(null)
       const result = await deleteProject(formData)
       setState(result)
@@ -53,7 +51,33 @@ export function DeleteButtonComponent({ projectId }: IDeleteButtonProps) {
       <>
          <form action={handleDelete} ref={formRef}>
             <input type="hidden" name="id" value={projectId} />
-            <InnerDeleteButton />
+
+            <button
+               type="button"
+               onClick={() => setIsModalOpen(true)}
+               className={styles.deleteButton}
+            >
+               Delete
+            </button>
+
+            {isModalOpen && (
+               <div className={styles.modalBackdrop}>
+                  <div className={styles.modalContent}>
+                     <p>Do you really want to delete this project? This action cannot be undone.</p>
+                     <div className={styles.modalActions}>
+                        <button
+                           type="button"
+                           className={styles.cancelButton}
+                           onClick={() => setIsModalOpen(false)}
+                        >
+                           Cancel
+                        </button>
+                        
+                        <InnerDeleteButton />
+                     </div>
+                  </div>
+               </div>
+            )}
          </form>
 
          {state?.type === 'error' && (
