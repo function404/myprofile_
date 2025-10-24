@@ -10,7 +10,7 @@ import { IconsData } from '^/app/data/Icons/IconsData'
 
 import DateYearUtils from '^/app/utils/DateYear/DateYearUtils'
 
-import styles from './FooterContainer.module.css'
+import styles from '^/app/container/Footer/FooterContainer.module.css'
 
 export function FooterContainer() {
    const {

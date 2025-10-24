@@ -1,59 +1,68 @@
 'use client'
 
-import React, { useState, useEffect, useCallback} from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import RingLoader from 'react-spinners/RingLoader'
 
 import { SnowEffectComponent } from '^/app/components/SnowEffect/SnowEffectComponent'
-
 import { HeaderContainer } from '^/app/container/Header/HeaderContainer'
 import { ProjectsContainer } from '^/app/container/Projects/ProjectsContainer'
 import { ContactContainer } from '^/app/container/Contact/ContactContainer'
 import { FooterContainer } from '^/app/container/Footer/FooterContainer'
-import { ProjectsData } from '^/app/data/Projects/ProjectsData'
 
 import './globals.css'
 
-const TOTAL_CRITICAL_IMAGES = 2 + ProjectsData.length
+const TOTAL_CRITICAL_IMAGES_HEADER = 2
 
 export default function Home() {
-  const [loading, setLoading] = useState(true)
-  const [imagesLoaded, setImagesLoaded] = useState(0)
+  const [pageLoading, setPageLoading] = useState(true)
+  const [headerImagesLoaded, setHeaderImagesLoaded] = useState(0)
 
-  const handleImageLoad = useCallback(() => {
-    setImagesLoaded((prevCount) => prevCount + 1)
+  const handleHeaderImageLoad = useCallback(() => {
+    setHeaderImagesLoaded((prevCount) => prevCount + 1)
   }, [])
 
   useEffect(() => {
-    if (imagesLoaded >= TOTAL_CRITICAL_IMAGES) {
+    if (headerImagesLoaded >= TOTAL_CRITICAL_IMAGES_HEADER) {
       const timer = setTimeout(() => {
-         setLoading(false)
-      }, 500)
+        setPageLoading(false)
+      }, 300)
       return () => clearTimeout(timer)
     }
-  }, [imagesLoaded])
+  }, [headerImagesLoaded])
 
   useEffect(() => {
     const fallbackTimer = setTimeout(() => {
-      if (loading) {
-        console.warn("Loading fallback triggered. Some images might not have loaded.")
-        setLoading(false)
+      if (pageLoading) {
+        console.warn('Fallback do loader da página ativado.')
+        setPageLoading(false)
       }
-    }, 10000)
+    }, 5000)
 
     return () => clearTimeout(fallbackTimer)
-  }, [loading])
+  }, [pageLoading])
 
   return (
     <>
       <div className="container-index">
-        {loading && (
+        {pageLoading && (
           <div className="loading">
-            <RingLoader color={`rgb(244, 244, 244)`} loading={loading} size={150} speedMultiplier={1.2}/>
+            <RingLoader
+              color={`rgb(244, 244, 244)`}
+              loading={pageLoading}
+              size={150}
+              speedMultiplier={1.2}
+            />
           </div>
         )}
-        <div style={{ visibility: loading ? 'hidden' : 'visible', opacity: loading ? 0 : 1, transition: 'opacity 0.5s ease-in-out' }}>
-          <HeaderContainer onImageLoad={handleImageLoad} />
-          <ProjectsContainer onImageLoad={handleImageLoad} />
+        <div
+          style={{
+            visibility: pageLoading ? 'hidden' : 'visible',
+            opacity: pageLoading ? 0 : 1,
+            transition: 'visibility 0s linear 0.3s, opacity 0.3s ease-in-out',
+          }}
+        >
+          <HeaderContainer onImageLoad={handleHeaderImageLoad} />
+          <ProjectsContainer />
           <ContactContainer />
           <FooterContainer />
           <SnowEffectComponent />

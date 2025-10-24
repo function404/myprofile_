@@ -1,0 +1,60 @@
+.adminContainer {
+   width: 100%;
+   min-height: 100dvh;
+   padding: 20px;
+   background: radial-gradient(at 0% 0%, rgba(244, 244, 244, .3), transparent 50%),
+               radial-gradient(at 100% 50%, rgba(244, 244, 244, .2), transparent 50%);
+}
+
+.adminContainer .adminHeader {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 20px;
+   max-width: 900px;
+   margin: 0 auto 20px auto;
+   padding: 15px 20px;
+   background-color: rgb(23, 23, 23);
+   border-radius: 12px;
+   border: 1px solid rgba(244, 244, 244, 0.4);
+   color: rgba(255, 255, 255, 0.7); 
+}
+
+.adminContainer .adminHeader .backButton {
+   background-color: transparent;
+   color: rgba(255, 255, 255, 0.7);
+   padding: 8px 16px;
+   cursor: pointer;
+   font-size: 14px;
+   font-weight: 500;
+   transition: all 0.25s ease-in-out;
+   text-decoration: none;
+}
+.adminContainer .adminHeader .backButton:hover {
+   color: rgb(255, 255, 255);
+}
+
+.adminContainer .adminHeader form .logoutButton {
+  background-color: transparent;
+  border: 1px solid rgb(85, 85, 85);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease-in-out;
+}
+
+.adminContainer .adminHeader form .logoutButton:hover {
+  color: rgb(255, 255, 255);
+  border-color: rgb(255, 204, 204);
+  background-color: rgba(255, 50, 50, 0.15);
+}
+
+.adminContainer .centerContainer {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
