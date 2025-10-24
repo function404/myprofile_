@@ -4,7 +4,6 @@ import React from 'react'
 import RingLoader from 'react-spinners/RingLoader'
 import { motion } from 'framer-motion'
 
-// Keep existing imports
 import styles from '^/app/container/Contact/ContactContainer.module.css'
 import { useContactContainerRules } from '^/app/container/Contact/ContactContainer.rules'
 import titleStyles from '^/theme/Title/Title.module.css'
@@ -22,7 +21,6 @@ export function ContactContainer() {
    } = useContactContainerRules()
 
    return (
-      // Add max-width and centering to the section container
       <div ref={ref} className={styles.sectionContainer}>
          <motion.div
             variants={{

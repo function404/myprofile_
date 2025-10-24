@@ -1,0 +1,193 @@
+.addProjectContainer {
+   max-width: 1000px;
+   margin: 40px auto;
+   padding: 30px 40px;
+   background-color: rgb(23, 23, 23);
+   border-radius: 12px;
+   border: 1px solid rgba(244, 244, 244, 0.2);
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+   color: rgb(244, 244, 244);
+}
+
+.addProjectContainer h1 {
+   font-size: 1.8rem;
+   margin-bottom: 10px;
+}
+
+.addProjectContainer .backLinkContainer {
+   display: flex;
+   flex-direction: row;
+   gap: 10px;
+}
+
+.addProjectContainer .backLinkContainer .backLink {
+   display: inline-block;
+   color: rgba(255, 255, 255, 0.7);
+   text-decoration: none;
+   font-size: 0.9rem;
+   margin-bottom: 25px;
+   transition: color 0.2s ease;
+}
+
+.addProjectContainer .backLinkContainer .backLink:hover {
+   color: rgb(244, 244, 244);
+   text-decoration: underline;
+}
+
+.addProjectContainer .addProjectForm {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+}
+
+.addProjectContainer .addProjectForm .inputGroup {
+   display: flex;
+   flex-direction: column;
+   gap: 8px;
+}
+
+.addProjectContainer .addProjectForm .inputGroup label {
+   font-size: 0.95rem;
+   color: rgba(255, 255, 255, 0.7);
+   font-weight: 500;
+}
+
+.addProjectContainer .addProjectForm .inputGroup input[type="text"],
+.addProjectContainer .addProjectForm .inputGroup input[type="url"],
+.addProjectContainer .addProjectForm .inputGroup textarea,
+.addProjectContainer .addProjectForm .inputGroup select {
+   background-color: rgb(46, 46, 46);
+   border: 1px solid rgb(85, 85, 85);
+   border-radius: 8px;
+   padding: 12px 15px;
+   font-size: 1rem;
+   color: rgb(244, 244, 244);
+   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+   width: 100%;
+   box-sizing: border-box;
+   font-family: inherit;
+}
+
+.addProjectContainer .addProjectForm .inputGroup input::placeholder,
+.addProjectContainer .addProjectForm .inputGroup textarea::placeholder {
+   color: rgba(255, 255, 255, 0.4);
+   font-style: italic;
+}
+
+.addProjectContainer .addProjectForm .inputGroup input[type="file"] {
+   color: rgba(255, 255, 255, 0.7);
+   padding: 10px;
+   background-color: rgb(46, 46, 46);
+   border: 1px solid rgb(85, 85, 85);
+   border-radius: 8px;
+}
+
+.addProjectContainer .addProjectForm .inputGroup input[type="file"]::file-selector-button {
+   background-color: rgb(85, 85, 85);
+   color: rgb(244, 244, 244);
+   border: none;
+   padding: 8px 12px;
+   border-radius: 4px;
+   margin-right: 10px;
+   cursor: pointer;
+   transition: background-color 0.2s ease;
+}
+.addProjectContainer .addProjectForm .inputGroup input[type="file"]::file-selector-button:hover {
+   background-color: rgb(102, 102, 102);
+}
+
+
+.addProjectContainer .addProjectForm .inputGroup input:focus,
+.addProjectContainer .addProjectForm .inputGroup textarea:focus,
+.addProjectContainer .addProjectForm .inputGroup select:focus {
+   outline: none;
+   border-color: rgb(244, 244, 244);
+   box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.1);
+}
+
+.addProjectContainer .addProjectForm .inputGroup textarea {
+   resize: vertical;
+   min-height: 80px;
+}
+
+.addProjectContainer .addProjectForm .inputGroup small {
+   font-size: 0.8rem;
+   color: rgba(255, 255, 255, 0.5);
+   margin-top: -3px;
+}
+
+.addProjectContainer .addProjectForm .inputGroupCheck {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+}
+.addProjectContainer .addProjectForm .inputGroupCheck label {
+   margin-bottom: 0;
+   cursor: pointer;
+}
+.addProjectContainer .addProjectForm .inputGroupCheck input[type="checkbox"] {
+   width: 16px;
+   height: 16px;
+   cursor: pointer;
+   accent-color: #f4f4f4;
+}
+
+.addProjectContainer .addProjectForm .errorText {
+   color: #ffcccc;
+   background-color: rgba(255, 50, 50, 0.15);
+   border: 1px solid rgba(255, 50, 50, 0.4);
+   padding: 10px 15px;
+   border-radius: 6px;
+   font-size: 0.9rem;
+   text-align: center;
+   margin-top: 5px;
+}
+
+.addProjectContainer .addProjectForm .successText {
+   color: #ccffcc;
+   background-color: rgba(50, 255, 50, 0.1);
+   border: 1px solid rgba(50, 255, 50, 0.3);
+   padding: 10px 15px;
+   border-radius: 6px;
+   font-size: 0.9rem;
+   text-align: center;
+   margin-top: 5px;
+}
+
+.addProjectContainer .addProjectForm button[type="submit"] {
+   background-color: rgb(244, 244, 244);
+   color: rgb(23, 23, 23);
+   border: none;
+   padding: 12px 25px;
+   font-size: 1rem;
+   font-weight: 600;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: all 0.25s ease;
+   margin-top: 15px;
+   align-self: flex-start;
+}
+
+.addProjectContainer .addProjectForm button[type="submit"]:hover:not(:disabled) {
+   background-color: #fff;
+   transform: scale(1.02);
+   box-shadow: 0 2px 8px rgba(244, 244, 244, 0.1);
+}
+
+.addProjectContainer .addProjectForm button[type="submit"]:disabled {
+   opacity: 0.7;
+   cursor: not-allowed;
+   background-color: rgb(200, 200, 200);
+}
+
+@media screen and (max-width: 960px) {
+   .addProjectContainer {
+      margin: 40px 20px;
+      padding: 30px 40px;
+      background-color: rgb(23, 23, 23);
+      border-radius: 12px;
+      border: 1px solid rgba(244, 244, 244, 0.2);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      color: rgb(244, 244, 244);
+   }
+}

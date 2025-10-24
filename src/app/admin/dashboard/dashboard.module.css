@@ -1,0 +1,153 @@
+.dashboardContainer {
+   height: auto;
+   margin: 40px 20px;
+   padding: 20px;
+   background-color: rgb(23, 23, 23);
+   border-radius: 12px;
+   border: 1px solid rgba(244, 244, 244, 0.2);
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+   color: rgb(244, 244, 244);
+}
+
+.dashboardContainer .header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+   padding-bottom: 15px;
+   margin-bottom: 25px;
+}
+
+.dashboardContainer .header h1 {
+   font-size: 1.8rem;
+   margin: 0;
+}
+
+.dashboardContainer .header div {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+}
+
+.dashboardContainer .header div .userEmail {
+   font-size: 0.9rem;
+   color: rgba(255, 255, 255, 0.7);
+}
+
+.dashboardContainer .header div .logoutButton {
+   background-color: transparent;
+   color: rgb(244, 244, 244);
+   border: 1px solid rgb(85, 85, 85);
+   padding: 8px 15px;
+   border-radius: 6px;
+   cursor: pointer;
+   font-size: 0.9rem;
+   transition: all 0.2s ease;
+}
+
+.dashboardContainer .header div .logoutButton:hover {
+   background-color: rgba(255, 255, 255, 0.05);
+   border-color: rgb(244, 244, 244);
+}
+
+.dashboardContainer .controls {
+   margin-bottom: 25px;
+   display: flex;
+   justify-content: flex-end;
+}
+
+.dashboardContainer .errorText {
+   color: rgb(255, 204, 204);
+   text-align: center;
+   margin-top: 20px;
+}
+
+.dashboardContainer .controls .addButton {
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+   background-color: rgb(244, 244, 244);
+   color: rgb(23, 23, 23);
+   border: none;
+   padding: 10px 18px;
+   font-size: 0.95rem;
+   font-weight: 600;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: all 0.25s ease;
+   text-decoration: none;
+}
+
+.dashboardContainer .controls .addButton:hover {
+   background-color: rgb(255, 255, 255);
+   transform: scale(1.02);
+   box-shadow: 0 2px 8px rgba(244, 244, 244, 0.1);
+}
+
+.dashboardContainer .projectList {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.dashboardContainer .projectList .projectItem {
+   background-color: rgb(46, 46, 46);
+   padding: 15px 20px;
+   border-radius: 8px;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border: 1px solid rgb(68, 68, 68);
+}
+
+.dashboardContainer .projectList .projectItem span {
+   color: rgba(255, 255, 255, 0.9);
+}
+
+.dashboardContainer .projectList .projectItem .orderButtons {
+   display: flex;
+   gap: 10px;
+}
+
+.dashboardContainer .projectList .projectItem .orderButtons button {
+   background-color: transparent;
+   border: 1px solid rgb(100, 100, 100);
+   color: rgba(255, 255, 255, 0.7);
+   border-radius: 4px;
+   width: 30px;
+   height: 30px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   transition: all 0.2s ease;
+   padding: 0;
+}
+
+.dashboardContainer .projectList .projectItem .orderButtons button:hover:not(:disabled) {
+   background-color: rgba(255, 255, 255, 0.1);
+   border-color: rgb(170, 170, 170);
+   color: rgb(255, 255, 255);
+}
+
+.dashboardContainer .projectList .projectItem .orderButtons button:disabled {
+   opacity: 0.4;
+   cursor: not-allowed;
+}
+
+@media screen and (max-width: 960px) {
+   .dashboardContainer .header div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+   }
+
+   .dashboardContainer .projectList .projectItem span {
+      font-size: 14px;
+   }
+}

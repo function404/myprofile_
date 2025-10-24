@@ -1,70 +1,98 @@
-.loginContainer{
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   height: 100vh;
-   background-color: #f5f5f5;
-}
-
-.loginContainer h2 {
-   margin-bottom: 20px;
-   color: #333;
+.loginContainer {
+  height: auto;
+  margin: 40px 20px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgb(18, 18, 18);
+  padding: 20px;
 }
 
 .loginContainer .loginForm {
-   display: flex;
-   flex-direction: column;
-   width: 300px;
-   padding: 20px;
-   background-color: #fff;
-   border: 1px solid #ddd;
-   border-radius: 5px;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  background-color: rgb(23, 23, 23);
+  padding: 30px 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(244, 244, 244, 0.2);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loginContainer .loginForm h1 {
+  color: #f4f4f4;
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
 }
 
 .loginContainer .loginForm .inputGroup {
-   margin-bottom: 15px;
-   display: flex;
-   flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .loginContainer .loginForm .inputGroup label {
-   margin-bottom: 5px;
-   font-weight: bold;
-   color: #555;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
 }
 
 .loginContainer .loginForm .inputGroup input {
-   padding: 10px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
-   font-size: 16px;
+  background-color: rgb(46, 46, 46);
+  border: 1px solid #555;
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 1rem;
+  color: rgb(244, 244, 244);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.loginContainer .loginForm .inputGroup input::placeholder {
+   color: rgba(255, 255, 255, 0.4);
+   font-style: italic;
+}
+
+
+.loginContainer .loginForm .inputGroup input:focus {
+  outline: none;
+  border-color: #f4f4f4;
+  box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.1);
 }
 
 .loginContainer .loginForm .errorText {
-   color: red;
-   font-size: 14px;
-   margin-top: -10px;
-   margin-bottom: 10px;
+  color: #ffcccc;
+  background-color: rgba(255, 50, 50, 0.15);
+  border: 1px solid rgba(255, 50, 50, 0.4);
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .loginContainer .loginForm button {
-   padding: 10px;
-   background-color: #0070f3;
-   color: #fff;
-   border: none;
-   border-radius: 4px;
-   font-size: 16px;
-   cursor: pointer;
-   transition: background-color 0.3s ease;
-}
-.loginContainer .loginForm button:hover {
-   background-color: #005bb5;
+  background-color: rgb(244, 244, 244);
+  color: rgb(23, 23, 23);
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-top: 10px;
 }
 
-.loginContainer .loginForm .loadingText {
-   font-size: 14px;
-   color: #555;
-   margin-top: 10px;
+.loginContainer .loginForm button:hover:not(:disabled) {
+  background-color: #fff;
+  transform: scale(1.02);
+  box-shadow: 0 2px 8px rgba(244, 244, 244, 0.1);
+}
+
+.loginContainer .loginForm button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: rgb(200, 200, 200);
 }

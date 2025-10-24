@@ -7,7 +7,8 @@ import Link from 'next/link'
 import { createClient } from '^/app/supabase/ClienteSupabase'
 import { ITech } from '^/app/data/Projects/ProjectsData'
 
-import styles from './addProject.module.css'
+import styles from '^/app/admin/add-project/add-project.module.css'
+import { BsArrowLeft, BsArrowUpLeft } from 'react-icons/bs'
 
 const generateUniqueFileName = (fileName: string) => {
    const extension = fileName.split('.').pop()
@@ -18,7 +19,6 @@ export default function AddProjectPage() {
    const router = useRouter()
    const supabase = createClient()
 
-   // Estados do formulário
    const [title, setTitle] = useState('')
    const [description, setDescription] = useState('')
    const [link, setLink] = useState('')
@@ -55,47 +55,43 @@ export default function AddProjectPage() {
       let parsedTechs: ITech[] = []
 
       try {
-         // --- 1 Validação de Techs ---
          try {
             parsedTechs = JSON.parse(techsString)
             if (!Array.isArray(parsedTechs) || parsedTechs.some(t => typeof t.name !== 'string' || typeof t.iconName !== 'string')) {
-               throw new Error('Formato inválido para tecnologias')
+               throw new Error('Format invalid for technologies')
             }
          } catch (e) {
-            throw new Error('JSON inválido no campo Tecnologias Verifique o formato [{"name": "React", "iconName": "SiReact"}, ...]')
+            throw new Error('Invalid JSON in Technologies field. Check the format [{"name": "React", "iconName": "SiReact"}, ...]')
          }
 
-         // --- 2 Upload da Imagem de Capa ---
          if (!coverImageFile) {
-            throw new Error('Imagem de capa é obrigatória')
+            throw new Error('Cover image is required')
          }
 
          const coverFileName = generateUniqueFileName(coverImageFile.name)
          const { data: coverUploadData, error: coverUploadError } = await supabase.storage
-            .from('project-images') // Nome do seu bucket
-            .upload(`covers/${coverFileName}`, coverImageFile) // Pasta opcional 'covers/'
+            .from('project-images')
+            .upload(`covers/${coverFileName}`, coverImageFile)
 
          if (coverUploadError) {
-            throw new Error(`Erro no upload da capa: ${coverUploadError.message}`)
+            throw new Error(`Error uploading cover image: ${coverUploadError.message}`)
          }
 
-         // Obter URL pública da capa
          const { data: coverUrlData } = supabase.storage
             .from('project-images')
             .getPublicUrl(coverUploadData.path)
          coverImageUrl = coverUrlData.publicUrl
 
-         // --- 3 Upload das Imagens do Carrossel ---
          if (carouselImageFiles && carouselImageFiles.length > 0) {
             for (let i = 0; i < carouselImageFiles.length; i++) {
                const file = carouselImageFiles[i]
                const carouselFileName = generateUniqueFileName(file.name)
                const { data: carouselUploadData, error: carouselUploadError } = await supabase.storage
                   .from('project-images')
-                  .upload(`carousel/${carouselFileName}`, file) // Pasta opcional 'carousel/'
+                  .upload(`carousel/${carouselFileName}`, file)
 
                if (carouselUploadError) {
-                  throw new Error(`Erro no upload da imagem ${i + 1} do carrossel: ${carouselUploadError.message}`)
+                  throw new Error(`Error uploading carousel image ${i + 1}: ${carouselUploadError.message}`)
                }
 
                const { data: carouselUrlData } = supabase.storage
@@ -105,23 +101,20 @@ export default function AddProjectPage() {
             }
          }
 
-         // --- 4 Determinar a próxima 'order' ---
-         // Busca o projeto com a maior ordem atual
          const { data: lastOrderData, error: orderError } = await supabase
             .from('projects')
             .select('order')
             .order('order', { ascending: false })
             .limit(1)
-            .single() // Pega apenas um resultado ou null
+            .single()
 
-         if (orderError && orderError.code !== 'PGRST116') { // Ignora erro se a tabela estiver vazia
+         if (orderError && orderError.code !== 'PGRST116') {
             throw orderError
          }
 
-         const nextOrder = lastOrderData ? lastOrderData.order + 10 : 10 // Começa em 10 ou adiciona 10 à última ordem
+         const nextOrder = lastOrderData ? lastOrderData.order + 10 : 10
 
 
-         // --- 5 Inserir no Banco de Dados ---
          const { error: insertError } = await supabase
             .from('projects')
             .insert([{
@@ -133,20 +126,18 @@ export default function AddProjectPage() {
                techs: parsedTechs,
                img: coverImageUrl,
                imgs: carouselImageUrls,
-               order: nextOrder // Adiciona a ordem calculada
+               order: nextOrder
             }])
 
          if (insertError) {
-            throw new Error(`Erro ao salvar projeto: ${insertError.message}`)
+            throw new Error(`Error saving project: ${insertError.message}`)
          }
 
-         setSuccess('Projeto adicionado com sucesso!')
-         // Limpar formulário ou redirecionar
-         setTimeout(() => router.push('/admin/dashboard'), 1500) // Redireciona após sucesso
+         setSuccess('Project added successfully!')
+         setTimeout(() => router.push('/admin/dashboard'), 1500)
 
       } catch (err: any) {
-         setError(err.message || 'Ocorreu um erro inesperado')
-         // TODO: Considerar deletar imagens já upadas em caso de erro posterior
+         setError(err.message || 'An unexpected error occurred')
          console.error(err)
       } finally {
          setLoading(false)
@@ -155,31 +146,34 @@ export default function AddProjectPage() {
 
    return (
       <div className={styles.addProjectContainer}>
-         <h1>Adicionar Novo Projeto</h1>
-         <Link href="/admin/dashboard" className={styles.backLink}>Voltar para o Dashboard</Link>
+         <h1>Add New Project</h1>
+         <div className={styles.backLinkContainer}>
+            <BsArrowLeft />
+            <Link href="/admin/dashboard" className={styles.backLink}>Back to Dashboard</Link>
+         </div>
 
          <form onSubmit={handleSubmit} className={styles.addProjectForm}>
-            {/* Título */}
+            {/* Title */}
             <div className={styles.inputGroup}>
-               <label htmlFor="title">Título:</label>
+               <label htmlFor="title">Title:</label>
                <input id="title" type="text" value={title} onChange={e => setTitle(e.target.value)} required />
             </div>
 
-            {/* Descrição */}
+            {/* Description */}
             <div className={styles.inputGroup}>
-               <label htmlFor="description">Descrição:</label>
+               <label htmlFor="description">Description:</label>
                <textarea id="description" value={description} onChange={e => setDescription(e.target.value)} rows={3} required />
             </div>
 
                {/* Link */}
             <div className={styles.inputGroup}>
-               <label htmlFor="link">Link (URL do projeto ou GitHub):</label>
+               <label htmlFor="link">Link (Project or GitHub URL):</label>
                <input id="link" type="url" value={link} onChange={e => setLink(e.target.value)} required placeholder="https://..."/>
             </div>
 
-            {/* Tipo */}
+            {/* Type */}
             <div className={styles.inputGroup}>
-               <label htmlFor="type">Tipo:</label>
+               <label htmlFor="type">Type:</label>
                <select id="type" value={type} onChange={e => setType(e.target.value as 'web' | 'mobile')}>
                   <option value="web">Web</option>
                   <option value="mobile">Mobile</option>
@@ -189,12 +183,12 @@ export default function AddProjectPage() {
             {/* Target */}
             <div className={styles.inputGroupCheck}>
                <input id="target" type="checkbox" checked={target} onChange={e => setTarget(e.target.checked)} />
-            <label htmlFor="target">Abrir link em nova aba?</label>
+            <label htmlFor="target">Open link in new tab?</label>
             </div>
 
-            {/* Tecnologias (JSON) */}
+            {/* Technologies (JSON) */}
             <div className={styles.inputGroup}>
-               <label htmlFor="techs">Tecnologias (JSON):</label>
+               <label htmlFor="techs">Technologies (JSON):</label>
                <textarea
                   id="techs"
                   value={techsString}
@@ -203,18 +197,18 @@ export default function AddProjectPage() {
                   placeholder='[{"name": "React", "iconName": "SiReact"}, {"name": "CSS", "iconName": "SiCss3"}]'
                   required
                />
-               <small>Use o formato JSON: {'[{"name": "Nome", "iconName": "NomeIconeReactIcons"}]'}</small>
+               <small>Use the JSON format: {'[{"name": "Name", "iconName": "NameIconReactIcons"}]'}</small>
             </div>
 
-            {/* Imagem de Capa */}
+            {/* Cover Image */}
             <div className={styles.inputGroup}>
-               <label htmlFor="coverImage">Imagem de Capa (Obrigatória):</label>
+               <label htmlFor="coverImage">Cover Image (Required):</label>
                <input id="coverImage" type="file" accept="image/*" onChange={handleCoverImageChange} required />
             </div>
 
-            {/* Imagens do Carrossel */}
+            {/* Carousel Images */}
             <div className={styles.inputGroup}>
-               <label htmlFor="carouselImages">Imagens do Carrossel (Opcional):</label>
+               <label htmlFor="carouselImages">Carousel Images (Optional):</label>
                <input id="carouselImages" type="file" accept="image/*" multiple onChange={handleCarouselImagesChange} />
             </div>
 
@@ -223,7 +217,7 @@ export default function AddProjectPage() {
             {success && <p className={styles.successText}>{success}</p>}
 
             <button type="submit" disabled={loading}>
-               {loading ? 'Salvando...' : 'Adicionar Projeto'}
+               {loading ? 'Saving...' : 'Add Project'}
             </button>
          </form>
       </div>

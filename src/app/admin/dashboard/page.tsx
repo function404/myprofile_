@@ -8,7 +8,7 @@ import { FaArrowUp, FaArrowDown, FaPlus } from 'react-icons/fa'
 import { createClient } from '^/app/supabase/ClienteSupabase'
 import { IProject } from '^/app/data/Projects/ProjectsData'
 
-import styles from './dashboard.module.css'
+import styles from '^/app/admin/dashboard/dashboard.module.css'
 
 export default function DashboardPage() {
   const router = useRouter()
@@ -19,17 +19,15 @@ export default function DashboardPage() {
   const [error, setError] = useState<string | null>(null)
   const [userEmail, setUserEmail] = useState<string | null>(null)
 
-  // Função para buscar projetos
    const fetchProjects = async () => {
-      setLoading(true)
       setError(null)
       try {
-         const { data, error } = await supabase
+         const { data, error: projectsError } = await supabase
             .from('projects')
             .select('*')
-            .order('order', { ascending: true }) // Ordena pela coluna 'order'
+            .order('order', { ascending: true })
 
-         if (error) throw error
+         if (projectsError) throw projectsError
          if (data) setProjects(data as IProject[])
 
       } catch (err: any) {
@@ -40,47 +38,47 @@ export default function DashboardPage() {
       }
    }
 
-  // Busca projetos ao carregar e pega o email do usuário
    useEffect(() => {
-      const getUserAndProjects = async () => {
-         const { data: { user } } = await supabase.auth.getUser()
-
-         if (user) {
-            setUserEmail(user.email ?? null)
-            await fetchProjects() // Busca projetos APÓS confirmar que o user existe
+      const loadDashboardData = async () => {
+         setLoading(true)
+         const { data: { session } } = await supabase.auth.getSession();
+         if (session?.user) {
+            setUserEmail(session.user.email ?? null);
+            await fetchProjects()
          } else {
-            // Teoricamente o middleware já redirecionou, mas por segurança:
+            console.warn("User not authenticated, redirecting to login.");
             router.push('/admin/login')
          }
       }
-      getUserAndProjects()
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-   }, []) // Executa uma vez
+      loadDashboardData();
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [supabase])
 
    const handleLogout = async () => {
       await supabase.auth.signOut()
-      router.refresh() // Força refresh para o middleware redirecionar
-      // router.push('/admin/login')
+      router.push('/admin/login')
    }
 
-  // --- LÓGICA DE REORDENAÇÃO ---
    const handleMove = async (index: number, direction: 'up' | 'down') => {
       const currentProject = projects[index]
       const swapIndex = direction === 'up' ? index - 1 : index + 1
 
-      // Verifica limites
       if (swapIndex < 0 || swapIndex >= projects.length) {
          return
       }
 
       const swapProject = projects[swapIndex]
 
-      // Troca as ordens
       const currentOrder = currentProject.order
       const swapOrder = swapProject.order
 
+      const optimisticProjects = [...projects]
+      optimisticProjects[index] = { ...currentProject, order: swapOrder }
+      optimisticProjects[swapIndex] = { ...swapProject, order: currentOrder }
+      optimisticProjects.sort((a, b) => a.order - b.order)
+      setProjects(optimisticProjects)
+
       try {
-         // Atualiza no Supabase em paralelo
          const { error: error1 } = await supabase
             .from('projects')
             .update({ order: swapOrder })
@@ -95,15 +93,8 @@ export default function DashboardPage() {
             throw error1 || error2
          }
 
-         const newProjects = [...projects]
-         newProjects[index] = { ...currentProject, order: swapOrder }
-         newProjects[swapIndex] = { ...swapProject, order: currentOrder }
-
-         newProjects.sort((a, b) => a.order - b.order)
-         setProjects(newProjects)
-
       } catch (err: any) {
-         setError('Falha ao reordenar projeto')
+         setError('Failed to reorder project. Reverting.')
          console.error(err)
          await fetchProjects()
       }
@@ -112,28 +103,27 @@ export default function DashboardPage() {
    return (
       <div className={styles.dashboardContainer}>
          <header className={styles.header}>
-            <h1>Dashboard de Projetos</h1>
+            <h1>Project Dashboard</h1>
             <div>
                {userEmail && <span className={styles.userEmail}>{userEmail}</span>}
-               <button onClick={handleLogout} className={styles.logoutButton}>Sair</button>
+               <button onClick={handleLogout} className={styles.logoutButton}>Logout</button>
             </div>
          </header>
 
          <div className={styles.controls}>
             <Link href="/admin/add-project" className={styles.addButton}>
-               <FaPlus /> Adicionar Projeto
+               <FaPlus /> Add Project
             </Link>
          </div>
 
-         {loading && <p>Carregando projetos...</p>}
+         {loading && <p>Loading projects...</p>}
          {error && <p className={styles.errorText}>{error}</p>}
 
          {!loading && !error && (
             <ul className={styles.projectList}>
                {projects.map((project, index) => (
                   <li key={project.id} className={styles.projectItem}>
-                     <span>{project.title} (Ordem: {project.order})</span>
-
+                     <span>{project.title} (Order: {project.order})</span>
                      <div className={styles.orderButtons}>
                         <button
                            onClick={() => handleMove(index, 'up')}
@@ -142,7 +132,6 @@ export default function DashboardPage() {
                         >
                            <FaArrowUp />
                         </button>
-
                         <button
                            onClick={() => handleMove(index, 'down')}
                            disabled={index === projects.length - 1}
@@ -150,10 +139,10 @@ export default function DashboardPage() {
                         >
                            <FaArrowDown />
                         </button>
-                        {/* Adicionar botões Editar/Excluir aqui depois */}
                      </div>
                   </li>
                ))}
+               {projects.length === 0 && <p>No projects found.</p>}
             </ul>
          )}
       </div>
