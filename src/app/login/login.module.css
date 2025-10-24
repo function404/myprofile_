@@ -1,0 +1,104 @@
+@keyframes fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+.loginPageContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  width: 100%;
+  padding: 20px;
+  background: radial-gradient(at 0% 0%, rgba(244, 244, 244, .3), transparent 50%),
+              radial-gradient(at 100% 50%, rgba(244, 244, 244, .2), transparent 50%);
+}
+
+.centerContainer {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+}
+
+.containerForm {
+   width: 100%;
+   max-width: 500px;
+   background-color: rgb(23, 23, 23);
+   border-radius: 12px;
+   border: 1px solid rgba(244, 244, 244, 0.4);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+   padding: 30px 40px;
+   display: flex;
+   flex-direction: column;
+}
+
+.contentForm {
+   display: flex;
+   flex-direction: column;
+}
+
+.label {
+   font-size: 1rem;
+   margin-bottom: 8px;
+   color: rgba(255, 255, 255, 0.7);
+   font-weight: 500;
+}
+
+.input {
+   background-color: rgb(46, 46, 46);
+   border: 1px solid rgb(85, 85, 85);
+   border-radius: 8px;
+   padding: 12px 15px;
+   font-size: 1rem;
+   color: rgb(244, 244, 244);
+   margin-bottom: 25px;
+   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+   width: 100%;
+   box-sizing: border-box;
+}
+
+.input::placeholder {
+   color: rgba(255, 255, 255, 0.4);
+   font-style: italic;
+}
+
+.input:focus {
+   outline: none;
+   border-color: rgb(244, 244, 244);
+   box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.1);
+}
+
+.alertError {
+   color: rgb(255, 204, 204);
+   background-color: rgba(255, 50, 50, 0.2);
+   border: 1px solid rgba(255, 50, 50, 0.5);
+   padding: 15px;
+   font-weight: 500;
+   border-radius: 8px;
+   margin-bottom: 25px;
+   animation: fadeIn 0.6s;
+}
+
+.buttonSubmit {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 12px 25px;
+   font-size: 1rem;
+   font-weight: 600;
+   border-radius: 8px;
+   cursor: pointer;
+   transition: all 0.25s ease;
+   background-color: rgb(244, 244, 244);
+   color: rgb(23, 23, 23);
+   border: 1px solid rgb(244, 244, 244);
+   width: 100%;
+   margin-top: 10px;
+}
+
+.buttonSubmit:hover:not(:disabled) {
+   background-color: rgb(255, 255, 255);
+   color: rgb(0, 0, 0);
+   transform: scale(1.03);
+}
