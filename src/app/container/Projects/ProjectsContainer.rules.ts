@@ -5,12 +5,13 @@ import { useEffect, useRef, useState } from 'react'
 
 import { IProject } from '^/app/data/Projects/ProjectsData'
 
-import { supabase } from '^/app/lib/SupabaseClientLib'
+import { createClient } from '^/app/supabase/ClienteSupabase'
 
 import { TProjectTypeFilter } from '^/app/container/Projects/ProjectsContainer.types'
 
 export const useProjectsContainerRules = () => {
-const ref = useRef(null)
+  const supabase = createClient()
+  const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const mainControls = useAnimation()
 
@@ -45,7 +46,7 @@ const ref = useRef(null)
     }
 
     fetchProjects()
-  }, [])
+  }, [supabase])
 
   const filteredProjects = projects.filter((project) => {
     return project.type === filter
