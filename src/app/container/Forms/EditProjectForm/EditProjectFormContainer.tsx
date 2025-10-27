@@ -4,10 +4,13 @@ import Image from 'next/image'
 
 import { SubmitButtonComponent } from '^/app/components/SubmitButton/SubmitButtonComponent'
 
+import { techOptions } from '^/app/data/TechOptions/TechOptionsData'
+
+import { iconMap } from '^/app/utils/IconMap/IconMapUtils'
+
 import styles from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.module.css'
 import { IEditProjectFormContainerProps } from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.types'
 import { useEditProjectFormContainer } from './EditProjectFormContainer.rules'
-import { iconMap, techOptions } from '^/app/data/TechOptions/TechOptionsData'
 
 export function EditProjectFormContainer({ 
    project 

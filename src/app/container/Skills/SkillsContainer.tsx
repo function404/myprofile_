@@ -18,7 +18,13 @@ export function SkillsContainer() {
    const renderSkillIcons = (skills: typeof skillsData) => (
       <div className={styles.iconGrid}>
          {skills.map(({ name, icon: Icon, tooltipId }) => (
-            <Tilt perspective={50} key={tooltipId} transitionSpeed={250} gyroscope={true} scale={1.05}>
+            <Tilt 
+               key={tooltipId}
+               perspective={100}
+               scale={1.05}
+               transitionSpeed={250}
+               gyroscope={true}
+            >
                <div
                   className={styles.iconWrapper}
                   data-tooltip-id={tooltipId}

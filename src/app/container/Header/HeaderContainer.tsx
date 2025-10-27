@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 
@@ -8,19 +8,29 @@ import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipCo
 
 import { IconsData } from '^/app/data/Icons/IconsData'
 
+import { isChristmasSeason } from '^/app/utils/DateChristmas/DateChristmasUtils'
+
 import styles from '^/app/container/Header/HeaderContainer.module.css'
 import { IHeaderContainerProps } from '^/app/container/Header/HeaderContainer.types'
 
 export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
    const [showScrollIndicator, setShowScrollIndicator] = useState(true)
-   
+   const [isChristmas, setIsChristmas] = useState(false)
+
+   useEffect(() => {
+      setIsChristmas(isChristmasSeason())
+   }, [])
+
    useEffect(() => {
       const skillsSection = document.getElementById('skills')
-      if (!skillsSection) return
+      if (!skillsSection) {
+         console.warn("Elemento #skills não encontrado para IntersectionObserver.")
+         return
+      }
 
       const observer = new IntersectionObserver(
          (entries) => {
-         const [entry] = entries
+            const [entry] = entries
             setShowScrollIndicator(!entry.isIntersecting)
          },
          {
@@ -68,7 +78,25 @@ export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
                </div>
                <div className={styles.effectSwipe}>
                   <div className={styles.contentText}>
-                     <p className={styles.textTwo}>Functionss</p>
+                     <p className={styles.textTwo}>
+                       {isChristmas && (
+                         <motion.div
+                           className={styles.santaHat}
+                           initial={{ opacity: 0, y: -20, rotate: -15 }}
+                           animate={{ opacity: 1, y: 0, rotate: 15 }}
+                           transition={{ duration: 1, delay: 1.5 }}
+                         >
+                           <Image
+                              priority
+                              src="/gorroNoel.png"
+                              alt="Santa Hat"
+                              width={150}
+                              height={150}
+                           />
+                         </motion.div>
+                       )}
+                       Functionss
+                     </p>
                   </div>
                </div>
                <div className={styles.effectSwipe}>
@@ -78,24 +106,16 @@ export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
                </div>
                <div className={styles.contentText}>
                   <div className={styles.contentIcons}>
-                     {IconsData.map(({ icon, link, text, color, hoverColor}, index) => {
-                        return (
-                           <a
-                              key={`${index}`}
-                              data-tooltip-place='bottom'
-                              data-tooltip-id={`tooltip-${index}`}
-                              data-tooltip-content={`${text}`}
-                              href={`${link}`}
-                              target='_blank'
-                              style={{ color: color }}
-                              className={styles.iconA}
-                              onMouseOver={e => e.currentTarget.style.color = hoverColor}
-                              onMouseOut={e => e.currentTarget.style.color = color}
-                           >
-                              {icon({size: 35})}
-                           </a>
-                        )
-                     })}
+                     {IconsData.map(({ icon: Icon, link, text, color, hoverColor}, index) => (
+                        <a key={`${index}`} data-tooltip-place='bottom' data-tooltip-id={`tooltip-${index}`}
+                           data-tooltip-content={`${text}`} href={`${link}`} target='_blank'
+                           style={{ color: color }} className={styles.iconA}
+                           onMouseOver={e => e.currentTarget.style.color = hoverColor}
+                           onMouseOut={e => e.currentTarget.style.color = color}
+                        >
+                           <Icon size={35}/>
+                        </a>
+                     ))}
                   </div>
                </div>
             </div>

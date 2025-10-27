@@ -2,10 +2,12 @@
 
 import { SubmitButtonComponent } from '^/app/components/SubmitButton/SubmitButtonComponent'
 
-import { techOptions, iconMap } from '^/app/data/TechOptions/TechOptionsData'
+import { techOptions } from '^/app/data/TechOptions/TechOptionsData'
+
+import { iconMap } from '^/app/utils/IconMap/IconMapUtils'
 
 import styles from '^/app/container/Forms/ProjectForm/ProjectFormContainer.module.css'
-import { useProjectFormContainerRules } from './ProjectFormContainer.rules'
+import { useProjectFormContainerRules } from '^/app/container/Forms/ProjectForm/ProjectFormContainer.rules'
 
 export function ProjectFormContainer() {
    const { formRef, state, formAction } = useProjectFormContainerRules()
