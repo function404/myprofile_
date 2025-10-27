@@ -2,6 +2,8 @@
 
 import { SubmitButtonComponent } from '^/app/components/SubmitButton/SubmitButtonComponent'
 
+import { techOptions, iconMap } from '^/app/data/TechOptions/TechOptionsData'
+
 import styles from '^/app/container/Forms/ProjectForm/ProjectFormContainer.module.css'
 import { useProjectFormContainerRules } from './ProjectFormContainer.rules'
 
@@ -9,35 +11,78 @@ export function ProjectFormContainer() {
    const { formRef, state, formAction } = useProjectFormContainerRules()
 
    return (
-      <form
-         ref={formRef}
-         action={formAction}
-         className={styles.containerForm}
-      >
+      <form ref={formRef} action={formAction} className={styles.containerForm}>
          <div className={styles.contentForm}>
             {/* Title */}
             <label className={styles.label}>Title:</label>
-            <input type="text" name="title" className={styles.input} placeholder="My New Project" required />
+            <input
+               type="text"
+               name="title"
+               className={styles.input}
+               placeholder="My New Project"
+               required
+            />
 
             {/* Description */}
             <label className={styles.label}>Description:</label>
-            <textarea name="description" className={styles.textarea} placeholder="Description..." rows={3} />
+            <textarea
+               name="description"
+               className={styles.textarea}
+               placeholder="Description..."
+               rows={3}
+            />
 
             {/* Main Link */}
             <label className={styles.label}>Link (Deploy or GitHub):</label>
-            <input type="text" name="link" className={styles.input} placeholder="https://..." />
+            <input
+               type="text"
+               name="link"
+               className={styles.input}
+               placeholder="https://..."
+            />
 
-            {/* Main Image */}
-            <label className={styles.label}>Main Image URL:</label>
-            <input type="text" name="img" className={styles.input} placeholder="https://.../image.png" />
-            
-            {/* Additional Images (Gallery) */}
-            <label className={styles.label}>Gallery Image URLs (comma-separated):</label>
-            <textarea name="imgs" className={styles.textarea} placeholder="url1.png, url2.png, ..." rows={2} />
+            {/* Main Image Upload */}
+            <label className={styles.label}>Main Image File:</label>
+            <input
+               type="file"
+               name="imgFile"
+               className={styles.input}
+               accept="image/*"
+               required
+            />
 
-            {/* Techs */}
-            <label className={styles.label}>Technologies (Format: Name,IconName;Name2,IconName2):</label>
-            <input type="text" name="techs" className={styles.input} placeholder="NextJS,SiNextdotjs;React,SiReact" />
+            {/* Additional Images Upload (Gallery) */}
+            <label className={styles.label}>Gallery Image Files (optional):</label>
+            <input
+               type="file"
+               name="imgsFiles"
+               className={styles.input}
+               accept="image/*"
+               multiple
+            />
+
+            {/* Techs Selection */}
+            <label className={styles.label}>Technologies:</label>
+            <div className={styles.techSelectionContainer}>
+               {techOptions.map((tech) => {
+                  const IconComponent = iconMap[tech.iconName]
+                  return (
+                  <div key={tech.value} className={styles.techCheckboxItem}>
+                     <input
+                        required
+                        type="checkbox"
+                        id={`tech-${tech.value}`}
+                        name="techs"
+                        value={tech.value}
+                     />
+                     <label htmlFor={`tech-${tech.value}`}>
+                        {IconComponent && <IconComponent size={16} />}
+                        {tech.name}
+                     </label>
+                  </div>
+                  )
+               })}
+            </div>
 
             {/* Type */}
             <label className={styles.label}>Type:</label>
@@ -63,7 +108,7 @@ export function ProjectFormContainer() {
                </div>
             )}
 
-            <SubmitButtonComponent />
+            <SubmitButtonComponent defaultText="Add Project" />
          </div>
       </form>
    )

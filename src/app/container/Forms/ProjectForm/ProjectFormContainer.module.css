@@ -83,6 +83,49 @@
   font-size: 0.95rem;
 }
 
+.containerForm .contentForm .techSelectionContainer {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 15px;
+   margin-bottom: 25px;
+   padding: 15px;
+   background-color: rgb(46, 46, 46);
+   border: 1px solid rgb(85, 85, 85);
+   border-radius: 8px;
+}
+
+.containerForm .contentForm .techSelectionContainer .techCheckboxItem {
+   display: flex;
+   align-items: center;
+   gap: 8px;
+   background-color: rgb(60, 60, 60);
+   padding: 8px 12px;
+   border-radius: 6px;
+   cursor: pointer;
+   transition: background-color 0.2s ease;
+}
+
+.containerForm .contentForm .techSelectionContainer .techCheckboxItem:hover {
+   background-color: rgb(75, 75, 75);
+}
+
+.containerForm .contentForm .techSelectionContainer .techCheckboxItem input[type="checkbox"] {
+   cursor: pointer;
+   width: 16px;
+   height: 16px;
+}
+
+.containerForm .contentForm .techSelectionContainer .techCheckboxItem label {
+   cursor: pointer;
+   display: flex;
+   align-items: center;
+   gap: 6px;
+   color: rgba(255, 255, 255, 0.8);
+   font-size: 0.9rem;
+   font-weight: 500;
+   margin-bottom: 0;
+}
+
 .containerForm .contentForm .alertError {
    color: rgb(255, 204, 204);
    background-color: rgba(255, 50, 50, 0.2);

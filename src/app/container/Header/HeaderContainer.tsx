@@ -1,42 +1,61 @@
 'use client'
 
-import React from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
 
 import { IconsData } from '^/app/data/Icons/IconsData'
 
 import styles from '^/app/container/Header/HeaderContainer.module.css'
+import { IHeaderContainerProps } from '^/app/container/Header/headerContainer.types'
 
-interface HeaderContainerProps {
-  onImageLoad: () => void
-}
+export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
+   const [showScrollIndicator, setShowScrollIndicator] = useState(true)
+   
+   useEffect(() => {
+      const skillsSection = document.getElementById('skills')
+      if (!skillsSection) return
 
-export function HeaderContainer({ onImageLoad }: HeaderContainerProps) {
+      const observer = new IntersectionObserver(
+         (entries) => {
+         const [entry] = entries
+            setShowScrollIndicator(!entry.isIntersecting)
+         },
+         {
+            threshold: 0.2,
+         }
+      )
+
+      observer.observe(skillsSection)
+
+      return () => observer.disconnect()
+   }, [])
+
    return (
       <div id='header' className={styles.containerHeader}>
          <div className={styles.contentHeader}>
             <div className={styles.boxesHeader}>
                <div className={styles.containerFlip}>
                   <div className={styles.flipCard}>
-                     <Image 
+                     <Image
                         priority
-                        width={400} 
-                        height={250} 
-                        alt='Front profile photo' 
-                        src='/meone.png' 
-                        className={`${styles.img} ${styles.imgFront}`} 
-                        onLoad={onImageLoad} 
+                        width={400}
+                        height={250}
+                        alt='Front profile photo'
+                        src='/meone.png'
+                        className={`${styles.img} ${styles.imgFront}`}
+                        onLoad={onImageLoad}
                      />
-                     <Image 
+                     <Image
                         priority
-                        width={400} 
-                        height={250} 
-                        alt='Back profile photo' 
-                        src='/metwo.png' 
-                        className={`${styles.img} ${styles.imgBack}`} 
-                        onLoad={onImageLoad} 
+                        width={400}
+                        height={250}
+                        alt='Back profile photo'
+                        src='/metwo.png'
+                        className={`${styles.img} ${styles.imgBack}`}
+                        onLoad={onImageLoad}
                      />
                   </div>
                </div>
@@ -82,6 +101,18 @@ export function HeaderContainer({ onImageLoad }: HeaderContainerProps) {
             </div>
          </div>
          <DataTooltipComponent />
+
+         <motion.div
+            className={styles.scrollIndicator}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{
+               opacity: showScrollIndicator ? 1 : 0,
+               y: showScrollIndicator ? 0 : 10,
+            }}
+            transition={{ duration: 0.4 }}
+         >
+            <div className={styles.scrollIndicatorInner}></div>
+         </motion.div>
       </div>
    )
 }

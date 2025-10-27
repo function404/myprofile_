@@ -5,6 +5,7 @@ import RingLoader from 'react-spinners/RingLoader'
 
 import { SnowEffectComponent } from '^/app/components/SnowEffect/SnowEffectComponent'
 import { HeaderContainer } from '^/app/container/Header/HeaderContainer'
+import { SkillsContainer } from '^/app/container/Skills/SkillsContainer'
 import { ProjectsContainer } from '^/app/container/Projects/ProjectsContainer'
 import { ContactContainer } from '^/app/container/Contact/ContactContainer'
 import { FooterContainer } from '^/app/container/Footer/FooterContainer'
@@ -62,6 +63,7 @@ export default function Home() {
           }}
         >
           <HeaderContainer onImageLoad={handleHeaderImageLoad} />
+          <SkillsContainer />
           <ProjectsContainer />
           <ContactContainer />
           <FooterContainer />

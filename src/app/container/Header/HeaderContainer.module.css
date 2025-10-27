@@ -37,12 +37,24 @@
    }
 }
 
+@keyframes scrollIndicatorAnimation {
+   0%, 100% {
+      transform: translateY(0);
+      opacity: 1;
+   }
+   50% {
+      transform: translateY(10px);
+      opacity: 0.3;
+   }
+}
+
 .containerHeader {
    display: flex;
    align-items: center;
    justify-content: center;
    padding: 20px;
    height: 100dvh;
+   position: relative;
 }
 
 .containerHeader .contentHeader {
@@ -169,6 +181,31 @@
    animation: opacity .05s ease-out 1.75s forwards;
 }
 
+.containerHeader .scrollIndicator {
+   position: absolute;
+   bottom: 30px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 24px;
+   height: 40px;
+   border: 2px solid rgba(255, 255, 255, 0.7);
+   border-radius: 12px;
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   padding-top: 5px;
+   pointer-events: none;
+   z-index: 10;
+}
+
+.containerHeader .scrollIndicatorInner {
+   width: 8px;
+   height: 8px;
+   background-color: rgba(255, 255, 255, 0.7);
+   border-radius: 50%;
+   animation: scrollIndicatorAnimation 1.5s infinite ease-in-out;
+}
+
 @media screen and (max-width: 1280px) {
    .containerHeader .contentHeader .boxesHeader .containerFlip .flipCard {
       width: 350px;
@@ -228,5 +265,15 @@
    .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textThree {
       font-size: 14px;
       text-align: center;
+   }
+
+   .containerHeader .scrollIndicator {
+      bottom: 20px;
+      width: 22px;
+      height: 36px;
+   }
+   .containerHeader .scrollIndicatorInner {
+      width: 6px;
+      height: 6px;
    }
 }
