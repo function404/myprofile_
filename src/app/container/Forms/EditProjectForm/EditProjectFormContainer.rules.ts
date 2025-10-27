@@ -41,11 +41,20 @@ export function useEditProjectFormContainer({ project }: IEditProjectFormContain
       return imgs.join(', ')
    }
 
+   const isTechSelected = (techValue: string): boolean => {
+      return (
+         currentProject.techs?.some(
+         (t) => `${t.name},${t.iconName}` === techValue
+         ) ?? false
+      )
+   }
+
    return {
       state,
       formAction,
       currentProject,
       formatTechsForInput,
       formatImgsForInput,
+      isTechSelected,
    }
 }

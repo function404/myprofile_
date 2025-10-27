@@ -56,7 +56,11 @@ export const useContactContainerRules = () => {
                 hours: hours
             }
 
-            emailjs.send('service_ixgbaoq', 'template_ajco01t', {...template}, 'wRstS80Wy24QHk7i7')
+            const serviceID = process.env.NEXT_PUBLIC_SERVICE_ID!;
+            const templateID = process.env.NEXT_PUBLIC_TEMPLATE_ID!;
+            const userID = process.env.NEXT_PUBLIC_USER_ID!;
+
+            emailjs.send(serviceID, templateID, {...template}, userID)
             .then(
                 () => {
                 setSuccess('Mensagem enviada com sucesso!')

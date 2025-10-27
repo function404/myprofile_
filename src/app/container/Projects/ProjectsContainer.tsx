@@ -73,7 +73,7 @@ export function ProjectsContainer() {
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.8, delay: 0.2 }}
+        transition={{ duration: 2, delay: 0.5 }}
         className="main-motion"
       >
         <div className={titleStyles.title}>
