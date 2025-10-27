@@ -9,7 +9,7 @@ import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipCo
 import { IconsData } from '^/app/data/Icons/IconsData'
 
 import styles from '^/app/container/Header/HeaderContainer.module.css'
-import { IHeaderContainerProps } from '^/app/container/Header/headerContainer.types'
+import { IHeaderContainerProps } from '^/app/container/Header/HeaderContainer.types'
 
 export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
    const [showScrollIndicator, setShowScrollIndicator] = useState(true)
