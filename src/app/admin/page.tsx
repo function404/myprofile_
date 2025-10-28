@@ -29,13 +29,16 @@ export default async function AdminPage() {
       .order('created_at', { ascending: false })
 
    if (fetchError) {
-      console.error("Erro ao buscar projetos:", fetchError)
+      console.error("Error fetching projects:", fetchError)
    }
 
    return (
       <div className={styles.adminContainer}>
          <header className={styles.adminHeader}>
-            <p>Logado como: <span>{user.email}</span></p>
+            <Link href="/" className={styles.backToPortfolioLink}>
+               &larr; Back to Portfolio
+            </Link>
+            <p>Logged in as: <span>{user.email}</span></p>
             <form action={signOut}>
                <button type="submit" className={styles.logoutButton}>
                   Sign Out

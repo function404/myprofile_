@@ -7,9 +7,10 @@ import { motion } from 'framer-motion'
 import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 
 import { IProject } from '^/app/data/Projects/ProjectsData'
-import { getIconComponent } from '^/app/utils/IconMap/IconMapUtils'
 
 import { IProjectCardProps } from '^/app/components/ProjectCard/ProjectCardComponent.types'
+
+import { getIconComponent } from '^/app/data/Technologies/TechnologiesData'
 
 import styles from './ProjectCardComponent.module.css'
 

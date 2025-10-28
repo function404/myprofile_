@@ -2,7 +2,7 @@
 
 import { SubmitButtonComponent } from '^/app/components/SubmitButton/SubmitButtonComponent'
 
-import { techOptions, iconMap } from '^/app/data/TechOptions/TechOptionsData'
+import { selectableTechnologies } from '^/app/data/Technologies/TechnologiesData'
 
 import styles from '^/app/container/Forms/ProjectForm/ProjectFormContainer.module.css'
 import { useProjectFormContainerRules } from './ProjectFormContainer.rules'
@@ -64,22 +64,24 @@ export function ProjectFormContainer() {
             {/* Techs Selection */}
             <label className={styles.label}>Technologies:</label>
             <div className={styles.techSelectionContainer}>
-               {techOptions.map((tech) => {
-                  const IconComponent = iconMap[tech.iconName]
+               {selectableTechnologies.map((tech) => {
+                  const IconComponent = tech.icon
                   return (
-                  <div key={tech.value} className={styles.techCheckboxItem}>
-                     <input
-                        required
-                        type="checkbox"
-                        id={`tech-${tech.value}`}
-                        name="techs"
-                        value={tech.value}
-                     />
-                     <label htmlFor={`tech-${tech.value}`}>
-                        {IconComponent && <IconComponent size={16} />}
-                        {tech.name}
-                     </label>
-                  </div>
+                     <div 
+                        key={tech.formValue} 
+                        className={styles.techCheckboxItem}
+                     >
+                        <input
+                           type="checkbox"
+                           id={`tech-${tech.formValue}`}
+                           name="techs"
+                           value={tech.formValue}
+                        />
+                        <label htmlFor={`tech-${tech.formValue}`}>
+                           {IconComponent && <IconComponent size={16} />}
+                           {tech.name}
+                        </label>
+                     </div>
                   )
                })}
             </div>

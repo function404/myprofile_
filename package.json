@@ -14,6 +14,7 @@
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.76.1",
     "framer-motion": "^11.0.24",
+    "knip": "^5.66.4",
     "next": "14.1.4",
     "react": "^18",
     "react-dom": "^18",
