@@ -133,8 +133,18 @@
 }
 
 .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText {
-  margin-top: 5px;
-  margin-bottom: 25px;
+   margin-top: 5px;
+   margin-bottom: 25px;
+   position: relative;
+   display: inline-block;
+}
+
+.santaHat {
+   position: absolute;
+   bottom: 15px;
+   left: 89%;
+   z-index: 1;
+   pointer-events: none;
 }
 
 .containerHeader .contentHeader .boxesHeader .contentIcons {
@@ -224,6 +234,12 @@
       font-size: 72px;
       margin-left: 0;
    }
+
+   .santaHat {
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-15deg) scale(0.8);
+   }
 }
 
 @media screen and (max-width: 1024px) {
@@ -275,5 +291,11 @@
    .containerHeader .scrollIndicatorInner {
       width: 6px;
       height: 6px;
+   }
+
+   .santaHat {
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-15deg) scale(0.6);
    }
 }
