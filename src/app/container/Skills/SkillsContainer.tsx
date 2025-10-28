@@ -4,7 +4,8 @@ import { motion } from 'framer-motion'
 import { Tooltip } from 'react-tooltip'
 import Tilt from 'react-parallax-tilt'
 
-import { skillsData } from '^/app/data/Skills/SkillsData'
+import { allTechnologies } from '^/app/data/Technologies/TechnologiesData'
+import { ITechnology } from '^/app/data/Technologies/TechnologiesData.types'
 
 import styles from '^/app/container/Skills/SkillsContainer.module.css'
 import { useSkillsAnimation } from '^/app/container/Skills/SkillsContainer.rules'
@@ -12,14 +13,14 @@ import { useSkillsAnimation } from '^/app/container/Skills/SkillsContainer.rules
 export function SkillsContainer() {
    const { ref, mainControls } = useSkillsAnimation()
 
-   const languages = skillsData.filter(skill => skill.category === 'Language')
-   const tools = skillsData.filter(skill => skill.category === 'Technology')
+   const languages = allTechnologies.filter(tech => tech.category === 'Language')
+   const tools = allTechnologies.filter(tech => tech.category === 'Technology')
 
-   const renderSkillIcons = (skills: typeof skillsData) => (
+   const renderSkillIcons = (skills: ITechnology[]) => (
       <div className={styles.iconGrid}>
-         {skills.map(({ name, icon: Icon, tooltipId }) => (
-            <Tilt 
-               key={tooltipId}
+         {skills.map(({ name, icon: Icon, tooltipId, id }) => (
+            <Tilt
+               key={id}
                perspective={100}
                scale={1.05}
                transitionSpeed={250}
@@ -36,7 +37,7 @@ export function SkillsContainer() {
             </Tilt>
          ))}
       </div>
-   )
+    )
 
    return (
       <div id='skills' ref={ref} className={styles.sectionContainer}>
@@ -57,10 +58,10 @@ export function SkillsContainer() {
             {renderSkillIcons(tools)}
          </motion.div>
 
-         {skillsData.map(skill => (
+         {allTechnologies.map(tech => (
             <Tooltip
-               key={skill.tooltipId}
-               id={skill.tooltipId}
+               key={tech.tooltipId}
+               id={tech.tooltipId}
                arrowColor={`rgb(244, 244, 244)`}
                style={{
                   backgroundColor: 'rgb(244, 244, 244)',
@@ -73,5 +74,5 @@ export function SkillsContainer() {
             />
          ))}
       </div>
-   )
+    )
 }

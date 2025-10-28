@@ -57,7 +57,7 @@ async function uploadImage(
 async function parseProjectFormDataWithUploads(
    supabase: ReturnType<typeof createClient>,
    formData: FormData,
-   existingProject?: IProject // Para lidar com updates
+   existingProject?: IProject
 ): Promise<Omit<IProject, 'id' | 'created_at'>> {
    const title = formData.get('title') as string
    const description = formData.get('description') as string | null
@@ -74,46 +74,38 @@ async function parseProjectFormDataWithUploads(
       })
       .filter((t): t is ITech => t !== null)
 
-   /**
-    * Se um novo arquivo for enviado, fazer upload e obter a nova URL.
-    * Se nenhum arquivo for enviado durante um update, manter a URL existente.
-    * Se for um novo projeto, a imagem principal é obrigatória (validação no form).
-    * @returns URL pública da imagem principal ou erro se falhar o upload.
-   */
    const imgFile = formData.get('imgFile') as File | null
+
    let imgUrl: string | null = existingProject?.img ?? null
-   
+
    if (imgFile && imgFile.size > 0) {
+      console.log(`Uploading main image: ${imgFile.name}`)
       imgUrl = await uploadImage(supabase, imgFile, 'project-images', `project-${existingProject?.id ?? 'new'}-main`)
+
       if (!imgUrl) throw new Error('Main image upload failed but file was present.')
+      console.log(`Main image uploaded to: ${imgUrl}`)
    } else if (!existingProject && (!imgFile || imgFile.size === 0)) {
       throw new Error('Main image file is required for new projects.')
    }
 
    const imgsFiles = formData.getAll('imgsFiles') as File[]
-
    let galleryUrls: string[] = existingProject?.imgs ?? []
 
-   const uploadedGalleryUrls: string[] = []
+   const filesToUpload = imgsFiles.filter(file => file && file.size > 0)
 
-   const hasNewGalleryFiles = imgsFiles.some(file => file.size > 0)
+   if (filesToUpload.length > 0) {
+      console.log(`Uploading ${filesToUpload.length} gallery images in parallel...`)
+      
+      const uploadPromises = filesToUpload.map(file =>
+         uploadImage(supabase, file, 'project-images', `project-${existingProject?.id ?? 'new'}-gallery`)
+      )
 
-   /**
-    * Se novos arquivos de galeria forem enviados, fazer upload e substituir as URLs existentes.
-    * Se nenhum arquivo for enviado durante um update, manter as URLs existentes.
-    * @returns Array de URLs públicas das imagens da galeria.
-   */
-   if (hasNewGalleryFiles) {
-      galleryUrls = []
-      for (const file of imgsFiles) {
-         if (file.size > 0) {
-            const url = await uploadImage(supabase, file, 'project-images', `project-${existingProject?.id ?? 'new'}-gallery`)
-            if (url) {
-               uploadedGalleryUrls.push(url)
-            }
-         }
-      }
-      galleryUrls = uploadedGalleryUrls
+      const uploadedUrls = await Promise.all(uploadPromises)
+
+      const validUrls = uploadedUrls.filter((url): url is string => url !== null)
+      console.log(`Gallery images uploaded: ${validUrls.length} successful.`)
+
+      galleryUrls = validUrls
    }
 
    return {
@@ -144,18 +136,31 @@ export async function addProject(
 
    if (!user) return { message: 'Não autorizado.', type: 'error' }
 
+   console.log("Attempting to add project...")
    try {
       const projectData = await parseProjectFormDataWithUploads(supabase, formData)
+      console.log("Project data parsed, attempting insert:", projectData)
 
       const { error } = await supabase.from('projects').insert(projectData)
 
-      if (error) throw error
+      if (error) {
+         console.error('Supabase insert error:', error)
+         throw error
+      }
+
+      console.log("Project added successfully!")
       revalidatePath('/')
       revalidatePath('/admin')
       return { message: 'Projeto adicionado com sucesso!', type: 'success' }
    } catch (e: any) {
-      console.error('Add Project Error:', e)
-      return { message: `Erro ao adicionar: ${e.message}`, type: 'error' }
+      console.error('Add Project Server Action Failed:', e)
+
+      const errorMessage = 
+         e instanceof Error 
+            ? e.message 
+            : 'Ocorreu um erro desconhecido no servidor.'
+
+      return { message: `Erro ao adicionar: ${errorMessage}`, type: 'error' }
    }
 }
 

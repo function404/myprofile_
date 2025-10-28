@@ -39,8 +39,8 @@ export const useProjectsContainerRules = () => {
           setProjects(data as IProject[])
         }
       } catch (err: any) {
-        console.error("Erro ao buscar projetos:", err)
-        setError("Falha ao carregar projetos.")
+        console.error("Error fetching projects:", err)
+        setError("Failed to load projects.")
       } finally {
         setLoading(false)
       }
@@ -54,8 +54,8 @@ export const useProjectsContainerRules = () => {
   })
 
   const filterButtons: { label: string; type: TProjectTypeFilter }[] = [
-     { label: 'Projetos Web', type: 'web' },
-     { label: 'Projetos Mobile', type: 'mobile' },
+    { label: 'Web Projects', type: 'web' },
+    { label: 'Mobile Projects', type: 'mobile' },
   ]
 
   useEffect(() => {

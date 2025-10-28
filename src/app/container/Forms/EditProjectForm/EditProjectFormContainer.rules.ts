@@ -6,8 +6,6 @@ import { useFormState } from "react-dom"
 import { updateProject } from "^/app/admin/admin.actions"
 import { IFormState } from "^/app/admin/admin.types"
 
-import { ITech } from "^/app/data/Projects/ProjectsData"
-
 import { IEditProjectFormContainerProps } from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.types'
 
 const initialState: IFormState = {
@@ -21,40 +19,26 @@ export function useEditProjectFormContainer({ project }: IEditProjectFormContain
 
    useEffect(() => {
       if (state.type === 'success') {
-         // Aqui você poderia re-buscar os dados ou atualizar o estado local
-         // com base no que foi enviado, mas revalidar no server action é geralmente suficiente.
-         // Por simplicidade, vamos apenas mostrar a mensagem.
+         setCurrentProject((prev) => ({
+            ...prev,
+            ...project,
+         }))
+         console.log("Project updated successfully!")
       }
-   }, [state])
+   }, [state, project])
 
-   const formatTechsForInput = (techs: ITech[] | null | undefined): string => {
-      if (!techs) {
-         return ''
-      }
-      return techs.map(t => `${t.name},${t.iconName}`).join(';')
-   }
-
-   const formatImgsForInput = (imgs: string[] | null | undefined): string => {
-      if (!imgs) {
-         return ''
-      }
-      return imgs.join(', ')
-   }
-
-   const isTechSelected = (techValue: string): boolean => {
+   const checkSelected = (techValue: string): boolean => {
       return (
          currentProject.techs?.some(
-         (t) => `${t.name},${t.iconName}` === techValue
+            (t) => `${t.name},${t.iconName}` === techValue
          ) ?? false
-      )
+      );
    }
 
    return {
       state,
       formAction,
       currentProject,
-      formatTechsForInput,
-      formatImgsForInput,
-      isTechSelected,
+      checkSelected,
    }
 }

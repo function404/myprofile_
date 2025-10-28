@@ -4,8 +4,7 @@ import {
    FaLinkedinIn,
    FaTwitch
 } from 'react-icons/fa'
-  
- 
+
 export const IconsData = [
    {
       icon: FaInstagram,

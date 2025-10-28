@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 
 import LoginForm from '^/app/container/Forms/LoginForm/LoginFormContainer'
 
@@ -16,6 +17,10 @@ export default async function LoginPage() {
 
    return (
       <div className={styles.loginPageContainer}>
+         <Link href="/" className={styles.backToPortfolioButton}>
+            &larr; Back to Portfolio
+         </Link>
+
          <div className={titleStyles.title}>
             <h2 data-text="Admin Login" className={titleStyles.titleH2}>
                Admin Login

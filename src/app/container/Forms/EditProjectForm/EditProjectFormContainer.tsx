@@ -4,9 +4,7 @@ import Image from 'next/image'
 
 import { SubmitButtonComponent } from '^/app/components/SubmitButton/SubmitButtonComponent'
 
-import { techOptions } from '^/app/data/TechOptions/TechOptionsData'
-
-import { iconMap } from '^/app/utils/IconMap/IconMapUtils'
+import { selectableTechnologies } from '^/app/data/Technologies/TechnologiesData'
 
 import styles from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.module.css'
 import { IEditProjectFormContainerProps } from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.types'
@@ -19,9 +17,7 @@ export function EditProjectFormContainer({
       state,
       formAction,
       currentProject,
-      formatTechsForInput,
-      formatImgsForInput,
-      isTechSelected,
+      checkSelected
    } = useEditProjectFormContainer({ project })
 
    return (
@@ -36,7 +32,7 @@ export function EditProjectFormContainer({
          <div className={styles.contentForm}>
             {/* Title */}
             <label className={styles.label}>Title:</label>
-            <input
+            <input 
                type="text"
                name="title"
                className={styles.input}
@@ -64,15 +60,15 @@ export function EditProjectFormContainer({
 
             {/* Display Current Main Image */}
             <label className={styles.label}>Current Main Image:</label>
-            {currentProject.img && (
-               <div className={styles.currentImagePreview}>
-                  <Image
-                     priority
-                     className={styles.imgPreview}
+            {currentProject.img && ( 
+               <div className={styles.currentImagePreview}> 
+                  <Image 
+                     priority 
+                     className={styles.imgPreview} 
                      src={currentProject.img}
                      alt="Current main"
                      width="100"
-                     height={250} 
+                     height={250}
                   />
                </div>
             )}
@@ -88,22 +84,22 @@ export function EditProjectFormContainer({
 
             {/* Display Current Gallery Images */}
             <label className={styles.label}>Current Gallery Images:</label>
-            {currentProject.imgs && currentProject.imgs.length > 0 && (
-               <div className={styles.currentImagePreview}>
-                  <div className={styles.galleryPreview}>
-                     {currentProject.imgs.map((imgUrl, index) => (
-                        <Image
+            {currentProject.imgs && currentProject.imgs.length > 0 && ( 
+               <div className={styles.currentImagePreview}> 
+                  <div className={styles.galleryPreview}> 
+                     {currentProject.imgs.map((imgUrl, index) => ( 
+                        <Image 
                            key={index}
                            className={styles.imgPreview}
                            priority
                            src={imgUrl}
                            alt={`Current gallery ${index + 1}`}
                            width="80"
-                           height={250} 
-                        />
-                     ))}
+                           height={250}
+                        /> 
+                     ))} 
                   </div>
-               </div>
+               </div> 
             )}
 
             {/* Additional Images Upload (Optional additions/replacement) */}
@@ -119,27 +115,26 @@ export function EditProjectFormContainer({
 
             {/* Techs Selection */}
             <label className={styles.label}>Technologies:</label>
-               <div className={styles.techSelectionContainer}>
-               {techOptions.map((tech) => {
-                  const IconComponent = iconMap[tech.iconName]
+            <div className={styles.techSelectionContainer}>
+               {selectableTechnologies.map((tech) => {
+                  const IconComponent = tech.icon;
                   return (
-                     <div key={tech.value} className={styles.techCheckboxItem}>
-                     <input
-                        required
-                        type="checkbox"
-                        id={`edit-tech-${tech.value}`}
-                        name="techs"
-                        value={tech.value}
-                        defaultChecked={isTechSelected(tech.value)}
-                     />
-                     <label htmlFor={`edit-tech-${tech.value}`}>
-                        {IconComponent && <IconComponent size={16} />}
-                        {tech.name}
-                     </label>
+                     <div key={tech.formValue} className={styles.techCheckboxItem}>
+                        <input
+                           type="checkbox"
+                           id={`edit-tech-${tech.formValue}`}
+                           name="techs"
+                           value={tech.formValue}
+                           defaultChecked={checkSelected(tech.formValue)}
+                        />
+                        <label htmlFor={`edit-tech-${tech.formValue}`}>
+                           {IconComponent && <IconComponent size={16} />}
+                           {tech.name}
+                        </label>
                      </div>
                   )
                })}
-               </div>
+            </div>
 
             {/* Type */}
             <label className={styles.label}>Type:</label>

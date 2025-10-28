@@ -21,6 +21,22 @@
    color: rgba(255, 255, 255, 0.7);
 }
 
+.adminContainer .adminHeader .backToPortfolioLink {
+   color: rgba(255, 255, 255, 0.7);
+   text-decoration: none;
+   font-size: 14px;
+   transition: color 0.25s ease;
+   margin-right: auto;
+}
+
+.adminContainer .adminHeader .backToPortfolioLink:hover {
+   color: rgb(255, 255, 255);
+}
+
+.adminContainer .adminHeader form {
+  display: inline-block;
+}
+
 .adminContainer .adminHeader p span {
    font-weight: 600;
    color: rgb(255, 255, 255);
