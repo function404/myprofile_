@@ -3,17 +3,17 @@ import {
    SiCss3, SiJavascript, SiTypescript, SiReact, SiPhp, SiNextdotjs,
    SiAndroidstudio, SiNetlify, SiVisualstudiocode, SiPowershell,
    SiMicrosoftazure, SiSentry, SiCplusplus, SiStyledcomponents, SiExpo,
-   SiHtml5
+   SiHtml5, SiTailwindcss
 } from 'react-icons/si'
 import { FaJava, FaNpm, FaYarn, FaGithub, FaNodeJs } from 'react-icons/fa'
-import { ITechnology } from './TechnologiesData.types'
 
+import { ITechnology } from '^/app/data/Technologies/TechnologiesData.types'
 
 const iconMap: { [key: string]: IconType } = {
    SiCss3, SiJavascript, SiTypescript, SiReact, SiPhp, SiNextdotjs,
    SiAndroidstudio, SiNetlify, SiVisualstudiocode, SiPowershell,
    SiMicrosoftazure, SiSentry, SiCplusplus, FaJava, FaNpm, FaYarn,
-   FaGithub, FaNodeJs, SiStyledcomponents, SiExpo
+   FaGithub, FaNodeJs, SiStyledcomponents, SiExpo, SiTailwindcss
 }
 
 export const getIconComponent = (iconName: string): IconType => {
@@ -243,6 +243,16 @@ export const allTechnologies: ITechnology[] = [
       formValue: 'Android Studio,SiAndroidstudio',
       selectable: true
    },
+   {
+      id: 'tailwindcss',
+      name: 'Tailwind CSS',
+      icon: SiTailwindcss,
+      iconName: 'SiTailwindcss',
+      category: 'Technology',
+      tooltipId: 'skill-tailwind',
+      formValue: 'Tailwind CSS,SiTailwindcss',
+      selectable: true
+   }
 ]
 
 export const selectableTechnologies = 

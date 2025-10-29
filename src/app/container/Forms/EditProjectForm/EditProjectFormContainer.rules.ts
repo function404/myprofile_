@@ -1,10 +1,10 @@
 'use client'
 
-import { useEffect, useState } from "react"
-import { useFormState } from "react-dom"
+import { useEffect, useState } from 'react'
+import { useFormState } from 'react-dom'
 
-import { updateProject } from "^/app/admin/admin.actions"
-import { IFormState } from "^/app/admin/admin.types"
+import { updateProject } from '^/app/admin/admin.actions'
+import { IFormState } from '^/app/admin/admin.types'
 
 import { IEditProjectFormContainerProps } from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.types'
 
@@ -23,7 +23,7 @@ export function useEditProjectFormContainer({ project }: IEditProjectFormContain
             ...prev,
             ...project,
          }))
-         console.log("Project updated successfully!")
+         console.log('Project updated successfully!')
       }
    }, [state, project])
 
@@ -32,7 +32,7 @@ export function useEditProjectFormContainer({ project }: IEditProjectFormContain
          currentProject.techs?.some(
             (t) => `${t.name},${t.iconName}` === techValue
          ) ?? false
-      );
+      )
    }
 
    return {

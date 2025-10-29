@@ -11,7 +11,7 @@ const initialState: IFormState = {
   type: 'idle',
 }
 
-export function useProjectFormContainerRules() {
+export const useProjectFormContainerRules = () => {
    const [state, formAction] = useFormState(addProject, initialState)
    const formRef = useRef<HTMLFormElement>(null)
 

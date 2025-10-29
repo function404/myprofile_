@@ -7,8 +7,8 @@ import { SubmitButtonComponent } from '^/app/components/SubmitButton/SubmitButto
 import { selectableTechnologies } from '^/app/data/Technologies/TechnologiesData'
 
 import styles from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.module.css'
+import { useEditProjectFormContainer } from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.rules'
 import { IEditProjectFormContainerProps } from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer.types'
-import { useEditProjectFormContainer } from './EditProjectFormContainer.rules'
 
 export function EditProjectFormContainer({ 
    project 

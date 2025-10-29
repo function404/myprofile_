@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { IProject } from '^/app/data/Projects/ProjectsData'
 
-import { createClient } from '^/app/supabase/ClienteSupabase'
+import { createClient } from '^/app/supabase/ClientSupabase'
 
 import { TProjectTypeFilter } from '^/app/container/Projects/ProjectsContainer.types'
 

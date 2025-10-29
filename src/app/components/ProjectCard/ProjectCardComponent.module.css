@@ -1,5 +1,8 @@
 .cardWrapper {
    position: relative;
+   display: flex;
+   flex-direction: column;
+   height: 100%;
 }
 
 .cardWrapper .card {
@@ -25,8 +28,96 @@
    width: 100%;
    overflow: hidden;
    background-color: rgb(23, 23, 23);
+}
+
+.cardWrapper .card .imageContainer {
    aspect-ratio: 16 / 9;
    border-bottom: 1px solid rgba(244, 244, 244, 0.4);
+}
+
+.cardWrapper .mobileCard .imageContainer {
+   aspect-ratio: 9 / 16;
+   border-radius: 24px;
+   border: 10px solid rgb(60, 60, 60);
+   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5),
+               0 4px 8px rgba(0, 0, 0, 0.3);
+   margin: 15px;
+   width: auto;
+}
+
+.cardWrapper .mobileCard::after{
+   content: '';
+   position: absolute;
+   top: 9%;
+   right: 15px;
+   transform: translateX(50%);
+   width: 6px;
+   height: 80px;
+   background-color: rgb(60, 60, 60);
+   border-radius: 0 8px 8px 0;
+   z-index: 2;
+   box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);
+}
+
+.cardWrapper .mobileCard .powerButton {
+   position: absolute;
+   top: 21%;
+   right: 15px;
+   transform: translateX(50%);
+   width: 6px;
+   height: 60px;
+   background-color: rgb(60, 60, 60);
+   border-radius: 0 8px 8px 0;
+   z-index: 2;
+   box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);  
+   border: none;
+   padding: 0;
+   cursor: pointer;
+   transition: background-color 0.2s ease;
+}
+
+.cardWrapper .mobileCard .powerButton:hover {
+   background-color: rgb(80, 80, 80);
+}
+
+.cardWrapper .mobileCard .imageContainer::before {
+   content: '';
+   position: absolute;
+   top: 2px;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 14px;
+   height: 14px;
+   background-color: rgb(60, 60, 60);
+   border-radius: 8px;
+   z-index: 2;
+   box-shadow: inset 0 -2px 3px rgba(0,0,0,0.3);
+}
+
+.cardWrapper .imageContainer .cardImage {
+   display: block;
+   width: 100%;
+   height: 100%;
+   object-fit: stretch;
+   transition: transform 0.4s ease, opacity 0.5s ease;
+   -webkit-user-drag: none;
+   user-select: none;
+}
+
+.screenOff {
+   opacity: 0;
+}
+
+.cardWrapper .mobileCard .imageContainer .cardImage {
+   border-radius: 16px;
+}
+
+.cardWrapper .card:hover .cardImage {
+   transform: scale(1.02);
+}
+
+.cardWrapper .mobileCard:hover .cardImage {
+   transform: scale(1);
 }
 
 .carouselButton {
@@ -70,24 +161,15 @@
    font-size: 16px
 }
 
-.cardWrapper .imageContainer .cardImage {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   transition: transform 0.4s ease;
-   -webkit-user-drag: none;
-   user-select: none;
-}
-
-.cardWrapper .card:hover .cardImage {
-   transform: scale(1.05);
-}
-
 .cardWrapper .cardContent {
    padding: 20px;
    display: flex;
    flex-direction: column;
    flex-grow: 1;
+}
+
+.cardWrapper .mobileCard .cardContent {
+   padding: 5px 20px 20px;
 }
 
 .cardWrapper .cardContent .cardTitle {
@@ -170,18 +252,4 @@
    color: rgb(244, 244, 244);
    transform: scale(1.03);
    box-shadow: none;
-}
-
-.cardWrapper .mobileCard .imageContainer {
-   aspect-ratio: 9 / 16;
-   background-color: rgb(23, 23, 23);
-}
-
-.cardWrapper .mobileCard .cardImage {
-   object-fit: contain;
-   padding: 8px 0;
-}
-
-.cardWrapper .mobileCard:hover .cardImage {
-   transform: scale(1.02);
 }

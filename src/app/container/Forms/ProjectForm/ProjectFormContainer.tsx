@@ -48,7 +48,6 @@ export function ProjectFormContainer() {
                name="imgFile"
                className={styles.input}
                accept="image/*"
-               required
             />
 
             {/* Additional Images Upload (Gallery) */}
