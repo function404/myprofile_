@@ -84,8 +84,6 @@ async function parseProjectFormDataWithUploads(
 
       if (!imgUrl) throw new Error('Main image upload failed but file was present.')
       console.log(`Main image uploaded to: ${imgUrl}`)
-   } else if (!existingProject && (!imgFile || imgFile.size === 0)) {
-      throw new Error('Main image file is required for new projects.')
    }
 
    const imgsFiles = formData.getAll('imgsFiles') as File[]

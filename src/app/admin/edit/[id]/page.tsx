@@ -1,13 +1,13 @@
 import { notFound, redirect } from 'next/navigation'
 import Link from 'next/link'
 
+import { signOut } from '^/app/admin/admin.actions'
+
 import { EditProjectFormContainer } from '^/app/container/Forms/EditProjectForm/EditProjectFormContainer'
 
 import type { IProject } from '^/app/data/Projects/ProjectsData'
 
 import { createClient } from '^/app/supabase/ServerSupabase'
-
-import { signOut } from '^/app/admin/admin.actions'
 
 import titleStyles from '^/theme/Title/Title.module.css'
 

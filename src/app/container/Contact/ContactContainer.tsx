@@ -4,9 +4,10 @@ import React from 'react'
 import RingLoader from 'react-spinners/RingLoader'
 import { motion } from 'framer-motion'
 
+import titleStyles from '^/theme/Title/Title.module.css'
+
 import styles from '^/app/container/Contact/ContactContainer.module.css'
 import { useContactContainerRules } from '^/app/container/Contact/ContactContainer.rules'
-import titleStyles from '^/theme/Title/Title.module.css'
 
 export function ContactContainer() {
    const {

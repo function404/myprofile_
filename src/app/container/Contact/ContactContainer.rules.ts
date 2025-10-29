@@ -5,11 +5,11 @@ import { useInView, useAnimation } from 'framer-motion'
 
 import emailjs from '@emailjs/browser'
 
-import { ITemplateContactProps } from '^/app/container/Contact/ContactContainer.types'
-
 import DateDayUtils from '^/app/utils/DateDay/DateDayUtils'
 import DateMouthUtils from '^/app/utils/DateMounth/DateMounthUtils'
 import DateYearUtils from '^/app/utils/DateYear/DateYearUtils'
+
+import { ITemplateContactProps } from '^/app/container/Contact/ContactContainer.types'
 
 export const useContactContainerRules = () => {
     const ref = useRef(null)

@@ -4,15 +4,18 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Tilt from 'react-parallax-tilt'
 import { motion } from 'framer-motion'
-import { FaGithub, FaExternalLinkAlt, FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import {
+   FaGithub,
+   FaExternalLinkAlt,
+   FaChevronLeft,
+   FaChevronRight
+} from 'react-icons/fa'
 
 import { IProject } from '^/app/data/Projects/ProjectsData'
-
-import { IProjectCardProps } from '^/app/components/ProjectCard/ProjectCardComponent.types'
-
 import { getIconComponent } from '^/app/data/Technologies/TechnologiesData'
 
-import styles from './ProjectCardComponent.module.css'
+import { IProjectCardProps } from '^/app/components/ProjectCard/ProjectCardComponent.types'
+import styles from '^/app/components/ProjectCard/ProjectCardComponent.module.css'
 
 const getLinkButtons = (project: IProject) => {
    const isGithubLink = project.link.includes('github.com')
@@ -52,18 +55,32 @@ const getLinkButtons = (project: IProject) => {
 }
 
 export function ProjectCard({ project }: IProjectCardProps) {
+   const [isScreenOn, setIsScreenOn] = useState(true)
+
    const cardClass =
       project.type === 'mobile'
          ? `${styles.card} ${styles.mobileCard}`
          : styles.card
 
-         const imageSources = project.imgs && project.imgs.length > 1 ? project.imgs : [project.img]
-   const hasCarousel = imageSources.length > 1
+   const allImageSources: string[] = []
+
+   if (project.img && project.img.trim() !== '') {
+      allImageSources.push(project.img)
+   }
+
+   if (project.imgs && project.imgs.length > 0) {
+      allImageSources.push(...project.imgs
+         .filter(imgUrl => imgUrl && imgUrl.trim() !== ''))
+   }
 
    const [currentImageIndex, setCurrentImageIndex] = useState(0)
+   const imageSources = allImageSources
+   const hasImages = imageSources.length > 0
+   const hasCarousel = imageSources.length > 1
 
    const handlePrevImage = (e: React.MouseEvent) => {
       e.stopPropagation()
+      if (imageSources.length === 0) return
       setCurrentImageIndex((prevIndex) =>
          prevIndex === 0 ? imageSources.length - 1 : prevIndex - 1
       )
@@ -71,11 +88,16 @@ export function ProjectCard({ project }: IProjectCardProps) {
 
    const handleNextImage = (e: React.MouseEvent) => {
       e.stopPropagation()
+      if (imageSources.length === 0) return
       setCurrentImageIndex((prevIndex) =>
          prevIndex === imageSources.length - 1 ? 0 : prevIndex + 1
       )
    }
    
+   const handlePowerButtonClick = (e: React.MouseEvent) => {
+      e.stopPropagation()
+      setIsScreenOn(prevState => !prevState)
+   }
 
    return (
       <motion.div
@@ -87,36 +109,54 @@ export function ProjectCard({ project }: IProjectCardProps) {
          className={styles.cardWrapper}
       >
          <div className={cardClass}>
-            <div className={`${styles.imageContainer} ${hasCarousel ? styles.hasCarousel : ''}`}>
-               <Image
-                  priority
-                  width={500}
-                  height={project.type === 'mobile' ? 600 : 300}
-                  src={imageSources[currentImageIndex]}
-                  alt={`Imagem ${currentImageIndex + 1} do projeto ${project.title}`}
-                  className={styles.cardImage}
-                  key={imageSources[currentImageIndex]}
+            {project.type === 'mobile' && (
+               <button
+                  className={styles.powerButton}
+                  onClick={handlePowerButtonClick}
+                  aria-label="Ligar/Desligar tela"
                />
+            )}
 
-               {hasCarousel && (
-                  <>
-                     <button
-                        className={`${styles.carouselButton} ${styles.prevButton}`}
-                        onClick={handlePrevImage}
-                        aria-label="Imagem anterior"
-                     >
-                        <FaChevronLeft />
-                     </button>
-                     <button
-                        className={`${styles.carouselButton} ${styles.nextButton}`}
-                        onClick={handleNextImage}
-                        aria-label="Próxima imagem"
-                     >
-                        <FaChevronRight />
-                     </button>
-                  </>
-               )}
-            </div>
+            {hasImages && (
+               <div
+                  className={`
+                     ${styles.imageContainer}
+                     ${hasCarousel ? styles.hasCarousel : ''}
+                  `}
+                  >
+                  <Image
+                     priority
+                     width={600}
+                     height={project.type === 'mobile' ? 600 : 300}
+                     src={imageSources[currentImageIndex]}
+                     alt={`Imagem 
+                        ${currentImageIndex + 1} do projeto ${project.title}`}
+                     className={`${styles.cardImage} ${
+                        !isScreenOn ? styles.screenOff : ''
+                     }`}
+                     key={imageSources[currentImageIndex]}
+                  />
+
+                  {hasCarousel && isScreenOn && (
+                     <>
+                        <button
+                           className={`${styles.carouselButton} ${styles.prevButton}`}
+                           onClick={handlePrevImage}
+                           aria-label="Imagem anterior"
+                        >
+                           <FaChevronLeft />
+                        </button>
+                        <button
+                           className={`${styles.carouselButton} ${styles.nextButton}`}
+                           onClick={handleNextImage}
+                           aria-label="Próxima imagem"
+                        >
+                           <FaChevronRight />
+                        </button>
+                     </>
+                  )}
+               </div>
+            )}
 
             <div className={styles.cardContent}>
                <h3 className={styles.cardTitle}>{project.title}</h3>

@@ -4,6 +4,8 @@ import React, { useState, useEffect, useCallback } from 'react'
 import RingLoader from 'react-spinners/RingLoader'
 
 import { SnowEffectComponent } from '^/app/components/SnowEffect/SnowEffectComponent'
+import { BackToTopButton } from '^/app/components/BackToTopButton/BackToTopButton'
+
 import { HeaderContainer } from '^/app/container/Header/HeaderContainer'
 import { SkillsContainer } from '^/app/container/Skills/SkillsContainer'
 import { ProjectsContainer } from '^/app/container/Projects/ProjectsContainer'
@@ -43,33 +45,32 @@ export default function Home() {
   }, [pageLoading])
 
   return (
-    <>
-      <div className="container-index">
-        {pageLoading && (
-          <div className="loading">
-            <RingLoader
-              color={`rgb(244, 244, 244)`}
-              loading={pageLoading}
-              size={150}
-              speedMultiplier={1.2}
-            />
-          </div>
-        )}
-        <div
-          style={{
-            visibility: pageLoading ? 'hidden' : 'visible',
-            opacity: pageLoading ? 0 : 1,
-            transition: 'visibility 0s linear 0.3s, opacity 0.3s ease-in-out',
-          }}
-        >
-          <HeaderContainer onImageLoad={handleHeaderImageLoad} />
-          <SkillsContainer />
-          <ProjectsContainer />
-          <ContactContainer />
-          <FooterContainer />
-          <SnowEffectComponent />
+    <div className="container-index">
+      {pageLoading && (
+        <div className="loading">
+          <RingLoader
+            color={`rgb(244, 244, 244)`}
+            loading={pageLoading}
+            size={150}
+            speedMultiplier={1.2}
+          />
         </div>
+      )}
+      <div
+        style={{
+          visibility: pageLoading ? 'hidden' : 'visible',
+          opacity: pageLoading ? 0 : 1,
+          transition: 'visibility 0s linear 0.3s, opacity 0.3s ease-in-out',
+        }}
+      >
+        <HeaderContainer onImageLoad={handleHeaderImageLoad} />
+        <SkillsContainer />
+        <ProjectsContainer />
+        <ContactContainer />
+        <FooterContainer />
+        <SnowEffectComponent />
       </div>
-    </>
+      <BackToTopButton />
+    </div>
   )
 }

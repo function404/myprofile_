@@ -1,6 +1,6 @@
 'use client'
 
-import React from 'react'
+import { RingLoader } from 'react-spinners'
 import { motion, AnimatePresence } from 'framer-motion'
 
 import { ProjectCard } from '^/app/components/ProjectCard/ProjectCardComponent'
@@ -8,10 +8,8 @@ import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipCo
 
 import styles from '^/app/container/Projects/ProjectsContainer.module.css'
 import { useProjectsContainerRules } from '^/app/container/Projects/ProjectsContainer.rules'
-import { IProjectsContainerProps } from '^/app/container/Projects/ProjectsContainer.types'
 
 import titleStyles from '^/theme/Title/Title.module.css'
-import { RingLoader } from 'react-spinners'
 
 export function ProjectsContainer() {
   const { 
@@ -35,7 +33,7 @@ export function ProjectsContainer() {
         <div className={styles.loadingContainer}>
           <RingLoader color={`rgb(244, 244, 244)`} loading={loading} size={80} />
         </div>
-      );
+      )
     }
 
     if (error) {
@@ -61,11 +59,11 @@ export function ProjectsContainer() {
           ))}
         </AnimatePresence>
       </div>
-    );
-  };
+    )
+  }
 
   return (
-    <div ref={ref} className={styles.sectionContainer}>
+    <div id='projects' ref={ref} className={styles.sectionContainer}>
       <motion.div
         variants={{
           hidden: { opacity: 0, x: -100 },

@@ -3,7 +3,7 @@
 import { useState, FormEvent } from 'react'
 import { useRouter } from 'next/navigation'
 
-import { createClient } from '^/app/supabase/ClienteSupabase'
+import { createClient } from '^/app/supabase/ClientSupabase'
 
 import styles from '^/app/container/Forms/LoginForm/LoginFormContainer.module.css'
 
