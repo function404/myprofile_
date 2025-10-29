@@ -33,7 +33,7 @@ export function ProjectsContainer() {
         <div className={styles.loadingContainer}>
           <RingLoader color={`rgb(244, 244, 244)`} loading={loading} size={80} />
         </div>
-      );
+      )
     }
 
     if (error) {
@@ -59,11 +59,11 @@ export function ProjectsContainer() {
           ))}
         </AnimatePresence>
       </div>
-    );
-  };
+    )
+  }
 
   return (
-    <div ref={ref} className={styles.sectionContainer}>
+    <div id='projects' ref={ref} className={styles.sectionContainer}>
       <motion.div
         variants={{
           hidden: { opacity: 0, x: -100 },
