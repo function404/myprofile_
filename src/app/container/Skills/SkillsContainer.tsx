@@ -7,6 +7,8 @@ import Tilt from 'react-parallax-tilt'
 import { allTechnologies } from '^/app/data/Technologies/TechnologiesData'
 import { ITechnology } from '^/app/data/Technologies/TechnologiesData.types'
 
+import titleStyles from '^/theme/Title/Title.module.css'
+
 import styles from '^/app/container/Skills/SkillsContainer.module.css'
 import { useSkillsAnimation } from '^/app/container/Skills/SkillsContainer.rules'
 
@@ -51,10 +53,34 @@ export function SkillsContainer() {
             transition={{ duration: 2, delay: 0.5 }}
             className="main-motion"
          >
-            <h3 className={styles.categoryTitle}>Languages</h3>
+            <div className={titleStyles.title}>
+               <h2 
+                  data-text="Languages" 
+                  className={titleStyles.titleH2}
+                  style={{ 
+                     '--glitch-font-size': '50px', // Define o tamanho para desktop
+                     '--glitch-font-size-mobile': '30px', // Define o tamanho para mobile
+                     '--glitch-margin-bottom': '40px' // Também pode mudar a margem
+                  } as React.CSSProperties}
+               >
+                  Languages
+               </h2>
+            </div>
             {renderSkillIcons(languages)}
 
-            <h3 className={styles.categoryTitle}>Tools & Technologies</h3>
+            <div className={titleStyles.title}>
+               <h2 
+                  data-text="Tools & Technologies" 
+                  className={titleStyles.titleH2}
+                  style={{ 
+                     '--glitch-font-size': '50px', // Define o tamanho para desktop
+                     '--glitch-font-size-mobile': '30px', // Define o tamanho para mobile
+                     '--glitch-margin-bottom': '40px' // Também pode mudar a margem
+                  } as React.CSSProperties}
+               >
+                  Tools & Technologies
+               </h2>
+            </div>
             {renderSkillIcons(tools)}
          </motion.div>
 
