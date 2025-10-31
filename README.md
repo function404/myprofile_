@@ -2,9 +2,9 @@
 
 ## 📢 Informações
 
-- Versão: 5.1.7
+- Versão: 5.1.8
 
-- Última atualização: 29 Out. 2025
+- Última atualização: 31 Out. 2025
 
 ## ℹ️ Sobre o Projeto
 

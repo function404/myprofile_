@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Tilt from 'react-parallax-tilt'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
    FaGithub,
    FaExternalLinkAlt,
@@ -78,20 +78,46 @@ export function ProjectCard({ project }: IProjectCardProps) {
    const hasImages = imageSources.length > 0
    const hasCarousel = imageSources.length > 1
 
+  
+   const paginate = (newDirection: number) => {
+      if (!hasCarousel || !isScreenOn) return
+      
+      let newIndex = currentImageIndex + newDirection
+      if (newIndex < 0) {
+         newIndex = imageSources.length - 1
+      } else if (newIndex >= imageSources.length) {
+         newIndex = 0
+      }
+      setCurrentImageIndex(newIndex)
+   }
+
    const handlePrevImage = (e: React.MouseEvent) => {
       e.stopPropagation()
-      if (imageSources.length === 0) return
-      setCurrentImageIndex((prevIndex) =>
-         prevIndex === 0 ? imageSources.length - 1 : prevIndex - 1
-      )
+      paginate(-1)
    }
 
    const handleNextImage = (e: React.MouseEvent) => {
       e.stopPropagation()
-      if (imageSources.length === 0) return
-      setCurrentImageIndex((prevIndex) =>
-         prevIndex === imageSources.length - 1 ? 0 : prevIndex + 1
-      )
+      paginate(1)
+   }
+
+   const onDragEnd = (
+      e: any,
+      { offset, velocity }: {
+         offset: { x: number; y: number };
+         velocity: { x: number; y: number }
+      }
+   ) => {
+      if (!hasCarousel || !isScreenOn) return
+
+      const swipeThreshold = 50
+      const velocityThreshold = 200
+
+      if (offset.x < -swipeThreshold || velocity.x < -velocityThreshold) {
+         paginate(1)
+      } else if (offset.x > swipeThreshold || velocity.x > velocityThreshold) {
+         paginate(-1)
+      }
    }
    
    const handlePowerButtonClick = (e: React.MouseEvent) => {
@@ -124,18 +150,34 @@ export function ProjectCard({ project }: IProjectCardProps) {
                      ${hasCarousel ? styles.hasCarousel : ''}
                   `}
                   >
-                  <Image
-                     priority
-                     width={600}
-                     height={project.type === 'mobile' ? 600 : 300}
-                     src={imageSources[currentImageIndex]}
-                     alt={`Imagem 
-                        ${currentImageIndex + 1} do projeto ${project.title}`}
-                     className={`${styles.cardImage} ${
-                        !isScreenOn ? styles.screenOff : ''
-                     }`}
-                     key={imageSources[currentImageIndex]}
-                  />
+                  <AnimatePresence initial={false}>
+                     <motion.div
+                        key={currentImageIndex}
+                        className={styles.motionImageWrapper}
+                        drag="x"
+                        dragConstraints={{ left: 0, right: 0 }}
+                        dragElastic={0.1}
+                        onDragEnd={onDragEnd}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2, ease: 'easeOut' }}
+                     >
+                        <Image
+                           priority
+                           width={600}
+                           height={project.type === 'mobile' ? 600 : 300}
+                           src={imageSources[currentImageIndex]}
+                           alt={`Imagem 
+                              ${currentImageIndex + 1} do projeto 
+                              ${project.title}`
+                           }
+                           className={`${styles.cardImage} ${
+                              !isScreenOn ? styles.screenOff : ''
+                           }`}
+                        />
+                     </motion.div>
+                  </AnimatePresence>
 
                   {hasCarousel && isScreenOn && (
                      <>
@@ -153,6 +195,22 @@ export function ProjectCard({ project }: IProjectCardProps) {
                         >
                            <FaChevronRight />
                         </button>
+
+                        <div className={styles.paginationDots}>
+                           {imageSources.map((_, index) => (
+                              <button
+                                 key={index}
+                                 className={`${styles.dot} ${
+                                    index === currentImageIndex ? styles.dotActive : ''
+                                 }`}
+                                 onClick={(e) => {
+                                    e.stopPropagation()
+                                    setCurrentImageIndex(index)
+                                 }}
+                                 aria-label={`Ir para imagem ${index + 1}`}
+                              />
+                           ))}
+                        </div>
                      </>
                   )}
                </div>
@@ -160,7 +218,9 @@ export function ProjectCard({ project }: IProjectCardProps) {
 
             <div className={styles.cardContent}>
                <h3 className={styles.cardTitle}>{project.title}</h3>
-               <p className={styles.cardDescription}>{project.description}</p>
+               <p className={styles.cardDescription}>
+                  <i>{project.description}</i>
+               </p>
 
                <div className={styles.techList}>
                {project.techs?.map((tech, index) => {
