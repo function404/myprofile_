@@ -18,11 +18,11 @@ export const IconsData = [
       link: 'https://github.com/function404',
       text: 'Github',
       color: 'rgb(255, 255, 255)',
-      hoverColor: 'rgb(36, 41, 46)',
+      hoverColor: 'rgb(88, 88, 88)',
    },
    {
       icon: FaLinkedinIn,
-      link: 'https://www.linkedin.com/in/lincoln-novais-mezzalira/',
+      link: 'https://www.linkedin.com/in/lincolnnm/',
       text: 'Linkedin',
       color: 'rgb(255, 255, 255)',
       hoverColor: 'rgb(0, 119, 181)',

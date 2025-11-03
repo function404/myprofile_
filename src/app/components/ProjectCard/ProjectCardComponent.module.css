@@ -30,6 +30,26 @@
    background-color: rgb(23, 23, 23);
 }
 
+.loaderContainer {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   z-index: 5;
+}
+
+.card:not(.mobileCard) .loaderContainer {
+  border-bottom: 1px solid rgba(244, 244, 244, 0.4);
+}
+
+.mobileCard .loaderContainer {
+  border-radius: 16px;
+}
+
 .cardWrapper .card .imageContainer {
    aspect-ratio: 16 / 9;
    border-bottom: 1px solid rgba(244, 244, 244, 0.4);
@@ -112,6 +132,15 @@
    transition: transform 0.4s ease, opacity 0.5s ease;
    -webkit-user-drag: none;
    user-select: none;
+   opacity: 1;
+}
+
+.imageLoading {
+  opacity: 0;
+}
+
+.cardImage.imageLoading {
+  opacity: 0 !important;
 }
 
 .screenOff {

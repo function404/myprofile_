@@ -3,11 +3,11 @@
 import { motion } from 'framer-motion'
 
 import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
-import { useFooterContainerRules } from '^/app/container/Footer/FooterContainer.rules'
 import { IconsData } from '^/app/data/Icons/IconsData'
 import DateYearUtils from '^/app/utils/DateYear/DateYearUtils'
 
 import styles from '^/app/container/Footer/FooterContainer.module.css'
+import { useFooterContainerRules } from '^/app/container/Footer/FooterContainer.rules'
 
 export function FooterContainer() {
    const { ref, mainControls } = useFooterContainerRules()
