@@ -1,8 +1,9 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Tilt from 'react-parallax-tilt'
+import { FadeLoader } from 'react-spinners'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
    FaGithub,
@@ -56,6 +57,8 @@ const getLinkButtons = (project: IProject) => {
 
 export function ProjectCard({ project }: IProjectCardProps) {
    const [isScreenOn, setIsScreenOn] = useState(true)
+   const [currentImageIndex, setCurrentImageIndex] = useState(0)
+   const [isImageLoading, setIsImageLoading] = useState(true)
 
    const cardClass =
       project.type === 'mobile'
@@ -73,11 +76,14 @@ export function ProjectCard({ project }: IProjectCardProps) {
          .filter(imgUrl => imgUrl && imgUrl.trim() !== ''))
    }
 
-   const [currentImageIndex, setCurrentImageIndex] = useState(0)
    const imageSources = allImageSources
    const hasImages = imageSources.length > 0
    const hasCarousel = imageSources.length > 1
 
+   useEffect(() => {
+      setIsImageLoading(true)
+   // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [imageSources[currentImageIndex]])
   
    const paginate = (newDirection: number) => {
       if (!hasCarousel || !isScreenOn) return
@@ -149,7 +155,19 @@ export function ProjectCard({ project }: IProjectCardProps) {
                      ${styles.imageContainer}
                      ${hasCarousel ? styles.hasCarousel : ''}
                   `}
-                  >
+               >
+                  {isImageLoading && isScreenOn && (
+                     <div className={styles.loaderContainer}>
+                        <FadeLoader
+                           color={`rgb(244, 244, 244)`}
+                           loading={true}
+                           width={5}
+                           height={15}
+                           speedMultiplier={4}
+                        />
+                     </div>
+                  )}
+
                   <AnimatePresence initial={false}>
                      <motion.div
                         key={currentImageIndex}
@@ -172,9 +190,10 @@ export function ProjectCard({ project }: IProjectCardProps) {
                               ${currentImageIndex + 1} do projeto 
                               ${project.title}`
                            }
+                           onLoadingComplete={() => setIsImageLoading(false)}
                            className={`${styles.cardImage} ${
                               !isScreenOn ? styles.screenOff : ''
-                           }`}
+                           } ${isImageLoading ? styles.imageLoading : ''}`}
                         />
                      </motion.div>
                   </AnimatePresence>
@@ -223,26 +242,26 @@ export function ProjectCard({ project }: IProjectCardProps) {
                </p>
 
                <div className={styles.techList}>
-               {project.techs?.map((tech, index) => {
-                  const IconComponent = getIconComponent(tech.iconName)
-                  return (
-                     <Tilt
-                        key={index}
-                        perspective={6000}
-                        scale={1.05}
-                        transitionSpeed={250}
-                        gyroscope={true}
-                     >
-                        <span className={styles.techTag}>
-                           {IconComponent && (
-                              <IconComponent size={14} />
-                           )}
-                           {tech.name}
-                        </span>
-                     </Tilt>
-                  )
-               })}
-            </div>
+                  {project.techs?.map((tech, index) => {
+                     const IconComponent = getIconComponent(tech.iconName)
+                     return (
+                        <Tilt
+                           key={index}
+                           perspective={6000}
+                           scale={1.05}
+                           transitionSpeed={250}
+                           gyroscope={true}
+                        >
+                           <span className={styles.techTag}>
+                              {IconComponent && (
+                                 <IconComponent size={14} />
+                              )}
+                              {tech.name}
+                           </span>
+                        </Tilt>
+                     )
+                  })}
+               </div>
 
                <div className={styles.buttonGroup}>
                   {getLinkButtons(project)}
