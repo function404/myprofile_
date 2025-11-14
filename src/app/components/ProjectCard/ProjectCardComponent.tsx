@@ -177,7 +177,7 @@ export function ProjectCard({ project }: IProjectCardProps) {
                         dragElastic={0.1}
                         onDragEnd={onDragEnd}
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
+                        animate={{ opacity: isScreenOn ? 1 : 0 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.2, ease: 'easeOut' }}
                      >
@@ -192,8 +192,8 @@ export function ProjectCard({ project }: IProjectCardProps) {
                            }
                            onLoadingComplete={() => setIsImageLoading(false)}
                            className={`${styles.cardImage} ${
-                              !isScreenOn ? styles.screenOff : ''
-                           } ${isImageLoading ? styles.imageLoading : ''}`}
+                              isImageLoading ? styles.imageLoading : ''
+                           }`}
                         />
                      </motion.div>
                   </AnimatePresence>

@@ -88,7 +88,7 @@
    height: 60px;
    background-color: rgb(60, 60, 60);
    border-radius: 0 8px 8px 0;
-   z-index: 2;
+   z-index: 10;
    box-shadow: inset 0 2px 3px rgba(0,0,0,0.3);  
    border: none;
    padding: 0;
@@ -141,10 +141,6 @@
 
 .cardImage.imageLoading {
   opacity: 0 !important;
-}
-
-.screenOff {
-   opacity: 0;
 }
 
 .cardWrapper .mobileCard .imageContainer .cardImage {
