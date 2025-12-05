@@ -12,8 +12,12 @@ import {
    FaChevronRight
 } from 'react-icons/fa'
 
+import { ChristmasLightsComponent } from '^/app/components/ChristmasLights/ChristmasLightsComponent'
+
 import { IProject } from '^/app/data/Projects/ProjectsData'
 import { getIconComponent } from '^/app/data/Technologies/TechnologiesData'
+
+import { isChristmasSeason } from '^/app/utils/DateChristmas/DateChristmasUtils'
 
 import { IProjectCardProps } from '^/app/components/ProjectCard/ProjectCardComponent.types'
 import styles from '^/app/components/ProjectCard/ProjectCardComponent.module.css'
@@ -59,11 +63,11 @@ export function ProjectCard({ project }: IProjectCardProps) {
    const [isScreenOn, setIsScreenOn] = useState(true)
    const [currentImageIndex, setCurrentImageIndex] = useState(0)
    const [isImageLoading, setIsImageLoading] = useState(true)
+   const [isChristmas, setIsChristmas] = useState(false)
 
-   const cardClass =
-      project.type === 'mobile'
-         ? `${styles.card} ${styles.mobileCard}`
-         : styles.card
+   const cardClass = project.type === 'mobile'
+      ? `${styles.card} ${styles.mobileCard}`
+      : styles.card
 
    const allImageSources: string[] = []
 
@@ -82,6 +86,7 @@ export function ProjectCard({ project }: IProjectCardProps) {
 
    useEffect(() => {
       setIsImageLoading(true)
+      setIsChristmas(isChristmasSeason())
    // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [imageSources[currentImageIndex]])
   
@@ -141,6 +146,7 @@ export function ProjectCard({ project }: IProjectCardProps) {
          className={styles.cardWrapper}
       >
          <div className={cardClass}>
+            {isChristmas && <ChristmasLightsComponent count={10} />}
             {project.type === 'mobile' && (
                <button
                   className={styles.powerButton}

@@ -13,11 +13,16 @@ export const SnowEffectComponent = () => {
       return (
         <>
           <Snowfall
-            wind={[-0, 1]}
+            wind={[-0.5, 1]}
             snowflakeCount={150}
             style={{
-              height: '100%',
-              width: '100%',
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              zIndex: 50,
+              pointerEvents: 'none'
             }}
           />
         </>
