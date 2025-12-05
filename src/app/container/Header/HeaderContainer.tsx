@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion } from 'framer-motion'
 
 import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
+import { ChristmasLightsComponent } from '^/app/components/ChristmasLights/ChristmasLightsComponent'
 
 import { IconsData } from '^/app/data/Icons/IconsData'
 
@@ -45,6 +46,8 @@ export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
 
    return (
       <div id='header' className={styles.containerHeader}>
+         {isChristmas && <ChristmasLightsComponent count={24} />}
+
          <div className={styles.contentHeader}>
             <div className={styles.boxesHeader}>
                <div className={styles.containerFlip}>

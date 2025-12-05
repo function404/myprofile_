@@ -29,6 +29,8 @@
    padding: 30px 40px;
    display: flex;
    flex-direction: column;
+   position: relative;
+   overflow: hidden;
 }
 
 .sectionContainer .centerContainer .containerForm .contentForm {

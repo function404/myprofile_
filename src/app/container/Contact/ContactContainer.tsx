@@ -1,13 +1,16 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import RingLoader from 'react-spinners/RingLoader'
 import { motion } from 'framer-motion'
 
 import titleStyles from '^/theme/Title/Title.module.css'
 
+import { ChristmasLightsComponent } from '^/app/components/ChristmasLights/ChristmasLightsComponent'
+
 import styles from '^/app/container/Contact/ContactContainer.module.css'
 import { useContactContainerRules } from '^/app/container/Contact/ContactContainer.rules'
+import { isChristmasSeason } from '^/app/utils/DateChristmas/DateChristmasUtils'
 
 export function ContactContainer() {
    const {
@@ -20,6 +23,13 @@ export function ContactContainer() {
       handleFocus,
       mainControls,
    } = useContactContainerRules()
+
+   const [isChristmas, setIsChristmas] = useState(false)
+    
+   useEffect(() => {
+      setIsChristmas(isChristmasSeason())
+   }, [])
+
 
    return (
       <div ref={ref} className={styles.sectionContainer}>
@@ -45,54 +55,55 @@ export function ContactContainer() {
                   onSubmit={sendEmail}
                   className={styles.containerForm}
                >
-                  {/* Removed <div className="border-top"/> */}
                   <div className={styles.contentForm}>
-                  <label className={styles.label}>Name:</label>
-                  <input
-                     type="text"
-                     name="user_name"
-                     onFocus={handleFocus}
-                     className={styles.input}
-                     placeholder="Your name"
-                  />
+                     {isChristmas && <ChristmasLightsComponent count={12} />}
 
-                  <label className={styles.label}>Email:</label>
-                  <input
-                     type="email"
-                     name="user_email"
-                     onFocus={handleFocus}
-                     className={styles.input}
-                     placeholder="email@example.com"
-                  />
+                     <label className={styles.label}>Name:</label>
+                     <input
+                        type="text"
+                        name="user_name"
+                        onFocus={handleFocus}
+                        className={styles.input}
+                        placeholder="Your name"
+                     />
 
-                  <label className={styles.label}>Message:</label>
-                  <textarea
-                     name="message"
-                     onFocus={handleFocus}
-                     className={styles.textarea}
-                     placeholder="Your message here..."
-                     rows={5}
-                  />
+                     <label className={styles.label}>Email:</label>
+                     <input
+                        type="email"
+                        name="user_email"
+                        onFocus={handleFocus}
+                        className={styles.input}
+                        placeholder="email@example.com"
+                     />
 
-                  {error && <div className={styles.alertError}>{error}</div>}
-                  {success && <div className={styles.alertSuccess}>{success}</div>}
+                     <label className={styles.label}>Message:</label>
+                     <textarea
+                        name="message"
+                        onFocus={handleFocus}
+                        className={styles.textarea}
+                        placeholder="Your message here..."
+                        rows={5}
+                     />
 
-                  {/* Removed extra centerContainer div around button */}
-                  <button
-                     type="submit"
-                     disabled={loading}
-                     className={styles.buttonSubmit}
-                  >
-                     {loading ? (
-                        <RingLoader
-                        color={'rgb(23, 23, 23)'} 
-                        loading={loading}
-                        size={20}
-                        />
-                     ) : (
-                        'Send'
-                     )}
-                  </button>
+                     {error && <div className={styles.alertError}>{error}</div>}
+                     {success && <div className={styles.alertSuccess}>{success}</div>}
+
+                     {/* Removed extra centerContainer div around button */}
+                     <button
+                        type="submit"
+                        disabled={loading}
+                        className={styles.buttonSubmit}
+                     >
+                        {loading ? (
+                           <RingLoader
+                           color={'rgb(23, 23, 23)'} 
+                           loading={loading}
+                           size={20}
+                           />
+                        ) : (
+                           'Send'
+                        )}
+                     </button>
                   </div>
                   {/* Removed <div className="border-bottom"/> */}
                </form>
