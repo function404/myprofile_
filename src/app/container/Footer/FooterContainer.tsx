@@ -2,15 +2,26 @@
 
 import { motion } from 'framer-motion'
 
+import { ChristmasLightsComponent } from '^/app/components/ChristmasLights/ChristmasLightsComponent'
 import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
+
 import { IconsData } from '^/app/data/Icons/IconsData'
+
+import { isChristmasSeason } from '^/app/utils/DateChristmas/DateChristmasUtils'
 import DateYearUtils from '^/app/utils/DateYear/DateYearUtils'
 
 import styles from '^/app/container/Footer/FooterContainer.module.css'
 import { useFooterContainerRules } from '^/app/container/Footer/FooterContainer.rules'
+import { useEffect, useState } from 'react'
 
 export function FooterContainer() {
    const { ref, mainControls } = useFooterContainerRules()
+
+   const [isChristmas, setIsChristmas] = useState(false)
+      
+   useEffect(() => {
+      setIsChristmas(isChristmasSeason())
+   }, [])
 
    const containerVariants = {
       hidden: { opacity: 0 },
@@ -76,6 +87,12 @@ export function FooterContainer() {
                </span>
             </motion.div>
          </motion.div>
+         
+         {isChristmas && (
+            <div className={styles.isChristmasContainer}>
+               <ChristmasLightsComponent count={24} />
+            </div>
+         )}
          <DataTooltipComponent />
       </footer>
    )

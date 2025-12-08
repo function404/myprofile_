@@ -58,6 +58,25 @@
    color: rgb(255, 255, 255);
 }
 
+.isChristmasContainer {
+   position: absolute;
+   top: -20px;
+   right: -20px;
+   font-size: 48px;
+   pointer-events: none;
+   user-select: none;
+   animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+   0%, 100% {
+      transform: translateY(0);
+   }
+   50% {
+      transform: translateY(-10px);
+   }
+}
+
 @media screen and (max-width: 768px) {
    .sectionContainer {
       padding: 30px 15px 60px 15px;
