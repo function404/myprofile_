@@ -39,7 +39,7 @@ export function SkillsContainer() {
             </Tilt>
          ))}
       </div>
-    )
+   )
 
    return (
       <div id='skills' ref={ref} className={styles.sectionContainer}>
@@ -58,9 +58,9 @@ export function SkillsContainer() {
                   data-text="Languages" 
                   className={titleStyles.titleH2}
                   style={{ 
-                     '--glitch-font-size': '50px', // Define o tamanho para desktop
-                     '--glitch-font-size-mobile': '30px', // Define o tamanho para mobile
-                     '--glitch-margin-bottom': '40px' // Também pode mudar a margem
+                     '--glitch-font-size': '50px',
+                     '--glitch-font-size-mobile': '30px',
+                     '--glitch-margin-bottom': '40px'
                   } as React.CSSProperties}
                >
                   Languages
@@ -73,9 +73,9 @@ export function SkillsContainer() {
                   data-text="Tools & Technologies" 
                   className={titleStyles.titleH2}
                   style={{ 
-                     '--glitch-font-size': '50px', // Define o tamanho para desktop
-                     '--glitch-font-size-mobile': '30px', // Define o tamanho para mobile
-                     '--glitch-margin-bottom': '40px' // Também pode mudar a margem
+                     '--glitch-font-size': '50px',
+                     '--glitch-font-size-mobile': '30px',
+                     '--glitch-margin-bottom': '40px'
                   } as React.CSSProperties}
                >
                   Tools & Technologies
@@ -100,5 +100,5 @@ export function SkillsContainer() {
             />
          ))}
       </div>
-    )
+   )
 }

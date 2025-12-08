@@ -30,7 +30,6 @@ export function ContactContainer() {
       setIsChristmas(isChristmasSeason())
    }, [])
 
-
    return (
       <div ref={ref} className={styles.sectionContainer}>
          <motion.div
@@ -88,7 +87,6 @@ export function ContactContainer() {
                      {error && <div className={styles.alertError}>{error}</div>}
                      {success && <div className={styles.alertSuccess}>{success}</div>}
 
-                     {/* Removed extra centerContainer div around button */}
                      <button
                         type="submit"
                         disabled={loading}
@@ -105,7 +103,6 @@ export function ContactContainer() {
                         )}
                      </button>
                   </div>
-                  {/* Removed <div className="border-bottom"/> */}
                </form>
             </div>
          </motion.div>

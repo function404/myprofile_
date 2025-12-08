@@ -54,7 +54,7 @@
    position: relative;
    width: 100%;
    overflow: hidden;
-   background-color: transparent;
+   background-color: rgb(30, 30, 30);
 }
 
 .loaderContainer {

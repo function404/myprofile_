@@ -61,6 +61,17 @@
    white-space: nowrap;
 }
 
+.isChristmasContainer {
+   position: absolute;
+   bottom: -5px;
+   left: 0;
+   width: 100%;
+   transform: rotate(180deg);
+   overflow: hidden;
+   height: 40px;
+   pointer-events: none;
+}
+
 @media screen and (max-width: 480px) {
    .containerFooter {
       padding: 30px 15px 20px 15px;
