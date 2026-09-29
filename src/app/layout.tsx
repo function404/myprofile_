@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     site: '@functionss',
     card: 'summary_large_image',
-    images: '/meone.png',
+    images: '/methree.png',
   },
   openGraph: {
     title: 'Functionss - Portfolio',
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     siteName: 'FUNCTIONSS',
     type: 'website',
     url: 'https://function404.netlify.app/',
-    images: [{ url: '/meone.png' }],
+    images: [{ url: '/methree.png' }],
     countryName: 'Brazil',
     locale: 'pt_BR',
   },
