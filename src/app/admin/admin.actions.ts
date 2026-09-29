@@ -65,6 +65,7 @@ async function parseProjectFormDataWithUploads(
    const type = formData.get('type') as 'web' | 'mobile'
    const order = Number(formData.get('order') || 0)
    const target = formData.get('target') === 'on'
+   const is_public = formData.get('is_public') === 'on'
 
    const techValues = formData.getAll('techs') as string[]
    const techs: ITech[] = techValues
@@ -116,6 +117,7 @@ async function parseProjectFormDataWithUploads(
       target,
       techs,
       imgs: galleryUrls,
+      is_public,
    }
 }
 
@@ -306,4 +308,30 @@ export async function signOut() {
    const supabase = createClient()
    await supabase.auth.signOut()
    redirect('/login')
+}
+/**
+ * Atualiza a ordem (prioridade) de múltiplos projetos (Drag-and-Drop)
+ */
+export async function updateProjectsOrder(updates: { id: number, order: number }[]): Promise<{ message: string; type: 'success' | 'error' }> {
+   const supabase = createClient()
+   const { data: { user } } = await supabase.auth.getUser()
+   if (!user) return { message: 'Não autorizado.', type: 'error' }
+
+   try {
+      // Supabase não suporta upsert em lote com atualização parcial facilmente sem conflito de PK,
+      // mas podemos fazer atualizações sequenciais rápidas para poucos itens.
+      // Caso tenhamos muitos projetos, um upsert em lote seria melhor.
+      const promises = updates.map(update => 
+         supabase.from('projects').update({ order: update.order }).eq('id', update.id)
+      )
+
+      await Promise.all(promises)
+
+      revalidatePath('/')
+      revalidatePath('/admin')
+      return { message: 'Ordem salva com sucesso!', type: 'success' }
+   } catch (e: any) {
+      console.error('Update Order Error:', e)
+      return { message: `Erro ao salvar ordem: ${e.message}`, type: 'error' }
+   }
 }

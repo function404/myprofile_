@@ -1,149 +1,269 @@
 @keyframes fadeIn {
-   from {
-       opacity: 0;
-   }
-   to {
-       opacity: 1;
-   }
+   from { opacity: 0; transform: translateY(10px); }
+   to { opacity: 1; transform: translateY(0); }
 }
 
 .containerForm {
    width: 100%;
-   max-width: 900px;
-   background-color: rgb(23, 23, 23);
-   border-radius: 12px;
-   border: 1px solid rgba(244, 244, 244, 0.4);
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-   padding: 30px 40px;
+   max-width: 1100px;
+   background: rgba(255, 255, 255, 0.02);
+   backdrop-filter: blur(20px);
+   -webkit-backdrop-filter: blur(20px);
+   border-radius: 24px;
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+   padding: 40px;
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 50px;
+   animation: fadeIn 0.5s ease-out forwards;
+}
+
+.bentoFormGrid {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 30px;
+   margin-bottom: 30px;
+}
+
+.formSection {
+   background: rgba(0, 0, 0, 0.2);
+   border-radius: 16px;
+   padding: 25px;
+   border: 1px solid rgba(255, 255, 255, 0.05);
+   box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.2);
    display: flex;
    flex-direction: column;
 }
 
-.containerForm .contentForm {
-   display: flex;
-   flex-direction: column;
+.fullWidth {
+   grid-column: 1 / -1;
 }
 
-.containerForm .contentForm .label {
-   font-size: 1rem;
+.sectionTitle {
+   font-size: 1.2rem;
+   font-weight: 700;
+   color: rgba(255, 255, 255, 0.9);
+   margin-bottom: 25px;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+   padding-bottom: 10px;
+}
+
+.inputGroup {
+   display: flex;
+   flex-direction: column;
+   margin-bottom: 20px;
+}
+
+.rowInputs {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 20px;
+}
+
+.label {
+   font-size: 0.95rem;
    margin-bottom: 8px;
    color: rgba(255, 255, 255, 0.7);
-   font-weight: 500;
+   font-weight: 600;
 }
 
-.containerForm .contentForm .input, 
-.containerForm .contentForm .textarea, 
-.containerForm .contentForm .select {
-   background-color: rgb(46, 46, 46);
-   border: 1px solid rgb(85, 85, 85);
-   border-radius: 8px;
-   padding: 12px 15px;
+.input, .textarea {
+   background: rgba(0, 0, 0, 0.4);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   border-radius: 10px;
+   padding: 14px 16px;
    font-size: 1rem;
    color: rgb(244, 244, 244);
-   margin-bottom: 25px;
-   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+   transition: all 0.3s ease;
    width: 100%;
-   box-sizing: border-box;
    font-family: inherit;
+   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.containerForm .contentForm .textarea {
+.textarea {
    resize: vertical;
-   min-height: 80px;
+   min-height: 120px;
 }
 
-.containerForm .contentForm .input::placeholder, 
-.containerForm .contentForm .textarea::placeholder {
-   color: rgba(255, 255, 255, 0.4);
-   font-style: italic;
+.input::placeholder, .textarea::placeholder {
+   color: rgba(255, 255, 255, 0.3);
 }
 
-.containerForm .contentForm .input:focus, 
-.containerForm .contentForm .textarea:focus, 
-.containerForm .contentForm .select:focus {
+.input:focus, .textarea:focus {
    outline: none;
-   border-color: rgb(244, 244, 244);
-   box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.1);
+   border-color: rgba(80, 150, 255, 0.6);
+   box-shadow: 0 0 15px rgba(80, 150, 255, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+   background: rgba(0, 0, 0, 0.6);
 }
 
-.containerForm .contentForm .checkboxContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px;
-  color: rgba(255, 255, 255, 0.7);
-}
-.containerForm .contentForm .checkboxContainer input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-.containerForm .contentForm .checkboxContainer label {
-  cursor: pointer;
-  font-size: 0.95rem;
+.fileUploadWrapper {
+   background: rgba(255, 255, 255, 0.03);
+   border: 1px dashed rgba(255, 255, 255, 0.2);
+   border-radius: 10px;
+   padding: 10px;
+   transition: all 0.3s ease;
 }
 
-.containerForm .contentForm .techSelectionContainer {
-   display: flex;
-   flex-wrap: wrap;
-   gap: 15px;
-   margin-bottom: 25px;
-   padding: 15px;
-   background-color: rgb(46, 46, 46);
-   border: 1px solid rgb(85, 85, 85);
-   border-radius: 8px;
+.fileUploadWrapper:hover {
+   background: rgba(255, 255, 255, 0.08);
+   border-color: rgba(80, 150, 255, 0.5);
 }
 
-.containerForm .contentForm .techSelectionContainer .techCheckboxItem {
-   display: flex;
-   align-items: center;
-   gap: 8px;
-   background-color: rgb(60, 60, 60);
-   padding: 8px 12px;
+.fileInput {
+   color: rgba(255, 255, 255, 0.8);
+   width: 100%;
+   font-size: 0.9rem;
+   cursor: pointer;
+}
+
+.fileInput::file-selector-button {
+   background: rgba(255, 255, 255, 0.1);
+   border: 1px solid rgba(255, 255, 255, 0.2);
+   color: #fff;
+   padding: 8px 16px;
    border-radius: 6px;
    cursor: pointer;
-   transition: background-color 0.2s ease;
+   margin-right: 15px;
+   font-weight: 600;
+   transition: all 0.2s ease;
 }
 
-.containerForm .contentForm .techSelectionContainer .techCheckboxItem:hover {
-   background-color: rgb(75, 75, 75);
+.fileInput::file-selector-button:hover {
+   background: rgba(80, 150, 255, 0.5);
+   border-color: rgba(80, 150, 255, 0.8);
 }
 
-.containerForm .contentForm .techSelectionContainer .techCheckboxItem input[type="checkbox"] {
-   cursor: pointer;
-   width: 16px;
-   height: 16px;
+.optionsWrapper {
+   margin-top: 10px;
+   display: flex;
+   flex-direction: column;
+   gap: 15px;
+   background: rgba(255, 255, 255, 0.03);
+   padding: 15px 20px;
+   border-radius: 10px;
+   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.containerForm .contentForm .techSelectionContainer .techCheckboxItem label {
-   cursor: pointer;
+.checkboxContainer {
    display: flex;
    align-items: center;
-   gap: 6px;
+   gap: 12px;
    color: rgba(255, 255, 255, 0.8);
+}
+
+.checkboxContainer input[type="checkbox"] {
+   width: 18px;
+   height: 18px;
+   cursor: pointer;
+   accent-color: #5096ff;
+}
+
+.checkboxContainer label {
+   cursor: pointer;
+   font-size: 0.95rem;
+   font-weight: 500;
+}
+
+.techSelectionGrid {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+   gap: 15px;
+}
+
+.techCheckboxItem {
+   position: relative;
+   display: flex;
+}
+
+.techCheckboxItem input[type="checkbox"] {
+   position: absolute;
+   opacity: 0;
+   cursor: pointer;
+   height: 0;
+   width: 0;
+}
+
+.techCheckboxItem label {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   width: 100%;
+   padding: 12px 15px;
+   background: rgba(255, 255, 255, 0.03);
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   border-radius: 12px;
+   cursor: pointer;
+   color: rgba(255, 255, 255, 0.7);
+   font-weight: 500;
    font-size: 0.9rem;
-   font-weight: 500;
-   margin-bottom: 0;
+   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.containerForm .contentForm .alertError {
-   color: rgb(255, 204, 204);
-   background-color: rgba(255, 50, 50, 0.2);
-   border: 1px solid rgba(255, 50, 50, 0.5);
-   padding: 15px;
-   font-weight: 500;
-   border-radius: 8px;
-   margin-bottom: 25px;
-   animation: fadeIn 0.6s;
+.techCheckboxItem label:hover {
+   background: rgba(255, 255, 255, 0.08);
+   transform: translateY(-2px);
+   border-color: rgba(255, 255, 255, 0.2);
 }
 
-.containerForm .contentForm .alertSuccess {
-   color: rgb(204, 255, 204);
-   background-color: rgba(50, 255, 50, 0.15);
-   border: 1px solid rgba(50, 255, 50, 0.4);
+.techCheckboxItem input[type="checkbox"]:checked + label {
+   background: rgba(80, 150, 255, 0.15);
+   border-color: rgba(80, 150, 255, 0.6);
+   color: #fff;
+   box-shadow: 0 4px 15px rgba(80, 150, 255, 0.2), inset 0 0 0 1px rgba(80, 150, 255, 0.4);
+   transform: translateY(-2px) scale(1.02);
+}
+
+.alertError {
+   background: rgba(255, 80, 80, 0.1);
+   border: 1px solid rgba(255, 80, 80, 0.3);
+   color: rgb(255, 180, 180);
    padding: 15px;
-   font-weight: 500;
-   border-radius: 8px;
-   margin-bottom: 25px;
-   animation: fadeIn 0.6s;
+   border-radius: 12px;
+   text-align: center;
+   font-weight: 600;
+   margin-bottom: 20px;
+   animation: fadeIn 0.4s ease-out;
+}
+
+.alertSuccess {
+   background: rgba(80, 255, 80, 0.1);
+   border: 1px solid rgba(80, 255, 80, 0.3);
+   color: rgb(180, 255, 180);
+   padding: 15px;
+   border-radius: 12px;
+   text-align: center;
+   font-weight: 600;
+   margin-bottom: 20px;
+   animation: fadeIn 0.4s ease-out;
+}
+
+@media screen and (max-width: 960px) {
+   .bentoFormGrid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+   }
+   .containerForm {
+      padding: 25px;
+   }
+   .techSelectionGrid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .rowInputs {
+      grid-template-columns: 1fr;
+      gap: 0;
+   }
+   .containerForm {
+      padding: 15px;
+      border-radius: 16px;
+   }
+   .formSection {
+      padding: 15px;
+   }
 }

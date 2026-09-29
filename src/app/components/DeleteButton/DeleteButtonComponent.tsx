@@ -18,9 +18,9 @@ function InnerDeleteButton() {
          className={styles.deleteButton}
       >
          {pending ? (
-            <RingLoader color={'rgb(255, 204, 204)'} loading={pending} size={16} />
+            <RingLoader color={'#ffffff'} loading={pending} size={16} />
          ) : (
-            'Confirm Deletion'
+            'Confirm Delete'
          )}
       </button>
    )

@@ -4,25 +4,27 @@
    justify-content: center;
    padding: 12px 25px;
    font-size: 1rem;
-   font-weight: 600;
-   border-radius: 8px;
+   font-weight: 700;
+   border-radius: 12px;
    cursor: pointer;
-   transition: all 0.25s ease;
-   background-color: rgb(244, 244, 244);
-   color: rgb(23, 23, 23);
-   border: 1px solid rgb(244, 244, 244);
+   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
    width: 100%;
-   margin-top: 10px;
+   margin-top: 15px;
+   background: linear-gradient(135deg, rgba(80, 150, 255, 0.9), rgba(120, 80, 255, 0.9));
+   color: #fff;
+   border: none;
+   box-shadow: 0 4px 15px rgba(80, 150, 255, 0.3);
 }
 
 .buttonSubmit:hover:not(:disabled) {
-   background-color: rgb(255, 255, 255);
-   color: rgb(0, 0, 0);
-   transform: scale(1.03);
+   transform: translateY(-3px) scale(1.02);
+   box-shadow: 0 8px 25px rgba(80, 150, 255, 0.5);
+   background: linear-gradient(135deg, rgba(90, 160, 255, 1), rgba(130, 90, 255, 1));
 }
 
 .buttonSubmit:disabled {
-   opacity: 0.7;
+   opacity: 0.6;
    cursor: not-allowed;
-   background-color: rgb(200, 200, 200);
+   background: rgba(100, 100, 100, 0.5);
+   box-shadow: none;
 }

@@ -1,10 +1,6 @@
 @keyframes fadeIn {
-   from {
-      opacity: 0;
-   }
-   to {
-      opacity: 1;
-   }
+   from { opacity: 0; }
+   to { opacity: 1; }
 }
 
 .sectionContainer {
@@ -12,6 +8,31 @@
    padding: 0 20px;
    max-width: 900px;
    margin: 0 auto 120px auto;
+   z-index: 1;
+}
+
+.sectionContainer::before,
+.sectionContainer::after {
+   content: '';
+   position: absolute;
+   width: 300px;
+   height: 300px;
+   border-radius: 50%;
+   filter: blur(120px);
+   z-index: -1;
+   opacity: 0.3;
+   animation: floatGlow 12s infinite alternate ease-in-out;
+}
+.sectionContainer::before {
+   top: 10%;
+   left: 10%;
+   background: rgba(80, 150, 255, 0.4);
+}
+.sectionContainer::after {
+   bottom: 10%;
+   right: 10%;
+   background: rgba(180, 80, 255, 0.3);
+   animation-delay: -4s;
 }
 
 .sectionContainer .centerContainer {
@@ -22,15 +43,21 @@
 
 .sectionContainer .centerContainer .containerForm {
    width: 100%;
-   background-color: rgb(23, 23, 23);
-   border-radius: 12px;
-   border: 1px solid rgba(244, 244, 244, 0.4);
-   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-   padding: 30px 40px;
+   background: rgba(255, 255, 255, 0.03);
+   backdrop-filter: blur(12px);
+   -webkit-backdrop-filter: blur(12px);
+   border-radius: 20px;
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+   padding: 40px 50px;
    display: flex;
    flex-direction: column;
    position: relative;
-   overflow: hidden;
+   transition: all 0.4s ease;
+}
+
+.sectionContainer .centerContainer .containerForm:hover {
+   box-shadow: 0 15px 50px rgba(80, 150, 255, 0.15), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 .sectionContainer .centerContainer .containerForm .contentForm {
@@ -40,114 +67,88 @@
 
 .sectionContainer .centerContainer .containerForm .contentForm .label {
    font-size: 1rem;
-   margin-bottom: 8px;
-   color: rgba(255, 255, 255, 0.7);
+   margin-bottom: 10px;
+   color: rgba(255, 255, 255, 0.85);
    font-weight: 500;
+   letter-spacing: 0.5px;
 }
 
-.sectionContainer .centerContainer .containerForm .contentForm .input {
-   background-color: rgb(46, 46, 46);
-   border: 1px solid rgb(85, 85, 85);
-   border-radius: 8px;
-   padding: 12px 15px;
+.sectionContainer .centerContainer .containerForm .contentForm .input,
+.sectionContainer .centerContainer .containerForm .contentForm .textarea {
+   background-color: rgba(255, 255, 255, 0.05);
+   border: 1px solid rgba(255, 255, 255, 0.15);
+   border-radius: 12px;
+   padding: 15px 20px;
    font-size: 1rem;
    color: rgb(244, 244, 244);
-   margin-bottom: 25px;
-   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+   margin-bottom: 30px;
+   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
    width: 100%;
    box-sizing: border-box;
-}
-
-.sectionContainer .centerContainer .containerForm .contentForm .input::placeholder {
-   color: rgba(255, 255, 255, 0.4);
-   font-style: italic;
-}
-
-.sectionContainer .centerContainer .containerForm .contentForm .input:focus {
-   outline: none;
-   border-color: rgb(244, 244, 244);
-   box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.1);
-}
-
-.sectionContainer .centerContainer .containerForm .contentForm .input:hover {
-   border-color: rgb(119, 119, 119);
-}
-.sectionContainer .centerContainer .containerForm .contentForm .input:focus:hover {
-   border-color: rgb(244, 244, 244);
 }
 
 .sectionContainer .centerContainer .containerForm .contentForm .textarea {
-   background-color: rgb(46, 46, 46);
-   border: 1px solid rgb(85, 85, 85);
-   border-radius: 8px;
-   padding: 12px 15px;
-   font-size: 1rem;
-   color: rgb(244, 244, 244);
-   margin-bottom: 25px;
-   transition: border-color 0.25s ease, box-shadow 0.25s ease;
-   width: 100%;
-   box-sizing: border-box;
    resize: vertical;
-   min-height: 120px;
+   min-height: 140px;
    font-family: inherit;
 }
 
+.sectionContainer .centerContainer .containerForm .contentForm .input::placeholder,
 .sectionContainer .centerContainer .containerForm .contentForm .textarea::placeholder {
-   color: rgba(255, 255, 255, 0.4);
-   font-style: italic;
+   color: rgba(255, 255, 255, 0.3);
 }
 
+.sectionContainer .centerContainer .containerForm .contentForm .input:focus,
 .sectionContainer .centerContainer .containerForm .contentForm .textarea:focus {
    outline: none;
-   border-color: rgb(244, 244, 244);
-   box-shadow: 0 0 0 3px rgba(244, 244, 244, 0.1);
+   background-color: rgba(255, 255, 255, 0.08);
+   border-color: rgba(255, 255, 255, 0.4);
+   box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.05);
+   transform: translateY(-2px);
 }
 
+.sectionContainer .centerContainer .containerForm .contentForm .input:hover,
 .sectionContainer .centerContainer .containerForm .contentForm .textarea:hover {
-   border-color: rgb(119, 119, 119);
-}
-.sectionContainer .centerContainer .containerForm .contentForm .textarea:focus:hover {
-   border-color: rgb(244, 244, 244);
+   background-color: rgba(255, 255, 255, 0.08);
+   border-color: rgba(255, 255, 255, 0.3);
 }
 
+.sectionContainer .centerContainer .containerForm .contentForm .alertError,
+.sectionContainer .centerContainer .containerForm .contentForm .alertSuccess {
+   padding: 15px 20px;
+   font-weight: 500;
+   border-radius: 12px;
+   margin-bottom: 25px;
+   animation: fadeIn 0.6s;
+   backdrop-filter: blur(5px);
+}
 
 .sectionContainer .centerContainer .containerForm .contentForm .alertError {
    color: rgb(255, 204, 204);
-   background-color: rgba(255, 50, 50, 0.2);
-   border: 1px solid rgba(255, 50, 50, 0.5);
-   padding: 15px;
-   font-weight: 500;
-   border-radius: 8px;
-   margin-bottom: 25px;
-   animation: fadeIn 0.6s;
+   background-color: rgba(255, 50, 50, 0.15);
+   border: 1px solid rgba(255, 50, 50, 0.3);
 }
 
 .sectionContainer .centerContainer .containerForm .contentForm .alertSuccess {
    color: rgb(204, 255, 204);
    background-color: rgba(50, 255, 50, 0.15);
-   border: 1px solid rgba(50, 255, 50, 0.4);
-   padding: 15px;
-   font-weight: 500;
-   border-radius: 8px;
-   margin-bottom: 25px;
-   animation: fadeIn 0.6s;
+   border: 1px solid rgba(50, 255, 50, 0.3);
 }
 
 .sectionContainer .centerContainer .containerForm .contentForm .buttonSubmit {
    display: flex;
    align-items: center;
    justify-content: center;
-   padding: 12px 25px;
+   padding: 14px 30px;
    font-size: 1rem;
    font-weight: 600;
-   text-transform: none;
-   text-decoration: none;
-   border-radius: 8px;
+   border-radius: 12px;
    cursor: pointer;
-   transition: all 0.25s ease;
-   background-color: rgb(244, 244, 244);
-   color: rgb(23, 23, 23);
-   border: 1px solid rgb(244, 244, 244);
+   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   background: linear-gradient(135deg, rgba(255,255,255,1), rgba(230,240,255,1));
+   color: rgb(0, 0, 0);
+   border: none;
+   box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
    height: auto;
    width: 100%;
    min-width: 120px;
@@ -156,57 +157,45 @@
 }
 
 .sectionContainer .centerContainer .containerForm .contentForm .buttonSubmit:hover:not(:disabled) {
-   background-color: rgb(255, 255, 255);
-   color: rgb(0, 0, 0);
-   transform: scale(1.03);
-   box-shadow: 0 2px 10px rgba(244, 244, 244, 0.1);
+   transform: translateY(-3px) scale(1.02);
+   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
 
 .sectionContainer .centerContainer .containerForm .contentForm .buttonSubmit:disabled {
-   opacity: 0.7;
+   opacity: 0.5;
    cursor: not-allowed;
-   background-color: rgb(200, 200, 200);
-   color: rgb(50, 50, 50);
-   border-color: rgb(200, 200, 200);
+   background: rgba(255, 255, 255, 0.2);
+   color: rgba(255, 255, 255, 0.5);
+   box-shadow: none;
+}
+
+@keyframes floatGlow {
+   0% { transform: translate(0, 0) scale(1); }
+   100% { transform: translate(30px, -30px) scale(1.1); }
 }
 
 @media screen and (max-width: 960px) {
    .sectionContainer {
+      margin-bottom: 80px;
+   }
+
+   .sectionContainer .centerContainer .containerForm {
+      padding: 35px 30px;
+   }
+}
+
+@media screen and (max-width: 480px) {
+   .sectionContainer {
+      padding: 0 15px;
       margin-bottom: 60px;
    }
 
    .sectionContainer .centerContainer .containerForm {
-      padding: 25px 30px;
-   }
-
-   .sectionContainer .centerContainer  .contentForm .label {
-      font-size: 0.95rem;
-   }
-
-   .sectionContainer .centerContainer .containerForm .contentForm .input,
-   .sectionContainer .centerContainer .containerForm .contentForm .textarea {
-      font-size: 0.95rem;
-      padding: 10px 12px;
-   }
-
-   .sectionContainer .centerContainer .containerForm .contentForm .buttonSubmit {
-      font-size: 0.95rem;
-      padding: 10px 20px;
-   }
-}
-
-@media screen and (max-width: 460px) {
-   .sectionContainer {
-      padding: 0 15px;
-      margin-bottom: 40px;
-   }
-
-   .sectionContainer .centerContainer .containerForm {
-      padding: 20px 20px;
+      padding: 25px 20px;
+      border-radius: 16px;
    }
 
    .sectionContainer .centerContainer .containerForm .contentForm .buttonSubmit {
       width: 100%;
-      justify-content: center;
    }
 }

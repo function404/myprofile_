@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import Tilt from 'react-parallax-tilt'
 
 import { DataTooltipComponent } from '^/app/components/DataTooltip/DataTooltipComponent'
 import { ChristmasLightsComponent } from '^/app/components/ChristmasLights/ChristmasLightsComponent'
@@ -49,37 +50,48 @@ export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
          {isChristmas && <ChristmasLightsComponent count={24} />}
 
          <div className={styles.contentHeader}>
-            <div className={styles.boxesHeader}>
-               <div className={styles.containerFlip}>
+            <div className={styles.boxesHeaderImage}>
+               <div className={styles.blobBackground}></div>
+               <Tilt
+                  perspective={1500}
+                  scale={1.02}
+                  transitionSpeed={2500}
+                  gyroscope={true}
+                  className={styles.containerFlip}
+               >
                   <div className={styles.flipCard}>
-                     <Image
-                        priority
-                        width={400}
-                        height={250}
-                        alt='Front profile photo'
-                        src='/meone.png'
-                        className={`${styles.img} ${styles.imgFront}`}
-                        onLoad={onImageLoad}
-                     />
-                     <Image
-                        priority
-                        width={400}
-                        height={250}
-                        alt='Back profile photo'
-                        src='/metwo.png'
-                        className={`${styles.img} ${styles.imgBack}`}
-                        onLoad={onImageLoad}
-                     />
+                     <div className={styles.flipCardInner}>
+                        <Image
+                           priority
+                           width={450}
+                           height={450}
+                           alt='Front profile photo'
+                           src='/me.png'
+                           className={`${styles.img} ${styles.imgFront}`}
+                           onLoad={onImageLoad}
+                        />
+                        <Image
+                           priority
+                           width={450}
+                           height={450}
+                           alt='Back profile photo'
+                           src='/methree.png'
+                           className={`${styles.img} ${styles.imgBack}`}
+                           onLoad={onImageLoad}
+                        />
+                     </div>
                   </div>
-               </div>
+               </Tilt>
             </div>
+            
             <div className={styles.boxesHeader}>
                <div className={styles.effectSwipe}>
                   <div className={styles.contentText}>
                      <p className={styles.textOne}>I am</p>
                   </div>
                </div>
-               <div className={styles.effectSwipe}>
+               
+               <div className={`${styles.effectSwipe} ${styles.effectSwipeDelay1}`}>
                   <div className={styles.contentText}>
                      <p className={styles.textTwo}>
                        {isChristmas && (
@@ -102,24 +114,26 @@ export function HeaderContainer({ onImageLoad }: IHeaderContainerProps) {
                      </p>
                   </div>
                </div>
-               <div className={styles.effectSwipe}>
+               
+               <div className={`${styles.effectSwipe} ${styles.effectSwipeDelay2}`}>
                   <div className={styles.contentText}>
-                     <h4 className={styles.textThree}>Dedicated to front-end mobile and web development programming</h4>
+                     <h4 className={styles.textThree}>
+                        Dedicated to front-end, mobile, and web development programming. Crafting modern and interactive experiences.
+                     </h4>
                   </div>
                </div>
-               <div className={styles.contentText}>
-                  <div className={styles.contentIcons}>
-                     {IconsData.map(({ icon: Icon, link, text, color, hoverColor}, index) => (
-                        <a key={`${index}`} data-tooltip-place='bottom' data-tooltip-id={`tooltip-${index}`}
-                           data-tooltip-content={`${text}`} href={`${link}`} target='_blank'
-                           style={{ color: color }} className={styles.iconA}
-                           onMouseOver={e => e.currentTarget.style.color = hoverColor}
-                           onMouseOut={e => e.currentTarget.style.color = color}
-                        >
-                           <Icon size={35}/>
-                        </a>
-                     ))}
-                  </div>
+               
+               <div className={styles.contentIcons}>
+                  {IconsData.map(({ icon: Icon, link, text, color, hoverColor}, index) => (
+                     <a key={`${index}`} data-tooltip-place='bottom' data-tooltip-id={`tooltip-${index}`}
+                        data-tooltip-content={`${text}`} href={`${link}`} target='_blank'
+                        style={{ color: color }} className={styles.iconA}
+                        onMouseOver={e => e.currentTarget.style.color = hoverColor}
+                        onMouseOut={e => e.currentTarget.style.color = color}
+                     >
+                        <Icon size={30}/>
+                     </a>
+                  ))}
                </div>
             </div>
          </div>
