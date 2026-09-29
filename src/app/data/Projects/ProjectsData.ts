@@ -15,5 +15,6 @@ export interface IProject {
   type: 'web' | 'mobile'
   techs: ITech[] 
   order: number
+  is_public: boolean
 }
 

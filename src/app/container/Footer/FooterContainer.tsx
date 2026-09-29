@@ -80,7 +80,7 @@ export function FooterContainer() {
             </motion.div>
 
             <motion.div className={styles.copyrightArea} variants={itemVariants}>
-               <span className={styles.signature}>Function404</span>
+               <span className={styles.signature}>Functionss</span>
                <span className={styles.divider}>|</span>
                <span className={styles.copyrightText}>
                   &copy; {DateYearUtils()} Direitos reservados

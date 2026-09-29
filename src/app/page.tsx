@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import RingLoader from 'react-spinners/RingLoader'
+import { motion, AnimatePresence } from 'framer-motion'
 
 import { SnowEffectComponent } from '^/app/components/SnowEffect/SnowEffectComponent'
 import { BackToTopButton } from '^/app/components/BackToTopButton/BackToTopButton'
@@ -28,7 +29,7 @@ export default function Home() {
     if (headerImagesLoaded >= TOTAL_CRITICAL_IMAGES_HEADER) {
       const timer = setTimeout(() => {
         setPageLoading(false)
-      }, 300)
+      }, 500)
       return () => clearTimeout(timer)
     }
   }, [headerImagesLoaded])
@@ -46,21 +47,29 @@ export default function Home() {
 
   return (
     <div className="container-index">
-      {pageLoading && (
-        <div className="loading">
-          <RingLoader
-            color={`rgb(244, 244, 244)`}
-            loading={pageLoading}
-            size={150}
-            speedMultiplier={1.2}
-          />
-        </div>
-      )}
+      <AnimatePresence>
+        {pageLoading && (
+          <motion.div
+            className="loading"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          >
+            <RingLoader
+              color={`#5096ff`}
+              loading={pageLoading}
+              size={120}
+              speedMultiplier={1.2}
+            />
+            <div className="loadingText">FUNCTIONSS</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div
         style={{
           visibility: pageLoading ? 'hidden' : 'visible',
           opacity: pageLoading ? 0 : 1,
-          transition: 'visibility 0s linear 0.3s, opacity 0.3s ease-in-out',
+          transition: 'visibility 0s linear 0.6s, opacity 0.6s ease-in-out',
         }}
       >
         <HeaderContainer onImageLoad={handleHeaderImageLoad} />

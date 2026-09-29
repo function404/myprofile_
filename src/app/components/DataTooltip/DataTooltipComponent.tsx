@@ -6,17 +6,26 @@ import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 
 export const DataTooltipComponent = () => {
+    const tooltipIds = ['0', '1', '2', '3', '4', 'I', 'G', 'L', 'T']
+
     return (
         <>
-            <Tooltip id={`tooltip-0`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-1`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-2`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-3`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-4`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-I`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-G`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-L`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
-            <Tooltip id={`tooltip-T`} arrowColor={`rgb(244, 244, 244)`} style={{ backgroundColor: 'rgb(244, 244, 244)', borderRadius: '12px', color: 'rgb(0, 0, 0)' }} />
+            {tooltipIds.map(id => (
+                <Tooltip 
+                    key={`tooltip-${id}`}
+                    id={`tooltip-${id}`} 
+                    arrowColor={`rgb(244, 244, 244)`} 
+                    style={{ 
+                        zIndex: 9999, 
+                        backgroundColor: 'rgb(244, 244, 244)', 
+                        borderRadius: '10px', 
+                        color: 'rgb(0, 0, 0)',
+                        fontWeight: 600,
+                        padding: '6px 14px',
+                        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)'
+                    }} 
+                />
+            ))}
         </>
     )
 }

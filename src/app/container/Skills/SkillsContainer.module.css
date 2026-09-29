@@ -1,115 +1,191 @@
 .sectionContainer {
    position: relative;
-   padding: 40px 20px 80px 20px;
-   max-width: 1100px;
-   margin: 0 auto;
-   border-top: 1px solid rgba(244, 244, 244, 0.2);
-   border-bottom: 1px solid rgba(244, 244, 244, 0.2);
-   margin-top: 60px;
+   padding: 80px 20px;
+   max-width: 1200px;
+   margin: 60px auto;
 }
 
-.sectionContainer .categoryTitle {
-   font-size: 2rem;
+.sectionContainer::before,
+.sectionContainer::after {
+   content: '';
+   position: absolute;
+   width: 450px;
+   height: 450px;
+   border-radius: 50%;
+   filter: blur(150px);
+   z-index: -1;
+   opacity: 0.3;
+   animation: floatGlow 12s infinite alternate ease-in-out;
+}
+.sectionContainer::before {
+   top: 0%;
+   left: 0%;
+   background: rgba(80, 150, 255, 0.4);
+}
+.sectionContainer::after {
+   bottom: 0%;
+   right: 0%;
+   background: rgba(180, 80, 255, 0.3);
+   animation-delay: -6s;
+}
+
+.filterContainer {
+   display: flex;
+   justify-content: center;
+   gap: 15px;
+   margin-bottom: 40px;
+   flex-wrap: wrap;
+   position: relative;
+   z-index: 2;
+}
+
+.filterButton {
+   background: rgba(255, 255, 255, 0.05);
+   backdrop-filter: blur(10px);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   color: rgba(255, 255, 255, 0.8);
+   padding: 10px 24px;
+   border-radius: 30px;
+   cursor: pointer;
+   font-size: 15px;
+   font-weight: 500;
+   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.filterButton:hover {
+   color: rgb(255, 255, 255);
+   border-color: rgba(255, 255, 255, 0.4);
+   background: rgba(255, 255, 255, 0.1);
+   transform: translateY(-3px);
+   box-shadow: 0 8px 25px rgba(80, 150, 255, 0.2);
+}
+
+.filterButton.active {
+   color: rgb(0, 0, 0);
+   border-color: rgba(255, 255, 255, 0.9);
+   background: linear-gradient(135deg, rgba(255,255,255,1), rgba(230,240,255,1));
    font-weight: 600;
-   color: rgba(255, 255, 255, 0.85);
-   margin-bottom: 30px;
-   margin-top: 40px;
-   text-align: center;
-   letter-spacing: 1.5px;
-   text-transform: uppercase;
+   box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+   transform: translateY(-3px) scale(1.05);
 }
 
-.sectionContainer .categoryTitle:first-of-type {
-   margin-top: 0;
+
+.bentoCard {
+   background: rgba(255, 255, 255, 0.02);
+   backdrop-filter: blur(16px);
+   -webkit-backdrop-filter: blur(16px);
+   border-radius: 30px;
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+   padding: 50px 40px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   position: relative;
+   overflow: hidden;
 }
 
-.sectionContainer .iconGrid {
+.bentoCard::before {
+   content: '';
+   position: absolute;
+   top: 0; left: 0; right: 0; bottom: 0;
+   background: radial-gradient(circle at top right, rgba(255,255,255,0.05), transparent 60%);
+   pointer-events: none;
+}
+
+.iconGrid {
    display: flex;
    flex-wrap: wrap;
+   justify-content: flex-start;
+   align-items: flex-start;
+   gap: 20px;
+   width: 100%;
+   min-height: 200px;
+}
+
+.iconGrid .iconWrapper {
+   padding: 20px;
+   background: rgba(255, 255, 255, 0.04);
+   border-radius: 20px;
+   border: 1px solid rgba(255, 255, 255, 0.05);
+   backdrop-filter: blur(5px);
+   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   cursor: crosshair;
+   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+   display: flex;
    justify-content: center;
    align-items: center;
-   gap: 25px;
 }
 
-.sectionContainer .iconGrid .iconWrapper {
-   padding: 18px;
-   background-color: rgba(35, 35, 35, 0.6);
-   border-radius: 10px;
-   border: 1px solid rgba(244, 244, 244, 0.25);
-   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-   cursor: crosshair;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+.iconGrid .iconWrapper:hover {
+   background: rgba(255, 255, 255, 0.08);
+   border-color: var(--native-color);
+   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), inset 0 0 0 1px var(--native-color);
 }
 
-.sectionContainer .iconGrid .iconWrapper:hover {
-   transform: translateY(-5px) scale(1.05);
-   background-color: rgba(50, 50, 50, 0.9);
-   border-color: rgba(244, 244, 244, 0.6);
-   box-shadow: 0 6px 12px rgba(244, 244, 244, 0.15);
-}
-
-.sectionContainer .iconGrid .iconWrapper .icon {
-   color: rgb(220, 220, 220);
+.iconGrid .iconWrapper .icon {
+   color: rgba(255, 255, 255, 0.6);
    display: block;
-   transition: color 0.3s ease;
+   transition: all 0.4s ease;
+   filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
 
-.sectionContainer .iconGrid .iconWrapper:hover .icon {
-   color: rgb(255, 255, 255);
+.iconGrid .iconWrapper:hover .icon {
+   color: var(--native-color);
+   filter: drop-shadow(0 0 15px var(--native-color));
 }
 
-.isChristmasContainer {
-   position: absolute;
-   top: -20px;
-   right: -20px;
-   font-size: 48px;
-   pointer-events: none;
-   user-select: none;
-   animation: float 3s ease-in-out infinite;
+@keyframes floatGlow {
+   0% { transform: translate(0, 0) scale(1); }
+   100% { transform: translate(40px, -40px) scale(1.1); }
 }
 
-@keyframes float {
-   0%, 100% {
-      transform: translateY(0);
+@media screen and (max-width: 960px) {
+   .bentoCard {
+      padding: 40px 30px;
    }
-   50% {
-      transform: translateY(-10px);
+   .filterContainer {
+      gap: 10px;
+   }
+   .filterButton {
+      font-size: 13px;
+      padding: 8px 18px;
    }
 }
 
 @media screen and (max-width: 768px) {
    .sectionContainer {
-      padding: 30px 15px 60px 15px;
+      padding: 60px 15px;
       margin-top: 40px;
-      width: 80%;
    }
-   .sectionContainer .categoryTitle {
-      font-size: 1.6rem;
-      margin-bottom: 25px;
-      margin-top: 35px;
+   .iconGrid .iconWrapper {
+      padding: 16px;
+      border-radius: 16px;
    }
-   .sectionContainer .iconGrid {
-      gap: 18px;
-   }
-   .sectionContainer .iconGrid .iconWrapper {
-      padding: 15px;
-   }
-   .sectionContainer .iconGrid .iconWrapper .icon {
-      font-size: 36px; 
+   .iconGrid .iconWrapper .icon {
+      font-size: 38px !important;
    }
 }
 
 @media screen and (max-width: 480px) {
-   .sectionContainer .categoryTitle {
-      font-size: 1.4rem;
+   .bentoCard {
+      padding: 30px 15px;
+      border-radius: 24px;
    }
-   .sectionContainer .iconGrid {
-      gap: 15px;
+   .iconGrid {
+      gap: 14px;
    }
-   .sectionContainer .iconGrid .iconWrapper {
-      padding: 12px;
+   .iconGrid .iconWrapper {
+      padding: 14px;
+      border-radius: 14px;
    }
-   .sectionContainer .iconGrid .iconWrapper .icon {
-      font-size: 32px;
+   .iconGrid .iconWrapper .icon {
+      font-size: 32px !important;
+   }
+   .filterButton {
+      font-size: 12px;
+      padding: 8px 14px;
    }
 }

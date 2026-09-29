@@ -1,0 +1,225 @@
+.listContainer {
+   width: 100%;
+   max-width: 1100px;
+   margin: 20px auto 0 auto;
+   display: flex;
+   flex-direction: column;
+}
+
+.headerActions {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 20px;
+   flex-wrap: wrap;
+   gap: 15px;
+}
+
+.instructions {
+   color: rgba(255, 255, 255, 0.7);
+   font-size: 0.95rem;
+   display: flex;
+   align-items: center;
+   gap: 8px;
+}
+
+.saveOrderBtn {
+   display: flex;
+   align-items: center;
+   gap: 10px;
+   padding: 10px 20px;
+   background: linear-gradient(135deg, rgba(80, 150, 255, 0.9), rgba(120, 80, 255, 0.9));
+   color: #fff;
+   border: none;
+   border-radius: 8px;
+   font-weight: 600;
+   cursor: pointer;
+   box-shadow: 0 4px 15px rgba(80, 150, 255, 0.3);
+   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   animation: fadeIn 0.3s ease-out;
+}
+
+.saveOrderBtn:hover:not(:disabled) {
+   transform: translateY(-2px);
+   box-shadow: 0 6px 20px rgba(80, 150, 255, 0.5);
+}
+
+.saveOrderBtn:disabled {
+   opacity: 0.7;
+   cursor: not-allowed;
+}
+
+.projectList {
+   list-style: none;
+   padding: 0;
+   margin: 0;
+   border: 1px solid rgba(255, 255, 255, 0.08);
+   border-radius: 16px;
+   overflow: hidden;
+   background: rgba(255, 255, 255, 0.02);
+   backdrop-filter: blur(10px);
+   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.projectListItem {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   gap: 15px;
+   padding: 15px 20px;
+   background-color: transparent;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+   color: rgba(255, 255, 255, 0.9);
+   transition: background-color 0.2s ease;
+   user-select: none; /* Impede seleção de texto ao arrastar */
+}
+
+.projectListItem:hover {
+   background-color: rgba(255, 255, 255, 0.04);
+}
+
+.projectListItem:last-child {
+   border-bottom: none;
+}
+
+.projectInfo {
+   display: flex;
+   align-items: center;
+   gap: 15px;
+   flex-grow: 1;
+}
+
+.dragHandle {
+   color: rgba(255, 255, 255, 0.3);
+   cursor: grab;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   padding: 5px;
+   transition: color 0.2s ease;
+}
+
+.dragHandle:hover {
+   color: rgba(80, 150, 255, 0.8);
+}
+
+.dragHandle:active {
+   cursor: grabbing;
+}
+
+.projectOrder {
+   font-weight: 700;
+   color: rgba(255, 255, 255, 0.4);
+   min-width: 30px;
+}
+
+.projectTitle {
+   font-weight: 600;
+   color: rgb(255, 255, 255);
+}
+
+.projectType {
+   font-size: 0.85rem;
+   color: rgba(255, 255, 255, 0.8);
+   background-color: rgba(255, 255, 255, 0.1);
+   padding: 2px 8px;
+   border-radius: 6px;
+}
+
+.badgePublic {
+   font-size: 0.8rem;
+   color: rgb(180, 255, 200);
+   background-color: rgba(50, 200, 100, 0.15);
+   border: 1px solid rgba(50, 200, 100, 0.3);
+   padding: 2px 8px;
+   border-radius: 6px;
+   font-weight: 600;
+}
+
+.badgePrivate {
+   font-size: 0.8rem;
+   color: rgb(255, 200, 150);
+   background-color: rgba(255, 150, 50, 0.15);
+   border: 1px solid rgba(255, 150, 50, 0.3);
+   padding: 2px 8px;
+   border-radius: 6px;
+   font-weight: 600;
+}
+
+.projectActions {
+   display: flex;
+   gap: 10px;
+}
+
+.editButton {
+   padding: 6px 16px;
+   font-size: 14px;
+   font-weight: 600;
+   border-radius: 8px;
+   cursor: pointer;
+   text-decoration: none;
+   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   border: 1px solid rgba(80, 150, 255, 0.4);
+   background-color: rgba(80, 150, 255, 0.15);
+   color: rgb(180, 210, 255);
+   display: flex;
+   align-items: center;
+}
+
+.editButton:hover {
+   background-color: rgba(80, 150, 255, 0.3);
+   border-color: rgba(80, 150, 255, 0.8);
+   color: rgb(255, 255, 255);
+   transform: translateY(-2px);
+   box-shadow: 0 4px 10px rgba(80, 150, 255, 0.2);
+}
+
+.noProjectsMessage {
+   color: rgba(255, 255, 255, 0.6);
+   padding: 40px;
+   text-align: center;
+   width: 100%;
+}
+
+.alertSuccess {
+   background: rgba(80, 255, 80, 0.1);
+   border: 1px solid rgba(80, 255, 80, 0.3);
+   color: rgb(180, 255, 180);
+   padding: 12px;
+   border-radius: 8px;
+   text-align: center;
+   font-weight: 600;
+   margin-bottom: 15px;
+   animation: fadeIn 0.4s ease-out;
+}
+
+.alertError {
+   background: rgba(255, 80, 80, 0.1);
+   border: 1px solid rgba(255, 80, 80, 0.3);
+   color: rgb(255, 180, 180);
+   padding: 12px;
+   border-radius: 8px;
+   text-align: center;
+   font-weight: 600;
+   margin-bottom: 15px;
+   animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+   from { opacity: 0; transform: translateY(-5px); }
+   to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 960px) {
+   .projectListItem {
+      flex-direction: column;
+      align-items: flex-start;
+   }
+
+   .projectActions {
+      margin-top: 10px;
+      width: 100%;
+      justify-content: flex-end;
+   }
+}

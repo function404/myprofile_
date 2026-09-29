@@ -1,60 +1,35 @@
-@keyframes flipAnimation {
-   0% {
-      transform: perspective(1000px) rotateY(0deg);
-   }
-   50% {
-      transform: perspective(1000px) rotateY(180deg);
-   }
-   100% {
-      transform: perspective(1000px) rotateY(360deg);
-   }
-}
-
-@keyframes opacity {
-   from {
-      opacity: 0;
-   }
-   to {
-      opacity: 1;
-   }
-}
-
-@keyframes swipe {
-   0% {
-      right: 100%;
-      left: 0;
-      width: 0%;
-   }
-   50% {
-      right: 0;
-      left: 0;
-      width: 100%;
-   }
-   100% {
-      right: 0;
-      left: 100%;
-      width: 0%;
-   }
-}
-
-@keyframes scrollIndicatorAnimation {
-   0%, 100% {
-      transform: translateY(0);
-      opacity: 1;
-   }
-   50% {
-      transform: translateY(10px);
-      opacity: 0.3;
-   }
-}
-
 .containerHeader {
    display: flex;
    align-items: center;
    justify-content: center;
    padding: 20px;
-   height: 100dvh;
+   min-height: 100dvh;
    position: relative;
+   overflow: hidden;
+}
+
+.containerHeader::before,
+.containerHeader::after {
+   content: '';
+   position: absolute;
+   width: 300px;
+   height: 300px;
+   border-radius: 50%;
+   filter: blur(120px);
+   z-index: 0;
+   opacity: 0.4;
+   animation: floatGlow 10s infinite alternate ease-in-out;
+}
+.containerHeader::before {
+   top: 10%;
+   left: 10%;
+   background: rgba(80, 150, 255, 0.4);
+}
+.containerHeader::after {
+   bottom: 10%;
+   right: 10%;
+   background: rgba(180, 80, 255, 0.3);
+   animation-delay: -5s;
 }
 
 .containerHeader .contentHeader {
@@ -62,7 +37,9 @@
    align-items: center;
    justify-content: center;
    width: 100%;
-   gap: 15vh;
+   gap: 10vw;
+   z-index: 1;
+   flex-direction: row-reverse;
 }
 
 .containerHeader .contentHeader .boxesHeader {
@@ -73,23 +50,54 @@
    padding: 20px;
 }
 
-.containerHeader .contentHeader .boxesHeader .containerFlip {
+.containerHeader .contentHeader .boxesHeaderImage {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   padding: 20px;
+   position: relative;
+}
+
+.blobBackground {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 110%;
+   height: 110%;
+   background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.03));
+   border: 1px solid rgba(255,255,255,0.1);
+   backdrop-filter: blur(10px);
+   z-index: -1;
+   animation: morphBlob 8s ease-in-out infinite alternate;
+   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.containerFlip {
    perspective: 2000px;
-   width: 100%;
-   height: 100%;
+   width: 450px;
+   height: 450px;
    opacity: 0;
    animation: opacity .5s ease-in-out 1.75s forwards;
 }
 
-.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard {
-   width: 500px;
-   height: 500px;
+.flipCard {
+   width: 100%;
+   height: 100%;
    position: relative;
    transform-style: preserve-3d;
-   animation: flipAnimation 7s infinite cubic-bezier(1, 0.2, 0.2, 1);
+   animation: flipAnimation 12s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
 }
 
-.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard .img {
+.flipCardInner {
+   width: 100%;
+   height: 100%;
+   position: relative;
+   transform-style: preserve-3d;
+}
+
+.flipCard .img {
    width: 100%;
    height: 100%;
    backface-visibility: hidden;
@@ -99,27 +107,30 @@
    position: absolute;
    top: 0;
    left: 0;
-   border-radius: 50%;
-   border: 2px solid rgb(255, 255, 255);
-   box-shadow: 0px 0px 20px rgba(255, 255, 255, .6);
+   border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+   border: 3px solid rgba(255, 255, 255, 0.3);
+   box-shadow: 0px 0px 30px rgba(255, 255, 255, 0.2);
+   animation: morphImage 8s ease-in-out infinite alternate;
 }
 
-.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard .imgFront {
+.flipCard .imgFront {
    transform: rotateY(0deg);
+   object-position: center 5%;
 }
 
-.containerHeader .contentHeader .boxesHeader .containerFlip .flipCard .imgBack {
+.flipCard .imgBack {
    transform: rotateY(180deg);
+   object-position: center 35%;
 }
 
-.containerHeader .contentHeader .boxesHeader .effectSwipe {
+.effectSwipe {
    margin-top: 5px;
    margin-bottom: 5px;
    position: relative;
    width: fit-content;
 }
 
-.containerHeader .contentHeader .boxesHeader .effectSwipe::after {
+.effectSwipe::after {
    display: block;
    content: '';
    position: absolute;
@@ -128,13 +139,16 @@
    right: 100%;
    width: 0%;
    height: 100%;
-   background-color: rgb(200, 200, 200);
-   animation: swipe 1.5s ease-out 1s forwards;
+   background: linear-gradient(90deg, rgb(255, 255, 255), rgba(200, 220, 255, 0.9));
+   animation: swipe 1.5s cubic-bezier(0.77, 0, 0.175, 1) 0.5s forwards;
+   box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
 }
+.effectSwipeDelay1::after { animation-delay: 0.7s; }
+.effectSwipeDelay2::after { animation-delay: 0.9s; }
 
-.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText {
+.contentText {
    margin-top: 5px;
-   margin-bottom: 25px;
+   margin-bottom: 15px;
    position: relative;
    display: inline-block;
 }
@@ -148,150 +162,178 @@
    z-index: -1;
    pointer-events: none;
 }
-
 .santaHat img {
    width: 100%;
    height: 100%;
    object-fit: contain;
 }
 
-.containerHeader .contentHeader .boxesHeader .contentIcons {
+.contentIcons {
    display: flex;
    align-items: center;
    justify-content: center;
    gap: 20px;
    opacity: 0;
-   animation: opacity .5s ease-in-out 1.75s forwards;
+   margin-top: 20px;
+   padding: 15px 30px;
+   background: rgba(255, 255, 255, 0.05);
+   border: 1px solid rgba(255, 255, 255, 0.1);
+   border-radius: 50px;
+   backdrop-filter: blur(10px);
+   animation: slideUpFade .8s cubic-bezier(0.16, 1, 0.3, 1) 2.5s forwards;
+   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-.containerHeader .contentHeader .boxesHeader .contentIcons .iconA {
-   transition: all .5s ease-in-out;
+.contentIcons .iconA {
+   transition: all .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   transform: translateY(0);
 }
 
-.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textOne {
-   font-size: 100px;
-   color: rgb(255, 255, 255);
+.contentIcons .iconA:hover {
+   transform: translateY(-5px) scale(1.1);
+   filter: drop-shadow(0 5px 10px rgba(255,255,255,0.3));
+}
+
+.textOne {
+   font-size: 80px;
+   color: rgba(255, 255, 255, 0.9);
    margin-top: 5px;
    margin-bottom: 5px;
    text-align: left;
-   font-weight: bold;
+   font-weight: 300;
+   letter-spacing: -2px;
+   opacity: 0;
+   animation: opacity .05s ease-out 1.25s forwards;
+}
+
+.textTwo {
+   font-size: 110px;
+   background: linear-gradient(to right, #fff, #a3c2ff);
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   text-align: left;
+   font-weight: 800;
+   letter-spacing: -3px;
    text-transform: uppercase;
    opacity: 0;
-   animation: opacity .05s ease-out 1.75s forwards;
+   animation: opacity .05s ease-out 1.45s forwards;
 }
 
-.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textTwo {
-   font-size: 100px;
-   color: rgb(255, 255, 255);
+.textThree {
+   font-size: 20px;
+   color: rgba(255, 255, 255, .7);
    text-align: left;
-   font-weight: bold;
-   text-transform: uppercase;
+   font-weight: 400;
+   line-height: 1.5;
+   max-width: 500px;
    opacity: 0;
-   animation: opacity .05s ease-out 1.75s forwards;
+   animation: opacity .05s ease-out 1.65s forwards;
 }
 
-.containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textThree {
-   font-size: 18px;
-   color: rgba(255, 255, 255, .6);
-   text-align: left;
-   font-weight: bold;
-   opacity: 0;
-   animation: opacity .05s ease-out 1.75s forwards;
-}
-
-.containerHeader .scrollIndicator {
+.scrollIndicator {
    position: absolute;
-   bottom: 30px;
+   bottom: 40px;
    left: 50%;
    transform: translateX(-50%);
-   width: 24px;
-   height: 40px;
-   border: 2px solid rgba(255, 255, 255, 0.7);
-   border-radius: 12px;
+   width: 30px;
+   height: 50px;
+   border: 2px solid rgba(255, 255, 255, 0.5);
+   border-radius: 20px;
    display: flex;
    justify-content: center;
    align-items: flex-start;
-   padding-top: 5px;
+   padding-top: 8px;
    pointer-events: none;
    z-index: 10;
+   background: rgba(255, 255, 255, 0.05);
+   backdrop-filter: blur(5px);
 }
 
-.containerHeader .scrollIndicatorInner {
-   width: 8px;
-   height: 8px;
-   background-color: rgba(255, 255, 255, 0.7);
+.scrollIndicatorInner {
+   width: 6px;
+   height: 6px;
+   background-color: rgba(255, 255, 255, 0.9);
    border-radius: 50%;
-   animation: scrollIndicatorAnimation 1.5s infinite ease-in-out;
+   animation: scrollIndicatorAnimation 2s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes floatGlow {
+   0% { transform: translate(0, 0) scale(1); }
+   100% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+@keyframes morphBlob {
+   0% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+   50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+   100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+}
+
+@keyframes morphImage {
+   0% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+   33% { border-radius: 55% 45% 40% 60% / 50% 60% 40% 50%; }
+   66% { border-radius: 45% 55% 60% 40% / 60% 40% 50% 50%; }
+   100% { border-radius: 50% 50% 50% 50% / 50% 50% 50% 50%; }
+}
+
+@keyframes flipAnimation {
+   0%, 10% { transform: perspective(1000px) rotateY(0deg); }
+   40%, 60% { transform: perspective(1000px) rotateY(180deg); }
+   90%, 100% { transform: perspective(1000px) rotateY(360deg); }
+}
+
+@keyframes slideUpFade {
+   from { opacity: 0; transform: translateY(30px); }
+   to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes opacity {
+   from { opacity: 0; }
+   to { opacity: 1; }
+}
+
+@keyframes swipe {
+   0% { right: 100%; left: 0; width: 0%; }
+   50% { right: 0; left: 0; width: 100%; }
+   100% { right: 0; left: 100%; width: 0%; }
+}
+
+@keyframes scrollIndicatorAnimation {
+   0% { transform: translateY(0); opacity: 1; }
+   50% { transform: translateY(20px); opacity: 0; }
+   51% { transform: translateY(-10px); opacity: 0; }
+   100% { transform: translateY(0); opacity: 1; }
 }
 
 @media screen and (max-width: 1280px) {
-   .containerHeader .contentHeader .boxesHeader .containerFlip .flipCard {
-      width: 350px;
-      height: 350px;
-   }
-
-   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textThree {
-      font-size: 16px;
-   }
-
-   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textOne {
-      font-size: 72px;
-   }
-
-   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textTwo {
-      font-size: 72px;
-      margin-left: 0;
-   }
-}
-
-@media screen and (max-width: 1024px) {
-   .containerHeader {
-      height: 100dvh;
-   }
+   .containerFlip { width: 350px; height: 350px; }
+   .textOne { font-size: 60px; }
+   .textTwo { font-size: 80px; }
+   .textThree { font-size: 18px; }
+   .containerHeader .contentHeader { gap: 5vw; }
 }
 
 @media screen and (max-width: 960px) {
-   .containerHeader {
-      height: 100dvh;
-   }
-
    .containerHeader .contentHeader {
-      flex-direction: column;
-      gap: 0;
+      flex-direction: column-reverse;
+      gap: 30px;
    }
-
-   .containerHeader .contentHeader .boxesHeader {
+   
+   .containerHeader .contentHeader .boxesHeader, 
+   .containerHeader .contentHeader .boxesHeaderImage {
       align-items: center;
       text-align: center;
+      padding: 10px;
    }
-
-   .containerHeader .contentHeader .boxesHeader .containerFlip .flipCard {
-      width: 250px;
-      height: 250px;
-   }
-
-   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textOne {
-      font-size: 42px;
+   
+   .textOne, .textTwo, .textThree {
       text-align: center;
    }
-
-   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textTwo {
-      font-size: 42px;
-      margin-left: 0;
-   }
-
-   .containerHeader .contentHeader .boxesHeader .effectSwipe .contentText .textThree {
-      font-size: 14px;
-      text-align: center;
-   }
-
-   .containerHeader .scrollIndicator {
-      bottom: 20px;
-      width: 22px;
-      height: 36px;
-   }
-   .containerHeader .scrollIndicatorInner {
-      width: 6px;
-      height: 6px;
-   }
+   
+   .textOne { font-size: 42px; }
+   .textTwo { font-size: 56px; }
+   .textThree { font-size: 16px; margin: 0 auto; }
+   
+   .containerFlip { width: 280px; height: 280px; }
+   
+   .contentIcons { margin-top: 10px; padding: 12px 24px; }
 }

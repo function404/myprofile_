@@ -1,12 +1,10 @@
 import { redirect } from 'next/navigation'
 import Link from 'next/link'
 
-import { DeleteButtonComponent } from '^/app/components/DeleteButton/DeleteButtonComponent'
-
 import { ProjectFormContainer } from '^/app/container/Forms/ProjectForm/ProjectFormContainer'
+import { ManageProjectsList } from '^/app/components/ManageProjectsList/ManageProjectsList'
 
 import type { IProject } from '^/app/data/Projects/ProjectsData'
-
 import { createClient } from '^/app/supabase/ServerSupabase'
 
 import titleStyles from '^/theme/Title/Title.module.css'
@@ -65,27 +63,8 @@ export default async function AdminPage() {
          <div className={styles.centerContainer}>
             {fetchError ? (
                <p className={styles.alertError}>Error loading projects: {fetchError.message}</p>
-            ) : !projects || projects.length === 0 ? (
-               <p className={styles.noProjectsMessage}>No projects registered yet.</p>
             ) : (
-               <ul className={styles.projectList}>
-                  {(projects as IProject[]).map((project) => (
-                  <li key={project.id} className={styles.projectListItem}>
-                     <div className={styles.projectInfo}>
-                        <span className={styles.projectOrder}>#{project.order ?? 'N/A'}</span>
-                        <span className={styles.projectTitle}>{project.title}</span>
-                        <span className={styles.projectType}>({project.type})</span>
-                     </div>
-
-                     <div className={styles.projectActions}>
-                        <Link href={`/admin/edit/${project.id}`} className={styles.editButton}>
-                           Edit
-                        </Link>
-                        <DeleteButtonComponent projectId={project.id} />
-                     </div>
-                  </li>
-                  ))}
-               </ul>
+               <ManageProjectsList initialProjects={(projects as IProject[]) || []} />
             )}
          </div>
       </div>

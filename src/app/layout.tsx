@@ -1,8 +1,9 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Orbitron } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
+const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' })
 
 export const viewport: Viewport = {
   themeColor: '#f4f4f4',
@@ -13,21 +14,21 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://function404.netlify.app/'),
-  title: 'Welcome | Function404',
+  title: 'Welcome | Functionss',
   description: 'Bem-vindo(a) ao meu portfólio! este é o espaço onde compartilho meus projetos. Fique à vontade para explorar e conhecer meu trabalho 😁!',
-  creator: 'Function404',
+  creator: 'Functionss',
   authors: [{ name: 'Next.js Team', url: 'https://nextjs.org' }],
   generator: 'NextJS',
-  keywords: ['Function404', 'developer', 'portfolio', 'projetos', 'tecnologias', 'desenvolvimento', 'web', 'mobile', 'front-end', 'programação', 'programador', 'desenvolvedor', 'webdev', 'webdeveloper', 'webdesign'],
+  keywords: ['Functionss', 'developer', 'portfolio', 'projetos', 'tecnologias', 'desenvolvimento', 'web', 'mobile', 'front-end', 'programação', 'programador', 'desenvolvedor', 'webdev', 'webdeveloper', 'webdesign'],
   twitter: {
-    site: '@function404',
+    site: '@functionss',
     card: 'summary_large_image',
     images: '/meone.png',
   },
   openGraph: {
-    title: 'Function404 - Portfolio',
+    title: 'Functionss - Portfolio',
     description: 'Bem-vindo(a) ao meu portfólio! este é o espaço onde compartilho meus projetos. Fique à vontade para explorar e conhecer meu trabalho 😁!',
-    siteName: 'FUNCTION404',
+    siteName: 'FUNCTIONSS',
     type: 'website',
     url: 'https://function404.netlify.app/',
     images: [{ url: '/meone.png' }],
@@ -43,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='pt-br'>
-      <body className={inter.className}>{children}</body>
+      <body className={`${inter.className} ${orbitron.variable}`}>{children}</body>
     </html>
   )
 }

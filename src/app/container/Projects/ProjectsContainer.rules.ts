@@ -20,14 +20,25 @@ export const useProjectsContainerRules = () => {
   const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState<TProjectTypeFilter>('web')
 
+  const [isAdmin, setIsAdmin] = useState(false)
+
   useEffect(() => {
     const fetchProjects = async () => {
       setLoading(true)
       setError(null)
       try {
-        const { data, error } = await supabase
+        const { data: { user } } = await supabase.auth.getUser()
+        setIsAdmin(!!user)
+
+        let query = supabase
           .from('projects')
           .select('*')
+
+        if (!user) {
+          query = query.eq('is_public', true)
+        }
+
+        const { data, error } = await query
           .order('order', { ascending: true })
           .order('created_at', { ascending: false })
 
@@ -72,6 +83,7 @@ export const useProjectsContainerRules = () => {
     filteredProjects,
     filterButtons,
     loading,
-    error
+    error,
+    isAdmin
   }
 }

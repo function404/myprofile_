@@ -17,8 +17,8 @@ export function SubmitButtonComponent({ pendingText = "Sending...", defaultText 
       >
          {pending ? (
             <>
-               <RingLoader color={'rgb(23, 23, 23)'} loading={pending} size={20} />
-               <span style={{ marginLeft: '8px' }}>{pendingText}</span>
+               <RingLoader color={'#ffffff'} loading={pending} size={20} />
+               <span style={{ marginLeft: '10px' }}>{pendingText}</span>
             </>
          ) : (
             defaultText
