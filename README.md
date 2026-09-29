@@ -6,7 +6,7 @@
 
 - Última atualização: 29 Set. 2026
 
-- Acesse ao vivo: [function404.netlify.app](https://function404.netlify.app)
+- Acesse ao vivo: [functionss.site](https://functionss.site)
 
 ## ℹ️ Sobre o Projeto
 
