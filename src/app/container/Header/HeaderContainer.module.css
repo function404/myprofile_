@@ -318,8 +318,7 @@
       gap: 30px;
    }
    
-   .containerHeader .contentHeader .boxesHeader, 
-   .containerHeader .contentHeader .boxesHeaderImage {
+   .containerHeader .contentHeader .boxesHeader {
       align-items: center;
       text-align: center;
       padding: 10px;
@@ -336,4 +335,8 @@
    .containerFlip { width: 280px; height: 280px; }
    
    .contentIcons { margin-top: 10px; padding: 12px 24px; }
+
+   .scrollIndicator { 
+      bottom: 0px; 
+   }
 }
